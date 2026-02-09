@@ -1,9 +1,5 @@
 # 🛡️ LEVEL 2: THE GUARDIAN'S PATH (SOC OPERATIONS)
 
-<p align="center">
-  <img src="./badge-level-2.png" width="350">
-</p>
-
 ## 📊 PROGRESSO DA MISSÃO
 * **Módulo 2.1:** O Centro de Operações de Segurança Moderno — **Status: 100% Concluído**
 * **Módulo 2.2:** Tornando-se um Defensor — **Status: 100% Concluído**
