@@ -34,6 +34,7 @@ Resumo técnico dos conceitos validados no Checkpoint Exam:
 ### 📊 SOC Metrics (Métricas de Defesa)
 Diferenciação crítica para análise de performance do time:
 * **MTTD (Mean Time to Detect):** Tempo médio para o time *identificar* que um ataque está acontecendo.
+* **MTTC (Mean Time to Contain):** Tempo médio para *conter* o incidente, impedindo que se espalhe e cause mais danos.
 * **MTTR (Mean Time to Respond):** Tempo médio para *conter e remediar* o incidente completamente.
 * **Dwell Time:** O tempo que o inimigo permaneceu escondido na rede antes de ser detectado.
 
