@@ -1,30 +1,30 @@
 # 🛠️ Hands-on Labs: Module 1 - The Danger
 
 ### Lab 1.0.6: Top Hacker Shows Us How It Is Done
-* **Goal**: Analyze common technology vulnerabilities (wireless, RFID) through a hacker's lens[cite: 4, 5, 6].
-* [cite_start]**Scenario**: Reviewed Pablos Holman’s insights on how "secure" systems are often exploitable due to inherent design flaws[cite: 8, 12].
-* [cite_start]**Execution**: Researched specific hacks and identified that core vulnerabilities often lie in unencrypted transmissions[cite: 15, 19, 21].
-* [cite_start]**Mitigation**: Evaluated methods to attenuate these hacks, such as hardware encryption or frequency shielding[cite: 26].
+* **Goal**: Analyze common technology vulnerabilities (wireless, RFID) through a hacker's lens.
+* **Scenario**: Reviewed Pablos Holman’s insights on how "secure" systems are often exploitable due to inherent design flaws.
+* **Execution**: Researched specific hacks and identified that core vulnerabilities often lie in unencrypted transmissions.
+* **Mitigation**: Evaluated methods to attenuate these hacks, such as hardware encryption or frequency shielding.
 
 ### Lab 1.1.5: Installing the Virtual Machines
-* [cite_start]**Goal**: Prepare a host for virtualization and deploy the CyberOps Workstation[cite: 32, 33, 34].
-* [cite_start]**Environment Setup**: Used Oracle VirtualBox to import the `cyberops_workstation.ova` file in OVF format[cite: 53, 60, 68].
-* [cite_start]**Network Troubleshooting**: Configured the VM network to **Bridge Mode** or NAT to ensure connectivity via DHCP[cite: 81, 82, 93].
-* [cite_start]**Post-Installation**: Verified deployment via terminal using credentials `analyst` / `cyberops`[cite: 98, 99, 100].
+* **Goal**: Prepare a host for virtualization and deploy the CyberOps Workstation.
+* **Environment Setup**: Used Oracle VirtualBox to import the `cyberops_workstation.ova` file in OVF format.
+* **Network Troubleshooting**: Configured the VM network to **Bridge Mode** or NAT to ensure connectivity via DHCP.
+* **Post-Installation**: Verified deployment via terminal using credentials `analyst` / `cyberops`.
 
 ### Lab 1.1.6: Cybersecurity Case Studies
-* [cite_start]**Goal**: Deep dive into real-world high-profile cyber-attacks[cite: 159, 160].
-* [cite_start]**Cases Analyzed**: Stuxnet, Marriott Data Breach, UN breach, and Microsoft customer support breach[cite: 173, 174, 175, 176].
-* [cite_start]**Execution**: Used a secure VM environment to research attack vectors (Who, What, When, Where, Why)[cite: 178, 180].
-* [cite_start]**Outcome**: Identified that global cybercrime costs exceed $600 billion annually[cite: 165].
+* **Goal**: Deep dive into real-world high-profile cyber-attacks.
+* **Cases Analyzed**: Stuxnet, Marriott Data Breach, UN breach, and Microsoft customer support breach.
+* **Execution**: Used a secure VM environment to research attack vectors (Who, What, When, Where, Why).
+* **Outcome**: Identified that global cybercrime costs exceed $600 billion annually.
 
 ### Lab 1.2.3: Learning the Details of Attacks (IoT)
-* [cite_start]**Goal**: Investigate vulnerabilities within the Internet of Things (IoT) ecosystem[cite: 199, 200].
-* [cite_start]**Context**: With 50 billion devices projected by 2030, the attack surface is expanding rapidly[cite: 204].
-* [cite_start]**Findings**: Many IoT devices are shipped with unpatched legacy software and lack security-by-design[cite: 205, 206].
-* [cite_start]**Verticals**: Analyzed critical flaws in Industry, Energy, Healthcare, and Government applications[cite: 212].
+* **Goal**: Investigate vulnerabilities within the Internet of Things (IoT) ecosystem.
+* **Context**: With 50 billion devices projected by 2030, the attack surface is expanding rapidly.
+* **Findings**: Many IoT devices are shipped with unpatched legacy software and lack security-by-design.
+* **Verticals**: Analyzed critical flaws in Industry, Energy, Healthcare, and Government applications.
 
 ### Lab 1.3.4: Visualizing the Black Hats
-* [cite_start]**Goal**: Model hypothetical attack scenarios to understand threat actor behavior[cite: 233, 236].
-* [cite_start]**Scenario Building**: Created three distinct attacker profiles (Organization, Motive, and Method)[cite: 236, 243].
-* [cite_start]**Defense Logic**: For each scenario, a specific mitigation method was proposed to prevent or minimize impact[cite: 237, 252].
+* **Goal**: Model hypothetical attack scenarios to understand threat actor behavior.
+* **Scenario Building**: Created three distinct attacker profiles (Organization, Motive, and Method).
+* **Defense Logic**: For each scenario, a specific mitigation method was proposed to prevent or minimize impact.
