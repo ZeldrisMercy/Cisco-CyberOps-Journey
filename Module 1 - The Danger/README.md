@@ -1,7 +1,7 @@
-﻿# 🛡️ Cisco CyberOps Associate: Journey
+# 🛡️ Cisco CyberOps Associate: Journey
 
 ![Cisco](https://img.shields.io/badge/Cisco-NetAcad-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
-![Status](https://img.shields.io/badge/Status-In_Progress-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 ![Focus](https://img.shields.io/badge/Focus-Blue_Team-blue?style=for-the-badge)
 
 ## 📂 Module 01: The Danger
@@ -51,22 +51,22 @@ Análise técnica do incidente envolvendo espionagem industrial e sabotagem cont
 * 👹 **Hacktivistas:** Motivados por ideologia política/social.
 * 💰 **Crime Organizado:** Motivados exclusivamente por lucro financeiro.
 * 🕵️ **State-Sponsored (APT):** Espionagem nacional, sabotagem ou ciberguerra.
-* internal **Insiders:** O perigo interno (intencional ou acidental).
+* 🏢 **Insiders:** O perigo interno (intencional ou acidental).
 
 ### 🗄️ 1.3 Classificação de Dados (Data Impact)
 
 Para priorização de incidentes em um SOC:
 
-1.  🔴 **PII (Personally Identifiable Information):** Dados que identificam um indivíduo (CPF, RG, Biometria).
-2.  🟡 **PHI (Protected Health Information):** Histórico médico, diagnósticos (Regulados por leis como HIPAA/LGPD).
-3.  🔵 **PSI (Personal Security Information):** Dados de segurança pessoal.
+1. 🔴 **PII (Personally Identifiable Information):** Dados que identificam um indivíduo (CPF, RG, Biometria).
+2. 🟡 **PHI (Protected Health Information):** Histórico médico, diagnósticos (Regulados por leis como HIPAA/LGPD).
+3. 🔵 **PSI (Personal Security Information):** Dados de segurança pessoal.
 
 ---
 
 ## 🛠️ Laboratórios & Prática
 
-- [ ] **Lab 1.1.5:** Instalação de Máquinas Virtuais (Setup do Lab).
-- [ ] **Lab 1.3.4:** Perfilamento de Cybercriminosos.
+- [x] **Lab 1.1.5:** Instalação de Máquinas Virtuais (Setup do Lab).
+- [x] **Lab 1.3.4:** Perfilamento de Cybercriminosos.
 
 ---
 *Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação*
