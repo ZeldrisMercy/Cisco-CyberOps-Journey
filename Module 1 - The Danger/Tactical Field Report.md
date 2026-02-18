@@ -5,86 +5,92 @@
 ![Environment](https://img.shields.io/badge/Environment-VirtualBox_Lab-blue?style=for-the-badge)
 
 > [!NOTE]
-> **Resumo Operacional:** Este log documenta a preparação do ambiente de laboratório (VOC) e a análise inicial de vetores de ataque em tecnologias comuns e infraestruturas críticas.
+> [cite_start]**Resumo Operacional:** Registro de execução técnica focado na configuração do ambiente de virtualização (CyberOps Workstation) e análise forense de vetores de ataque em infraestruturas críticas e IoT[cite: 29, 33, 166, 199].
 
 ---
 
 ## 📡 Lab 1.0.6: Top Hacker Shows Us How It Is Done
 
-**Objetivo:** Análise de vulnerabilidades em tecnologias "seguras" (RFID, Wireless) sob a ótica de um atacante.
+[cite_start]**Objetivo:** Desconstrução de vulnerabilidades em tecnologias sem fio (RFID/Wireless)[cite: 3, 5].
 
-* **Fonte de Intel:** Pablos Holman (TEDx).
-* **Vetor Identificado:** Transmissões de rádio de curto alcance sem criptografia adequada.
-* **Mitigação:** Uso de "bloqueadores" físicos (carteiras blindadas) e implementação de criptografia forte no design do hardware.
-
-> [!WARNING]
-> **Insight Crítico:** A maioria dos sistemas modernos sacrifica segurança em nome da conveniência, criando uma superfície de ataque massiva em cartões de crédito e chaves digitais.
+### 🛠️ Execution Log
+1.  [cite_start]**Reconnaissance:** Analisada apresentação de Pablos Holman sobre vetores de ataque em sistemas "seguros"[cite: 6, 8].
+2.  **Target Analysis (RFID/Wireless):**
+    * [cite_start]Identificado que chips RFID e chaves de carros transmitem dados que podem ser clonados[cite: 15].
+    * [cite_start]O ataque explora vulnerabilidades em tecnologias comuns usadas diariamente[cite: 5, 8].
+3.  **Mitigation Strategy:**
+    * [cite_start]✅ Pesquisa sobre métodos para atenuar o hack, como bloqueio físico de sinal[cite: 16, 26].
 
 ---
 
 ## 🖥️ Lab 1.1.5: Virtual Operations Center (VOC) Setup
 
-**Objetivo:** Implantação da estação de trabalho `CyberOps Workstation` (Linux) para análise segura.
+[cite_start]**Objetivo:** Deploy da estação de trabalho `CyberOps Workstation` (Linux) no VirtualBox[cite: 31, 33].
 
-| Especificação | Detalhe |
-| :--- | :--- |
-| **Host Físico** | Lenovo LOQ (Intel i5 13th Gen, 16GB RAM, RTX 2050Ti) |
-| **Hypervisor** | Oracle VirtualBox |
-| **Guest VM** | CyberOps Workstation (Arch: Linux 64-bit) |
-| **Formato** | OVA (Open Virtualization Format) |
+### 🛠️ Execution Log
+**1. Environment Provisioning:**
+* [cite_start]**Host:** PC com 8GB+ RAM e 40GB+ disco livre[cite: 45].
+* [cite_start]**Hypervisor:** Oracle VirtualBox instalado e configurado[cite: 51, 53].
+* [cite_start]**Image Deployment:** Importado arquivo `cyberops_workstation.ova` seguindo padrão OVF[cite: 60, 68].
 
-> [!TIP]
-> **Troubleshooting de Rede:**
-> Caso a VM não pegue IP via DHCP, alterar o adaptador de rede nas configurações do VirtualBox de **NAT** para **Bridged Adapter** (selecionando a placa `Intel Dual Band Wireless` ou Ethernet correspondente).
->
-> **Credenciais Padrão:** `user: analyst` | `pass: cyberops`
+**2. Network Troubleshooting (Critical):**
+> [!WARNING]
+> [cite_start]Erro comum: interface física não encontrada na inicialização[cite: 83, 87].
 
+* [cite_start]**Ação Corretiva:** Alterada configuração de rede nas configurações da VM (Change Network Settings) para selecionar o adaptador correto ou usar NAT[cite: 81, 90, 93].
+
+**3. System Access & Verification:**
+Realizado login no terminal da VM com as credenciais padrão:
+```bash
+$ login: analyst
+$ password: cyberops
+$ ip address
+# Verificação de conectividade e endereço IP[cite: 99, 100, 120].
+### 3️⃣ Bloco: Lab 1.1.6 (Estudos de Caso)
+*Copie este e cole abaixo.*
+
+```markdown
 ---
 
 ## 🌍 Lab 1.1.6: Global Threat Case Studies
 
-**Objetivo:** Dissecção de ataques de alto perfil para compor a base de conhecimento de ameaças.
+[cite_start]**Objetivo:** Profiling de ataques cibernéticos de alto perfil e análise de impacto econômico[cite: 157, 160].
 
-| Incidente | Alvo | Vetor / Método | Impacto |
-| :--- | :--- | :--- | :--- |
-| **Stuxnet** | Infraestrutura Nuclear (Irã) | Malware (Worm) via USB | Danos físicos às centrífugas (Ciberguerra). |
-| **Marriott** | Setor Hoteleiro | Acesso não autorizado a DB | Vazamento de 500 milhões de registros hóspedes. |
-| **Microsoft** | Suporte ao Cliente | Falha de Configuração | Exposição de dados de analytics de suporte. |
+### 🛠️ Execution Log
+**Case #1: Stuxnet**
+* [cite_start]**Alvo:** Infraestrutura crítica e sistemas industriais[cite: 173].
+* **Análise:** Investigação sobre motivação e métodos de sabotagem.
+
+**Case #2: Marriott & Outros**
+* [cite_start]**Casos:** Violação de dados da Marriott, Nações Unidas e Microsoft[cite: 174, 175, 176].
+* [cite_start]**Impacto:** Análise do "quem, o quê, onde e por que" de cada ataque[cite: 180].
 
 > [!IMPORTANT]
-> **Custo do Cibercrime:** Estimativas apontam prejuízos globais superando **US$ 600 Bilhões** anualmente.
-
+> [cite_start]**Impacto Global:** O custo do crime cibernético para a economia global é estimado em mais de **US$ 600 Bilhões** anualmente[cite: 165].
 ---
 
 ## 🔌 Lab 1.2.3: IoT Vulnerability Surface
 
-**Objetivo:** Mapeamento de riscos na "Internet das Coisas" (50 bilhões de dispositivos previstos até 2030).
+[cite_start]**Objetivo:** Análise de vulnerabilidades na Internet das Coisas (IoT)[cite: 199].
 
-* **O Problema:** Dispositivos IoT frequentemente possuem _hardcoded credentials_ e não suportam atualizações de firmware.
-* **Verticais em Risco:**
-    * 🏭 **Indústria:** Sensores SCADA expostos.
-    * 🏥 **Saúde:** Marcapassos e bombas de insulina vulneráveis.
-    * 🏛️ **Governo:** Câmeras de tráfego e sensores urbanos.
+### 🛠️ Execution Log
+[cite_start]**Cenário:** Projeção de 50 bilhões de dispositivos IoT ativos até 2030[cite: 204].
 
+1.  [cite_start]**Vulnerability Scan:** Dispositivos IoT frequentemente possuem sistemas operacionais antigos e sem patches[cite: 206].
+2.  [cite_start]**Exploit Scenario:** A segurança nem sempre é considerada no design do produto[cite: 205].
+3.  [cite_start]**Verticals:** Pesquisadas vulnerabilidades em Indústria, Energia, Saúde e Governo[cite: 212].
+4.  [cite_start]**Mitigation:** Análise de medidas para limitar a vulnerabilidade desses dispositivos[cite: 226].
 ---
 
 ## 🎭 Lab 1.3.4: Visualizing the Black Hats
 
-**Objetivo:** Modelagem de ameaças criando perfis psicológicos e táticos de atacantes.
+[cite_start]**Objetivo:** Threat Modeling e criação de perfis de atacantes[cite: 231].
 
-### 🗂️ Perfilamento de Ameaças
+### 🛠️ Execution Log
+[cite_start]Desenvolvi três cenários de ataque hipotéticos para entender motivações[cite: 236]:
 
-1.  **O Hacktivista**
-    * **Motivação:** Ideológica / Política.
-    * **Método:** DDoS ou Defacement.
-    * **Alvo:** Sites governamentais ou corporações polêmicas.
-
-2.  **O Cibercriminoso**
-    * **Motivação:** Financeira.
-    * **Método:** Ransomware ou Roubo de Cartões.
-    * **Alvo:** Varejo e Bancos.
-
-3.  **O State-Sponsored (APT)**
-    * **Motivação:** Espionagem Geopolítica.
-    * **Método:** Zero-day exploits, persistência longa.
-    * **Alvo:** Infraestrutura crítica de nações rivais.
+| Cenário | Atacante/Grupo | Motivo | Método | Mitigação |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cenário 1** | [cite_start]Definir Ator [cite: 244] | [cite_start]Motivação Específica [cite: 246] | [cite_start]Método Utilizado [cite: 247] | [cite_start]Prevenção [cite: 252] |
+| **Cenário 2** | [cite_start]Definir Grupo [cite: 255] | [cite_start]Motivação [cite: 256] | [cite_start]Método [cite: 257] | [cite_start]Prevenção [cite: 262] |
+| **Cenário 3** | [cite_start]Definir Ator [cite: 264] | [cite_start]Motivação [cite: 266] | [cite_start]Método [cite: 267] | [cite_start]Prevenção [cite: 269] |
