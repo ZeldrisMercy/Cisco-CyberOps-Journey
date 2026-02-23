@@ -21,6 +21,28 @@
 * **Acesso Interativo (Root):** Uso do `sudo -i` para carregar variáveis de ambiente e perfil do superusuário, garantindo controle total do sistema.
 * **Data Duplicator (dd):** Definição técnica do `dd` para cópia e conversão de dados bit a bit, essencial para clonagem de discos e imagens forenses.
 
+---
+
+## ⚔️ SKILL TREE: MÓDULO 4.2 - WORKING IN THE LINUX SHELL
+
+### 4.2.1 & 4.2.2: THE SHELL & BASIC COMMANDS
+* **Interface de Linha de Comando (CLI):** Domínio do interpretador de comandos para execução de tarefas administrativas e automação.
+* **Comandos Fundamentais:** Domínio de utilitários básicos para interação com o sistema operacional.
+* **Gerenciamento de Energia:** Uso do comando `shutdown` para encerramento ou reinicialização segura do sistema, evitando corrupção de dados.
+
+### 4.2.3: FILE AND DIRECTORY COMMANDS
+* **Navegação de Estrutura:** Uso de `pwd` para localização e `cd` para movimentação entre diretórios.
+* **Gestão de Conteúdo:** Manipulação de arquivos e pastas através de `ls` (listagem), `cp` (cópia), `mv` (movimentação/renomeação) e `rm` (remoção).
+* **Cópia de Baixo Nível:** Aplicação do comando `dd` para duplicar dados em nível de bloco, permitindo clonagem de discos e criação de imagens de backup bit a bit.
+
+### 4.2.4 & 4.2.5: WORKING WITH TEXT FILES
+* **Visualização e Edição:** Uso de ferramentas como `cat`, `more` e `less` para leitura de arquivos, e editores de texto (como Nano ou Vi) para modificação de scripts e arquivos de configuração.
+* **Filtragem com `grep`:** Utilização do `grep` para pesquisar strings de caracteres específicas dentro de arquivos ou saídas de outros comandos.
+* **Mecânica de Pipeline (`|`):** Para pesquisar através da saída de um comando anterior, o `grep` deve ser conectado via pipe ao final do comando original.
+* **Importância Forense:** Compreensão de que, no Linux, quase tudo é tratado como um arquivo de texto, tornando a habilidade de filtragem vital para análise de logs e identificação de IOCs (Indicadores de Comprometimento).
+
+---
+
 ### 🔍 BUSCA E FILTRAGEM (SEARCH SKILLS)
 * **The Power of Grep:** Uso do `grep` (Global Regular Expression Print) para localizar strings específicas dentro de arquivos ou saídas de outros comandos.
 * **Piping & Redirection:** Mecânica de conectar comandos onde o `grep` é colocado ao final da linha via pipe (`|`) para filtrar resultados.
@@ -39,11 +61,10 @@
 
 ---
 
-## 🧪 LABS PRÁTICOS (FIELD REPORTS)
+## 🧪 FIELD REPORTS (LABS 4.2)
 
-* **LAB 4.2.7 - Getting Familiar with the Linux Shell:** Prática inicial de comandos CLI e exploração da estrutura de diretórios.
-* **LAB 4.2.6 - Working with Text Files in the CLI:** Exercícios focados na criação, edição e manipulação de arquivos de texto via terminal.
-
+* **LAB 4.2.7 - Getting Familiar with the Linux Shell:** Exploração prática da CLI, comandos de navegação e manipulação básica de permissões.
+* **LAB 4.2.6 - Working with Text Files in the CLI:** Exercícios práticos focados na criação de arquivos, redirecionamento de saída (`>`) e uso intensivo de filtros para extração de dados.
 ---
 
 ### 🛠️ Toolset Aplicado
