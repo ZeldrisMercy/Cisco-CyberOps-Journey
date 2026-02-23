@@ -1,78 +1,61 @@
-# 🛡️ LEVEL 4: THE LINUX FORTRESS (KALI & CYBEROPS ESSENTIALS)
+# 🛡️ LEVEL 4: THE LINUX TERMINAL (KALI & CYBEROPS ESSENTIALS)
 
 ![CISCO](https://img.shields.io/badge/CISCO-NETACAD-orange) ![STATUS](https://img.shields.io/badge/IN%20PROGRESS-yellow) ![FOCUS](https://img.shields.io/badge/FOCUS-BLUE%20TEAM-blue)
 
 ## 📊 PROGRESSO DA MISSÃO
 
 * **Módulo 4.1: Linux Basics** — Status: 100% Concluído
+    * 4.1.1 What Is Linux?
+    * 4.1.2 The Value of Linux
+    * 4.1.3 Linux In the SOC
+    * 4.1.4 Linux Tools
 * **Módulo 4.2: Working in the Linux Shell** — Status: Em Andamento
-* **Módulo 4.3: Linux Administration** — Status: Bloqueado (Aguardando Nível)
-
----
-
-## ⚔️ SKILL TREE (HABILIDADES DESBLOQUEADAS)
-
-### 4.1. FUNDAMENTOS DO SISTEMA E SOC (THE CORE)
-* **Linux no SOC:** Entendimento da importância do Linux como espinha dorsal da cibersegurança e operações de Blue Team.
-* **Estrutura de Código Aberto:** Compreensão do valor do Linux e sua flexibilidade para ferramentas de segurança.
-
-### 4.2. COMANDOS BÁSICOS E OPERAÇÕES DE SHELL
-* **Navegação e Manipulação:** Domínio de comandos fundamentais para gestão de arquivos e diretórios.
-* **Acesso Interativo (Root):** Uso do `sudo -i` para carregar variáveis de ambiente e perfil do superusuário, garantindo controle total do sistema.
-* **Data Duplicator (dd):** Definição técnica do `dd` para cópia e conversão de dados bit a bit, essencial para clonagem de discos e imagens forenses.
 
 ---
 
 ## ⚔️ SKILL TREE: MÓDULO 4.2 - WORKING IN THE LINUX SHELL
 
 ### 4.2.1 & 4.2.2: THE SHELL & BASIC COMMANDS
-* **Interface de Linha de Comando (CLI):** Domínio do interpretador de comandos para execução de tarefas administrativas e automação.
-* **Comandos Fundamentais:** Domínio de utilitários básicos para interação com o sistema operacional.
-* **Gerenciamento de Energia:** Uso do comando `shutdown` para encerramento ou reinicialização segura do sistema, evitando corrupção de dados.
+* **Interface de Linha de Comando (CLI):** Execução de tarefas administrativas e automação via Shell.
+* **Gerenciamento de Energia:** Uso do comando `shutdown` para encerramento ou reinicialização segura do sistema.
 
 ### 4.2.3: FILE AND DIRECTORY COMMANDS
-* **Navegação de Estrutura:** Uso de `pwd` para localização e `cd` para movimentação entre diretórios.
-* **Gestão de Conteúdo:** Manipulação de arquivos e pastas através de `ls` (listagem), `cp` (cópia), `mv` (movimentação/renomeação) e `rm` (remoção).
-* **Cópia de Baixo Nível:** Aplicação do comando `dd` para duplicar dados em nível de bloco, permitindo clonagem de discos e criação de imagens de backup bit a bit.
+Ferramentas nativas essenciais para gerenciar a estrutura de arquivos e pastas:
+
+* **`ls`**: Exibe os arquivos dentro de um diretório.
+* **`cd`**: Altera o diretório atual.
+* **`mkdir`**: Cria um novo diretório sob o diretório atual.
+* **`cp`**: Copia arquivos da origem para o destino.
+* **`mv`**: Move arquivos para um diretório diferente.
+* **`rm`**: Remove arquivos do sistema.
 
 ### 4.2.4 & 4.2.5: WORKING WITH TEXT FILES
-* **Visualização e Edição:** Uso de ferramentas como `cat`, `more` e `less` para leitura de arquivos, e editores de texto (como Nano ou Vi) para modificação de scripts e arquivos de configuração.
-* **Filtragem com `grep`:** Utilização do `grep` para pesquisar strings de caracteres específicas dentro de arquivos ou saídas de outros comandos.
-* **Mecânica de Pipeline (`|`):** Para pesquisar através da saída de um comando anterior, o `grep` deve ser conectado via pipe ao final do comando original.
-* **Importância Forense:** Compreensão de que, no Linux, quase tudo é tratado como um arquivo de texto, tornando a habilidade de filtragem vital para análise de logs e identificação de IOCs (Indicadores de Comprometimento).
+No Linux, quase tudo é um arquivo de texto. Dominar estas ferramentas é vital para auditoria de logs.
 
----
-
-### 🔍 BUSCA E FILTRAGEM (SEARCH SKILLS)
-* **The Power of Grep:** Uso do `grep` (Global Regular Expression Print) para localizar strings específicas dentro de arquivos ou saídas de outros comandos.
-* **Piping & Redirection:** Mecânica de conectar comandos onde o `grep` é colocado ao final da linha via pipe (`|`) para filtrar resultados.
-* **Monitoramento de Processos:** Uso do `ps` (Process Status) para capturar o estado dos processos e filtrar alvos específicos.
-
----
-
-## 🏆 ESTRATÉGIAS DE CTF & AUDITORIA
-
-| Técnica | Comando | Objetivo Cibersegurança |
-| :--- | :--- | :--- |
-| **Flag Hunting** | `ls /alvo \| grep "xxx"` | Localizar arquivos de desafio que seguem um padrão de nomenclatura. |
-| **Deep Search** | `grep -r "xxx" .` | Busca recursiva de tokens ou flags dentro do conteúdo de múltiplos arquivos. |
-| **Log Analysis** | `cat /var/log/auth.log \| grep "failed"` | Identificar tentativas de intrusão e falhas de autenticação em logs. |
-| **Process Hunt** | `ps aux \| grep [p]rocesso` | Localizar PIDs de processos específicos sem exibir o próprio comando grep. |
+* **`cat`**: Lista o conteúdo de um arquivo na tela.
+* **`nano`**: Editor de texto interativo do terminal (Equivalente ao **Notepad** do Windows).
+* **`grep` (Search Engine):** Pesquisa strings específicas dentro de arquivos ou saídas de outros comandos.
+* **Mecânica de Pipeline (`|`):** Conecta comandos, permitindo que o `grep` filtre a saída de um processo anterior.
+* **Redirecionadores de Saída:**
+    * **`>` (Overwrite):** Direciona a saída de um comando para um arquivo, sobrescrevendo o conteúdo existente.
+    * **`>>` (Append):** Adiciona a saída de um comando ao final de um arquivo, preservando o conteúdo anterior.
 
 ---
 
 ## 🧪 FIELD REPORTS (LABS 4.2)
 
-* **LAB 4.2.7 - Getting Familiar with the Linux Shell:** Exploração prática da CLI, comandos de navegação e manipulação básica de permissões.
-* **LAB 4.2.6 - Working with Text Files in the CLI:** Exercícios práticos focados na criação de arquivos, redirecionamento de saída (`>`) e uso intensivo de filtros para extração de dados.
+* **LAB 4.2.7 - Getting Familiar with the Linux Shell:** Exploração prática da CLI e comandos de navegação.
+* **LAB 4.2.6 - Working with Text Files in the CLI:** Exercícios práticos focados na criação, edição e filtragem de conteúdo textual.
+
 ---
 
 ### 🛠️ Toolset Aplicado
 * Bash (Linux Shell)
 * Grep (Pattern Matcher)
-* System Utilities (ps, dd, ls)
-* Sudo (Privilege Management)
+* Nano (Text Editor)
+* File Management (ls, cd, mkdir, cp, mv, rm, cat)
+* Redirection (>, >>, |)
 
 ---
 
-*Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação**
+*Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação*
