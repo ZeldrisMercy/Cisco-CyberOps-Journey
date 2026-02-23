@@ -42,4 +42,6 @@ Mapeamento de competências, certificações e inteligência de mercado para atu
 * **Segurança Operacional:** A utilização de máquinas virtuais é uma prática indispensável para realizar pesquisas de segurança e testes de ferramentas, impedindo que malwares comprometam o sistema host.
 
 ---
-**Analista Responsável
+**Analista Responsável:** Ícaro de Souza Mariano  
+**Data do Relatório:** 18/02/2026
+
