@@ -1,4 +1,4 @@
-# 🛡️ LEVEL 4: THE LINUX TERMINAL (KALI & CYBEROPS ESSENTIALS)
+# 🛡️ LEVEL 4: THE LINUX FORTRESS (KALI & CYBEROPS ESSENTIALS)
 
 ![CISCO](https://img.shields.io/badge/CISCO-NETACAD-orange) ![STATUS](https://img.shields.io/badge/IN%20PROGRESS-yellow) ![FOCUS](https://img.shields.io/badge/FOCUS-BLUE%20TEAM-blue)
 
