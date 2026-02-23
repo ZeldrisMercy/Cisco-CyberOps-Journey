@@ -14,37 +14,37 @@
 ## ⚔️ SKILL TREE (HABILIDADES DESBLOQUEADAS)
 
 ### 3.1. EVOLUÇÃO E FUNDAMENTOS DO SO
-* **Histórico e Vulnerabilidades:** Compreensão da evolução do MS-DOS para a arquitetura NT. Análise de como a herança de sistemas legados e a complexidade da GUI (Interface Gráfica) introduzem vetores de ataque e vulnerabilidades de dia zero.
+* **Histórico e Vulnerabilidades:** Compreensão da evolução do MS-DOS para a arquitetura NT. Análise de como a herança de sistemas legados e a complexidade da GUI introduzem vetores de ataque e vulnerabilidades de dia zero.
 
 ### 3.2. ARQUITETURA E OPERAÇÕES INTERNAS (THE CORE)
-* **Modos de Execução (Kernel vs. User):** Estudo da separação de privilégios onde o Kernel Mode possui acesso total ao hardware e a HAL (Hardware Abstraction Layer) isola o software das complexidades do hardware.
-* **Sistemas de Arquivos e ADS:** Exploração do NTFS e a técnica de **Alternate Data Streams (ADS)**, utilizada por atacantes para ocultar arquivos maliciosos ou metadados dentro de arquivos legítimos sem alterar seu tamanho visível.
-* **Workflow de Sistema:** Análise detalhada das etapas de Boot (BIOS/UEFI), Startup (carregamento de drivers e serviços) e Shutdown seguro do sistema.
-* **Internals (Processos e Memória):** Diferenciação técnica entre Processos (instâncias de programas), Threads (unidades de execução) e Handles (referências a recursos do sistema).
-* **Windows Registry:** Investigação das 5 Hives principais do Registro para identificar persistência de malware e configurações críticas do sistema.
+* **Modos de Execução (Kernel vs. User):** Estudo da separação de privilégios onde o Kernel Mode possui acesso total ao hardware e a HAL isola o software das complexidades do hardware.
+* **Sistemas de Arquivos e ADS:** Exploração do NTFS e a técnica de **Alternate Data Streams (ADS)**, utilizada para ocultar arquivos ou metadados sem alterar o tamanho visível do arquivo.
+* **Workflow de Sistema:** Análise detalhada das etapas de Boot (BIOS/UEFI), Startup (carregamento de drivers/serviços) e Shutdown seguro.
+* **Internals (Processos e Memória):** Diferenciação técnica entre Processos, Threads e Handles.
+* **Windows Registry:** Investigação das 5 Hives do Registro para identificar persistência de malware.
 
 
 
 ### 3.3. CONFIGURAÇÃO E MONITORAMENTO PROATIVO
-* **Gestão de Identidades:** Administração de usuários locais e de domínio, com foco no princípio do privilégio mínimo (Least Privilege) e uso do "Run as Administrator".
-* **CLI & PowerShell:** Automação de tarefas de segurança e coleta de dados via terminal, utilizando o `net command` para gerenciar recursos de rede e sessões de usuário.
-* **Instrumentação (WMI):** Uso do Windows Management Instrumentation para monitorar o estado do sistema e gerenciar componentes remotamente.
-* **Monitoramento de Recursos:** Utilização estratégica do Task Manager e Resource Monitor para correlacionar picos de CPU/Memória com processos específicos (PIDs).
+* **Gestão de Identidades:** Administração de usuários locais e de domínio sob o princípio do privilégio mínimo.
+* **CLI & PowerShell:** Automação de tarefas de segurança e uso do `net command` para gerenciar sessões e recursos.
+* **Monitoramento de Recursos:** Uso do Task Manager e Resource Monitor para análise de processos ativos (PIDs).
 
 ### 3.4. DEFESA ATIVA E SEGURANÇA (HARDENING)
-* **Auditoria de Rede:** Aplicação do comando `netstat` para mapear portas abertas e conexões estabelecidas, essencial para detectar conexões de Comando e Controle (C2).
-* **Análise Forense de Logs:** Investigação de eventos críticos no Event Viewer (Ex: Event ID 4624 para logons), permitindo o rastreamento de atividades suspeitas no sistema.
-* **Hardening e Políticas:** Configuração de Local Security Policies para endurecimento da estação de trabalho e gestão rigorosa do Windows Update.
-* **Defesa Nativa:** Configuração e monitoramento do Windows Defender Antivírus e do Firewall com segurança avançada para filtragem de tráfego.
+* **Auditoria de Rede:** Uso do `netstat` para mapear conexões e detectar atividade de Comando e Controle (C2).
+* **Análise Forense de Logs:** Investigação de eventos críticos no Event Viewer para rastreamento de intrusões.
+* **Hardening:** Configuração de Local Security Policies e defesa nativa via Windows Defender e Firewall.
 
 ---
 
 ## 🧪 LABS PRÁTICOS (FIELD REPORTS)
 
-* **LAB 3.2.11:** Investigação profunda de processos ativos e manipulação de chaves no Registro do Windows.
-* **LAB 3.3.10:** Criação e auditoria de contas de usuários locais via linha de comando.
-* **LAB 3.3.11:** Automação de coleta de informações do sistema utilizando scripts em PowerShell.
-* **LAB 3.3.13:** Gestão e monitoramento de recursos para identificação de gargalos e processos zumbis.
+* **LAB 3.1.4 - Identify Running Processes:** Uso de ferramentas como o TCP/UDP Endpoint Viewer para identificar conexões ativas e localizar arquivos de sistema como `lsass.exe`.
+* **LAB 3.2.11 - Internals Investigation:** Exploração de processos, threads e handles com Process Explorer, além da manipulação de chaves do Registro (EULA) para entender persistência.
+* **LAB 3.3.10 - User Management:** Criação e auditoria de contas locais, validando o isolamento de perfis e privilégios administrativos.
+* **LAB 3.3.11 - PowerShell Automation:** Execução de auditorias de rede com `netstat -abno` e automação de limpeza de recursos.
+* **LAB 3.3.12 - Task Manager Ops:** Gerenciamento de processos em background e análise detalhada de performance de hardware.
+* **LAB 3.3.13 - Resource & Service Management:** Criação de Data Collector Sets no Performance Monitor e auditoria de serviços (Event ID 7040).
 
 ---
 
@@ -53,9 +53,9 @@
 * Regedit (Registry Editor)
 * Event Viewer (Security Logs)
 * Local Security Policy Editor
-* Microsoft Resource Monitor
-* 
+* Microsoft Resource Monitor & Performance Monitor
+* Sysinternals Suite (Process Explorer, TCPView)
+
 ---
 
 *Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação*
-
