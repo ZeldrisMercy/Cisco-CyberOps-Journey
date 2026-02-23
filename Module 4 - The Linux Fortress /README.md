@@ -32,4 +32,26 @@
 
 | Técnica | Comando | Objetivo Cibersegurança |
 | :--- | :--- | :--- |
-| **Flag Hunting
+| **Flag Hunting** | `ls /alvo \| grep "xxx"` | Localizar arquivos de desafio que seguem um padrão de nomenclatura. |
+| **Deep Search** | `grep -r "xxx" .` | Busca recursiva de tokens ou flags dentro do conteúdo de múltiplos arquivos. |
+| **Log Analysis** | `cat /var/log/auth.log \| grep "failed"` | Identificar tentativas de intrusão e falhas de autenticação em logs. |
+| **Process Hunt** | `ps aux \| grep [p]rocesso` | Localizar PIDs de processos específicos sem exibir o próprio comando grep. |
+
+---
+
+## 🧪 LABS PRÁTICOS (FIELD REPORTS)
+
+* **LAB 4.2.7 - Getting Familiar with the Linux Shell:** Prática inicial de comandos CLI e exploração da estrutura de diretórios.
+* **LAB 4.2.6 - Working with Text Files in the CLI:** Exercícios focados na criação, edição e manipulação de arquivos de texto via terminal.
+
+---
+
+### 🛠️ Toolset Aplicado
+* Bash (Linux Shell)
+* Grep (Pattern Matcher)
+* System Utilities (ps, dd, ls)
+* Sudo (Privilege Management)
+
+---
+
+*Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação**
