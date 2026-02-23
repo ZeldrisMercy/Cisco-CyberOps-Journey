@@ -1,4 +1,4 @@
-# 🛡️ LEVEL 3: THE WINDOWS FORTRESS
+# 🛡️ LEVEL 3: THE WINDOWS FORTRESS (SYSTEM HARDENING)
 
 ![CISCO](https://img.shields.io/badge/CISCO-NETACAD-orange) ![STATUS](https://img.shields.io/badge/STATUS-COMPLETED-green) ![FOCUS](https://img.shields.io/badge/FOCUS-BLUE%20TEAM-blue)
 
