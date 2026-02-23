@@ -54,3 +54,8 @@
 * Event Viewer (Security Logs)
 * Local Security Policy Editor
 * Microsoft Resource Monitor
+* 
+---
+
+*Documentação mantida por **Ícaro de Souza Mariano** | Especialista em Formação*
+
