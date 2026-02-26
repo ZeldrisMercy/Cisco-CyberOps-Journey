@@ -11,8 +11,7 @@
 **Referência:** *4.2.6 Lab - Working with Text Files in the CLI*
 
 Domínio de editores e customização do ambiente operacional.
-
-* [cite_start]**Editores de Texto:** Uso de editores gráficos como o SciTE e de linha de comando como o GNU nano para manipulação de arquivos de sistema[cite: 1350, 1400].
+**Editores de Texto:** Uso de editores gráficos como o SciTE e de linha de comando como o GNU nano para manipulação de arquivos de sistema[cite: 1350, 1400].
 * [cite_start]**Customização de Shell:** Edição do arquivo oculto `.bashrc` para modificar variáveis de ambiente e a estrutura visual do prompt (PS1)[cite: 1530, 1538, 1584].
 * [cite_start]**Ajuste de Serviços:** Reconfiguração do servidor web Nginx através de arquivos de configuração customizados, alterando portas de escuta (ex: TCP 8080) e diretórios raiz[cite: 1730, 1732, 1733].
 
