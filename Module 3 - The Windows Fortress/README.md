@@ -37,17 +37,6 @@
 
 ---
 
-## 🧪 LABS PRÁTICOS (FIELD REPORTS)
-
-* **LAB 3.1.4 - Identify Running Processes:** Uso de ferramentas como o TCP/UDP Endpoint Viewer para identificar conexões ativas e localizar arquivos de sistema como `lsass.exe`.
-* **LAB 3.2.11 - Internals Investigation:** Exploração de processos, threads e handles com Process Explorer, além da manipulação de chaves do Registro (EULA) para entender persistência.
-* **LAB 3.3.10 - User Management:** Criação e auditoria de contas locais, validando o isolamento de perfis e privilégios administrativos.
-* **LAB 3.3.11 - PowerShell Automation:** Execução de auditorias de rede com `netstat -abno` e automação de limpeza de recursos.
-* **LAB 3.3.12 - Task Manager Ops:** Gerenciamento de processos em background e análise detalhada de performance de hardware.
-* **LAB 3.3.13 - Resource & Service Management:** Criação de Data Collector Sets no Performance Monitor e auditoria de serviços (Event ID 7040).
-
----
-
 ### 🛠️ Toolset Aplicado
 * PowerShell & Windows CLI
 * Regedit (Registry Editor)
