@@ -38,6 +38,16 @@
 * **Sistema de Permissões (Octal & Simbólico):** Controle granular via `chmod` e `chown`, utilizando lógica binária para definir leitura, escrita e execução.
 * **Links (Simbólicos vs Hard):** Diferença entre Symbolic Links (atalhos de caminho) e Hard Links (ponteiros diretos para o Inode/conteúdo físico).
 
+### 🖥️ 4.6. WORKING WITH THE LINUX GUI
+* **X Window System:** Compreensão da infraestrutura básica que fornece as capacidades fundamentais para a interface gráfica no Linux.
+* **Linux Desktop Environments (DE):** Gestão e operação de ambientes gráficos (como GNOME ou XFCE) para facilitar a administração visual de ferramentas de segurança.
+
+### ⚔️ 4.7. WORKING ON A LINUX HOST
+* **Application Management:** Instalação e execução de aplicações, garantindo que o sistema permaneça atualizado com os últimos patches de segurança.
+* **Processos e Forks:** Monitoramento de processos e compreensão do mecanismo de "forking", onde um processo cria uma cópia de si mesmo para realizar tarefas paralelas.
+* **Rootkit Check & Malware Defense:** Utilização de ferramentas de auditoria para detectar malwares de persistência profunda que tentam ocultar sua presença do sistema.
+* **Advanced Command Piping:** Maestria no encadeamento de comandos complexos para filtragem de dados e automação de triagem em investigações.
+
 ---
 
 ## 🎒 ARSENAL DE COMANDOS (CHEAT SHEET)
