@@ -24,20 +24,32 @@ def exibir_banner():
     | |    | | | || '_ \| '_ \  / _ \| '__\___ \ / _ \ / __|
     | |___ | |_| || |_) || |_) ||  __/| |   ___) | (_) | (__ 
      \____| \__, || .__/ |_.__/  \___||_|  |____/ \___/ \___|
-            |___/ |_|        TERMINAL OPS CENTER v3.0
+            |___/ |_|        TERMINAL OPS CENTER v3.1
     ==========================================================
     """ + RESET)
 
 def carregar_questoes(ficheiro_json):
     try:
-        with open(ficheiro_json, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        # 'utf-8-sig' limpa o erro de 'char 2' causado pelo Windows
+        with open(ficheiro_json, 'r', encoding='utf-8-sig') as f:
+            conteudo = f.read().strip()
+            if not conteudo:
+                print(f"{VERMELHO}[ERRO] O arquivo JSON está vazio.{RESET}")
+                return None
+            return json.loads(conteudo)
+    except json.JSONDecodeError as e:
+        print(f"{VERMELHO}[ERRO DE SINTAXE NO JSON]{RESET}")
+        print(f"Linha: {e.lineno}, Coluna: {e.colno}")
+        print(f"Mensagem: {e.msg}")
+        print(f"{AMARELO}Dica: Verifique se falta uma vírgula entre as questões ou se há uma vírgula sobrando no final.{RESET}")
+        input("\nPressione ENTER para tentar corrigir...")
+        return None
     except Exception as e:
-        print(f"{VERMELHO}[ERRO CRÍTICO] Falha ao carregar base de dados: {e}{RESET}")
+        print(f"{VERMELHO}[ERRO CRÍTICO]: {e}{RESET}")
         return None
 
 def barra_progresso(atual, total):
-    largura = 40
+    largura = 30
     progresso = int((atual / total) * largura)
     barra = "█" * progresso + "-" * (largura - progresso)
     percentual = int((atual / total) * 100)
@@ -64,23 +76,12 @@ def executar_quiz(questoes, modo_selecionado="GERAL"):
         print(f"\n {AMARELO}[Dicas: 'P' para Pular | 'SAIR' para Encerrar]{RESET}")
         user_input = input(f" {NEGRITO}Sua resposta:{RESET} ").strip().upper()
 
-        if user_input == 'SAIR':
-            return None
+        if user_input == 'SAIR': return None
         
         if user_input == 'P':
             puladas += 1
-            print(f"\n {AMARELO}Questão pulada. A resposta era: {q['resposta_correta']}{RESET}")
-            time.sleep(1.5)
-            continue
-
-        while user_input not in ['A', 'B', 'C', 'D']:
-            print(f" {VERMELHO}Escolha A, B, C, D ou P.{RESET}")
-            user_input = input(f" Sua resposta: ").strip().upper()
-            if user_input == 'SAIR': return None
-            if user_input == 'P': break
-        
-        if user_input == 'P': 
-            puladas += 1
+            print(f"\n {AMARELO}Questão pulada. Gabarito: {q['resposta_correta']}{RESET}")
+            time.sleep(2)
             continue
 
         if user_input == q['resposta_correta']:
@@ -96,31 +97,6 @@ def executar_quiz(questoes, modo_selecionado="GERAL"):
 
     return pontuacao, puladas, total
 
-def escolher_modulo(todas_questoes):
-    modulos = sorted(list(set([q['dominio'].split(' - ')[0] for q in todas_questoes])))
-    
-    while True:
-        limpar_ecra()
-        exibir_banner()
-        print(f"  {NEGRITO}ESCOLHA O MÓDULO DE TREINAMENTO:{RESET}\n")
-        for i, mod in enumerate(modulos, 1):
-            print(f"  {NEGRITO}{i}.{RESET} {mod}")
-        print(f"  {NEGRITO}0.{RESET} Voltar")
-        
-        opcao = input(f"\n  {CIANO}Seleção:{RESET} ").strip()
-        
-        if opcao == '0':
-            return None
-        
-        try:
-            idx = int(opcao) - 1
-            if 0 <= idx < len(modulos):
-                filtro = modulos[idx]
-                selecionadas = [q for q in todas_questoes if q['dominio'].startswith(filtro)]
-                return selecionadas, filtro
-        except:
-            pass
-
 def menu_principal():
     while True:
         limpar_ecra()
@@ -132,34 +108,43 @@ def menu_principal():
         opcao = input(f"\n  {CIANO}Selecione uma opção:{RESET} ").strip()
 
         questoes_base = carregar_questoes('questoes_cbrops.json')
-        if not questoes_base: break
+        if not questoes_base and opcao != '0':
+            input("\nCorrija o arquivo JSON e pressione ENTER...")
+            continue
 
         if opcao == '1':
             res = executar_quiz(questoes_base, "FULL SCAN")
-            if res:
-                exibir_resultado(res)
+            if res: exibir_resultado(res)
         elif opcao == '2':
             selecao = escolher_modulo(questoes_base)
             if selecao:
-                q_filtradas, nome_mod = selecao
-                res = executar_quiz(q_filtradas, nome_mod)
-                if res:
-                    exibir_resultado(res)
+                res = executar_quiz(selecao[0], selecao[1])
+                if res: exibir_resultado(res)
         elif opcao == '0':
-            print(f"\n  {AMARELO}Logoff efetuado com sucesso.{RESET}")
             break
+
+def escolher_modulo(todas_questoes):
+    # Extrai os prefixos dos módulos para o menu
+    prefixos = sorted(list(set([q['dominio'].split(' - ')[0] for q in todas_questoes])))
+    limpar_ecra()
+    exibir_banner()
+    for i, p in enumerate(prefixos, 1):
+        print(f"  {NEGRITO}{i}.{RESET} {p}")
+    
+    op = input(f"\n  {CIANO}Escolha o módulo:{RESET} ")
+    try:
+        escolhido = prefixos[int(op)-1]
+        return [q for q in todas_questoes if q['dominio'].startswith(escolhido)], escolhido
+    except:
+        return None
 
 def exibir_resultado(resultado):
     pontos, pulos, total = resultado
     limpar_ecra()
     exibir_banner()
     print(f"\n {NEGRITO}RELATÓRIO DE MISSÃO FINALIZADO{RESET}")
-    print(f" {AZUL}--------------------------------{RESET}")
-    print(f" Acertos: {VERDE}{pontos}{RESET}")
-    print(f" Puladas: {AMARELO}{pulos}{RESET}")
-    print(f" Erros:   {VERMELHO}{total - pontos - pulos}{RESET}")
-    print(f" Total:   {total}")
-    input("\nPressione ENTER para voltar ao menu...")
+    print(f" Acertos: {VERDE}{pontos}{RESET} | Puladas: {AMARELO}{pulos}{RESET} | Erros: {VERMELHO}{total-pontos-pulos}{RESET}")
+    input("\nPressione ENTER para voltar...")
 
 if __name__ == "__main__":
     menu_principal()
