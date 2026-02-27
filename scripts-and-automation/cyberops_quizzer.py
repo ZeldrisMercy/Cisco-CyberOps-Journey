@@ -24,7 +24,7 @@ def exibir_banner():
     | |    | | | || '_ \| '_ \  / _ \| '__\___ \ / _ \ / __|
     | |___ | |_| || |_) || |_) ||  __/| |   ___) | (_) | (__ 
      \____| \__, || .__/ |_.__/  \___||_|  |____/ \___/ \___|
-            |___/ |_|        TERMINAL OPS CENTER v2.0
+            |___/ |_|        TERMINAL OPS CENTER v3.0
     ==========================================================
     """ + RESET)
 
@@ -43,38 +43,48 @@ def barra_progresso(atual, total):
     percentual = int((atual / total) * 100)
     return f"{AZUL}[{barra}] {percentual}%{RESET}"
 
-def executar_quiz(questoes):
+def executar_quiz(questoes, modo_selecionado="GERAL"):
     pontuacao = 0
+    puladas = 0
     total = len(questoes)
     random.shuffle(questoes)
 
     for idx, q in enumerate(questoes, 1):
         limpar_ecra()
         exibir_banner()
+        print(f" {NEGRITO}MODO:{RESET} {CIANO}{modo_selecionado}{RESET}")
         print(f" {barra_progresso(idx-1, total)}")
         print(f"\n {NEGRITO}DOMÍNIO:{RESET} {AMARELO}{q['dominio']}{RESET}")
-        print(f" {NEGRITO}QUESTÃO {idx} de {total}{RESET}\n")
+        print(f" {NEGRITO}QUESTÃO {idx} de {total}{RESET} | {VERDE}Acertos: {pontuacao}{RESET}\n")
         print(f" {CIANO}» {q['pergunta']}{RESET}\n")
         
         for opcao in q['opcoes']:
             print(f"   {opcao}")
             
-        print(f"\n {AMARELO}[Dica: Digite 'SAIR' para encerrar o teste]{RESET}")
-        user_input = input(f" {NEGRITO}Sua resposta (A/B/C/D):{RESET} ").strip().upper()
+        print(f"\n {AMARELO}[Dicas: 'P' para Pular | 'SAIR' para Encerrar]{RESET}")
+        user_input = input(f" {NEGRITO}Sua resposta:{RESET} ").strip().upper()
 
         if user_input == 'SAIR':
-            print(f"\n{AMARELO}Encerrando operações... Até logo, Analista.{RESET}")
-            time.sleep(1)
-            return None # Sinaliza saída antecipada
+            return None
+        
+        if user_input == 'P':
+            puladas += 1
+            print(f"\n {AMARELO}Questão pulada. A resposta era: {q['resposta_correta']}{RESET}")
+            time.sleep(1.5)
+            continue
 
-        # Validação de entrada
         while user_input not in ['A', 'B', 'C', 'D']:
-            print(f" {VERMELHO}Entrada inválida! Escolha A, B, C ou D.{RESET}")
+            print(f" {VERMELHO}Escolha A, B, C, D ou P.{RESET}")
             user_input = input(f" Sua resposta: ").strip().upper()
             if user_input == 'SAIR': return None
+            if user_input == 'P': break
+        
+        if user_input == 'P': 
+            puladas += 1
+            continue
 
         if user_input == q['resposta_correta']:
-            print(f"\n {VERDE}{NEGRITO}✅ ANALISE CORRETA!{RESET}")
+            print(f"\n {VERDE}{NEGRITO}✅ ANÁLISE CORRETA!{RESET}")
             pontuacao += 1
         else:
             print(f"\n {VERMELHO}{NEGRITO}❌ ALERTA: RESPOSTA INCORRETA.{RESET}")
@@ -84,41 +94,72 @@ def executar_quiz(questoes):
         print(f"\n{AZUL}----------------------------------------------------------{RESET}")
         input(" Pressione ENTER para prosseguir...")
 
-    return pontuacao
+    return pontuacao, puladas, total
+
+def escolher_modulo(todas_questoes):
+    modulos = sorted(list(set([q['dominio'].split(' - ')[0] for q in todas_questoes])))
+    
+    while True:
+        limpar_ecra()
+        exibir_banner()
+        print(f"  {NEGRITO}ESCOLHA O MÓDULO DE TREINAMENTO:{RESET}\n")
+        for i, mod in enumerate(modulos, 1):
+            print(f"  {NEGRITO}{i}.{RESET} {mod}")
+        print(f"  {NEGRITO}0.{RESET} Voltar")
+        
+        opcao = input(f"\n  {CIANO}Seleção:{RESET} ").strip()
+        
+        if opcao == '0':
+            return None
+        
+        try:
+            idx = int(opcao) - 1
+            if 0 <= idx < len(modulos):
+                filtro = modulos[idx]
+                selecionadas = [q for q in todas_questoes if q['dominio'].startswith(filtro)]
+                return selecionadas, filtro
+        except:
+            pass
 
 def menu_principal():
     while True:
         limpar_ecra()
         exibir_banner()
-        print(f"  {NEGRITO}1.{RESET} Iniciar Simulado CyberOps")
-        print(f"  {NEGRITO}2.{RESET} Ver Metodologia de Estudo")
+        print(f"  {NEGRITO}1.{RESET} Simulado Completo (100 Questões)")
+        print(f"  {NEGRITO}2.{RESET} Escolher Módulo Específico")
         print(f"  {NEGRITO}0.{RESET} Sair do Terminal")
         
         opcao = input(f"\n  {CIANO}Selecione uma opção:{RESET} ").strip()
 
+        questoes_base = carregar_questoes('questoes_cbrops.json')
+        if not questoes_base: break
+
         if opcao == '1':
-            dados = carregar_questoes('questoes_cbrops.json')
-            if dados:
-                res = executar_quiz(dados)
-                if res is not None:
-                    limpar_ecra()
-                    exibir_banner()
-                    print(f"\n {NEGRITO}FINALIZADO!{RESET}")
-                    print(f" Score: {VERDE}{res}{RESET} acertos de {len(dados)}")
-                    input("\nPressione ENTER para voltar ao menu...")
+            res = executar_quiz(questoes_base, "FULL SCAN")
+            if res:
+                exibir_resultado(res)
         elif opcao == '2':
-            limpar_ecra()
-            exibir_banner()
-            print("  ESTRATÉGIA DE ESTUDO ATIVO:")
-            print("  - Baseado no Blueprint oficial 200-201.")
-            print("  - Foco em análise baseada em host e rede.")
-            input("\nPressione ENTER para voltar...")
+            selecao = escolher_modulo(questoes_base)
+            if selecao:
+                q_filtradas, nome_mod = selecao
+                res = executar_quiz(q_filtradas, nome_mod)
+                if res:
+                    exibir_resultado(res)
         elif opcao == '0':
             print(f"\n  {AMARELO}Logoff efetuado com sucesso.{RESET}")
             break
-        else:
-            print(f"\n  {VERMELHO}Opção inválida!{RESET}")
-            time.sleep(1)
+
+def exibir_resultado(resultado):
+    pontos, pulos, total = resultado
+    limpar_ecra()
+    exibir_banner()
+    print(f"\n {NEGRITO}RELATÓRIO DE MISSÃO FINALIZADO{RESET}")
+    print(f" {AZUL}--------------------------------{RESET}")
+    print(f" Acertos: {VERDE}{pontos}{RESET}")
+    print(f" Puladas: {AMARELO}{pulos}{RESET}")
+    print(f" Erros:   {VERMELHO}{total - pontos - pulos}{RESET}")
+    print(f" Total:   {total}")
+    input("\nPressione ENTER para voltar ao menu...")
 
 if __name__ == "__main__":
     menu_principal()
