@@ -1,0 +1,302 @@
+[
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Um ataque volumétrico de negação de serviço (DDoS) satura o link de um hospital, impedindo o acesso aos prontuários. Qual princípio da Tríade CIA foi comprometido?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Autenticação"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Os dados não foram vazados nem alterados. O ataque visa exclusivamente derrubar o acesso legítimo ao sistema, ferindo a Disponibilidade (Availability)."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Qual componente do framework AAA é acionado quando um analista audita o arquivo /var/log/auth.log para ver quais comandos o usuário 'admin' executou?",
+        "opcoes": [
+            "A) Authentication (Autenticação)",
+            "B) Authorization (Autorização)",
+            "C) Accounting (Auditoria)",
+            "D) Availability (Disponibilidade)"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Accounting refere-se a registrar e rastrear o que o usuário fez (comandos, consumo de recursos) após ter sido autenticado e autorizado no sistema."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "O uso de algoritmos de Hash (como o SHA-256) em um arquivo baixado da internet visa garantir qual princípio da segurança?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Não-repúdio"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O hash não esconde o arquivo (não dá confidencialidade), ele apenas gera uma assinatura única. Se 1 byte do arquivo for alterado, o hash muda, alertando a quebra de Integridade."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Criptografar o disco rígido de um notebook corporativo com BitLocker protege primariamente qual princípio da tríade CIA em caso de roubo físico do equipamento?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Accounting"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "A criptografia garante que, mesmo que o ladrão tenha o disco físico, ele não conseguirá ler os dados sem a chave, preservando a Confidencialidade."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "No framework AAA, o processo de verificar se o usuário recém-logado pertence ao grupo 'Vendas' e, portanto, pode acessar a pasta de relatórios financeiros, é chamado de:",
+        "opcoes": [
+            "A) Autenticação",
+            "B) Autorização",
+            "C) Accounting",
+            "D) Auditoria"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A Autenticação prova quem você é (senha). A Autorização verifica o que você tem permissão para fazer (regras do grupo Vendas)."
+    },
+    {
+        "dominio": "Mod 1 - Modelos de Controle de Acesso",
+        "pergunta": "Um sistema operacional impõe o acesso aos arquivos com base em rótulos rigorosos de segurança como 'Confidencial' e 'Top Secret'. Nem mesmo o criador do arquivo pode alterar quem o acessa. Qual é o modelo?",
+        "opcoes": [
+            "A) DAC (Discretionary Access Control)",
+            "B) MAC (Mandatory Access Control)",
+            "C) RBAC (Role-Based Access Control)",
+            "D) ABAC (Attribute-Based Access Control)"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No MAC, o sistema impõe (mandatório) o acesso baseado em rótulos (labels), ignorando a vontade do proprietário do arquivo. Muito usado em ambientes militares."
+    },
+    {
+        "dominio": "Mod 1 - Modelos de Controle de Acesso",
+        "pergunta": "Sempre que um funcionário muda de cargo na empresa, o sistema atualiza seus acessos automaticamente com base na sua nova função. Qual modelo está sendo utilizado?",
+        "opcoes": [
+            "A) DAC",
+            "B) MAC",
+            "C) RBAC",
+            "D) Rule-Based Access Control"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O RBAC (Role-Based Access Control) baseia-se na função (role/cargo) do usuário na empresa. É o padrão do mercado corporativo para facilitar a gestão."
+    },
+    {
+        "dominio": "Mod 1 - Modelos de Controle de Acesso",
+        "pergunta": "No Linux, o proprietário de um arquivo usa o comando 'chmod' para dar permissão de leitura aos seus colegas de equipe. Que modelo de controle de acesso permite essa liberdade ao criador do arquivo?",
+        "opcoes": [
+            "A) DAC",
+            "B) MAC",
+            "C) RBAC",
+            "D) ABAC"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "No DAC (Controle de Acesso Discricionário), o proprietário/criador do recurso tem a discrição de decidir quem pode acessá-lo."
+    },
+    {
+        "dominio": "Mod 1 - Princípios Arquiteturais",
+        "pergunta": "Exigir que um analista de banco de dados e um gerente financeiro insiram suas senhas simultaneamente para aprovar uma transferência bancária milionária é um exemplo de:",
+        "opcoes": [
+            "A) Principle of Least Privilege",
+            "B) Separation of Duties",
+            "C) Defense in Depth",
+            "D) Zero Trust"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A Separação de Deveres (Separation of Duties) garante que nenhuma pessoa sozinha tenha poder suficiente para executar uma tarefa crítica completa, prevenindo fraudes internas."
+    },
+    {
+        "dominio": "Mod 1 - Princípios Arquiteturais",
+        "pergunta": "A prática de fornecer a um usuário apenas os direitos de acesso estritamente necessários para que ele realize o seu trabalho, e nada mais, é chamada de:",
+        "opcoes": [
+            "A) Need to Know",
+            "B) Separation of Duties",
+            "C) Principle of Least Privilege",
+            "D) Defense in Depth"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O Princípio do Privilégio Mínimo (Least Privilege) reduz a superfície de ataque ao limitar os acessos técnicos do usuário ao mínimo essencial."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Qual é a equação fundamental que define um 'Risco' em segurança da informação?",
+        "opcoes": [
+            "A) Risco = Ameaça + Vulnerabilidade",
+            "B) Risco = Ameaça x Vulnerabilidade x Impacto",
+            "C) Risco = Exploit x Patch",
+            "D) Risco = Probabilidade - Impacto"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Risco é a probabilidade de uma Ameaça explorar uma Vulnerabilidade, multiplicada pelo Impacto financeiro/operacional gerado."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "No CVSS v3.1, se a métrica Base para 'Attack Vector (AV)' for classificada como 'Network' (N), o que isso indica para os defensores?",
+        "opcoes": [
+            "A) O atacante precisa de acesso físico ao roteador.",
+            "B) A vulnerabilidade é explorável remotamente, através da internet.",
+            "C) A falha afeta apenas o protocolo de roteamento OSPF.",
+            "D) O atacante precisa estar na mesma rede local (LAN) da vítima."
+        ],
+        "resposta_correta": "B",
+        "explicacao": "AV: Network indica o pior cenário: a falha é explorável remotamente a partir de qualquer lugar do mundo, sem necessidade de proximidade com a rede do alvo."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Qual grupo de métricas do CVSS é alterado quando o fabricante do software lança um 'Patch' oficial para corrigir a vulnerabilidade?",
+        "opcoes": [
+            "A) Métrica Base",
+            "B) Métrica Temporal",
+            "C) Métrica Ambiental",
+            "D) Métrica de Impacto"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A Métrica Temporal muda com o tempo. A disponibilidade de uma solução (como um patch) reduz a pontuação temporal do risco."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Um servidor web possui uma porta aberta rodando um serviço FTP desatualizado. Um atacante utiliza um script em Python para invadir o servidor por essa porta. Como classificamos o serviço desatualizado e o script, respectivamente?",
+        "opcoes": [
+            "A) Risco e Ameaça",
+            "B) Vulnerabilidade e Exploit",
+            "C) Ameaça e Vulnerabilidade",
+            "D) Exploit e Risco"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O serviço FTP antigo e falho é a Vulnerabilidade (a fraqueza). O script em Python usado para tirar proveito da falha é o Exploit."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Qual grupo de métricas do CVSS permite que a equipe de SOC ajuste a pontuação da vulnerabilidade com base na criticidade do servidor afetado para o próprio negócio da empresa?",
+        "opcoes": [
+            "A) Base Score",
+            "B) Temporal Score",
+            "C) Environmental Score",
+            "D) Impact Score"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "A métrica Ambiental (Environmental) permite personalizar a nota. Uma falha crítica num servidor de testes tem um Environmental Score menor do que a mesma falha no servidor de banco de dados principal."
+    },
+    {
+        "dominio": "Mod 1 - Threat Actors",
+        "pergunta": "Um grupo invade a infraestrutura de uma hidrelétrica. O objetivo não é financeiro, mas sim manter acesso contínuo e oculto (stealth) à rede de controle industrial por anos. Qual a classificação deste Threat Actor?",
+        "opcoes": [
+            "A) Hacktivista",
+            "B) Script Kiddie",
+            "C) APT (Advanced Persistent Threat)",
+            "D) Insider Threat"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Atores APTs (frequentemente State-Sponsored) possuem vastos recursos. O seu foco é a Persistência a longo prazo (alto Dwell Time) para espionagem ou sabotagem."
+    },
+    {
+        "dominio": "Mod 1 - Threat Actors",
+        "pergunta": "Um ativista político invade o site de uma multinacional e substitui a página inicial por um manifesto contra a poluição ambiental. Qual a classificação deste atacante?",
+        "opcoes": [
+            "A) APT",
+            "B) Crime Organizado",
+            "C) Hacktivista",
+            "D) Insider"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Hacktivistas são motivados por ideologia política ou causas sociais, e os seus ataques geralmente visam causar dano de imagem (defacement) ou negação de serviço para chamar a atenção."
+    },
+    {
+        "dominio": "Mod 1 - Threat Actors",
+        "pergunta": "Qual é a ameaça frequentemente considerada a mais difícil de ser detectada por firewalls de borda, pois o atacante já possui credenciais legítimas e acesso físico à rede?",
+        "opcoes": [
+            "A) Insider Threat (Ameaça Interna)",
+            "B) Script Kiddies",
+            "C) APT",
+            "D) Phishing"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O Insider (um funcionário mal-intencionado ou negligente) é altamente perigoso pois ele já passou pelos controles de perímetro e possui contas legítimas na rede corporativa."
+    },
+    {
+        "dominio": "Mod 1 - Vetores e Engenharia Social",
+        "pergunta": "O CFO de uma empresa recebe um e-mail aparentemente do CEO, exigindo uma transferência bancária urgente. A linguagem é formal e direcionada especificamente a ele. Que ataque é esse?",
+        "opcoes": [
+            "A) Phishing Genérico",
+            "B) Vishing",
+            "C) Whaling",
+            "D) Watering Hole"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Whaling (Caça às Baleias) é um tipo específico de Spear Phishing altamente direcionado a executivos de alto escalão (C-Level), explorando a autoridade dos seus cargos."
+    },
+    {
+        "dominio": "Mod 1 - Vetores e Engenharia Social",
+        "pergunta": "O atacante infectou o site do restaurante onde os funcionários do alvo almoçam, aguardando que eles baixem o payload malicioso ao acessar o cardápio. Como se chama este vetor?",
+        "opcoes": [
+            "A) Man-in-the-Middle (MitM)",
+            "B) Watering Hole Attack",
+            "C) Cross-Site Scripting (XSS)",
+            "D) Pharming"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No ataque Watering Hole (Bebedouro), o invasor compromete um site de terceiros amplamente confiável e visitado pelas suas vítimas reais, infectando-as de forma passiva."
+    },
+    {
+        "dominio": "Mod 1 - Vetores e Engenharia Social",
+        "pergunta": "Um atacante levanta um Access Point falso em uma cafeteria chamado 'Cafe_Free_WiFi', o exato mesmo nome da rede legítima, para interceptar o tráfego de quem se conecta. Isso é um exemplo de:",
+        "opcoes": [
+            "A) Evil Twin",
+            "B) Wardriving",
+            "C) Bluejacking",
+            "D) MAC Spoofing"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O 'Gêmeo Maligno' clona o SSID legítimo para atuar como um roteador falso e executar um ataque Man-in-the-Middle silencioso contra os dispositivos que se conectam a ele."
+    },
+    {
+        "dominio": "Mod 1 - Malware",
+        "pergunta": "Qual tipo de malware é projetado especificamente para modificar as entranhas do sistema operacional com o objetivo de esconder sua própria existência dos softwares de antivírus?",
+        "opcoes": [
+            "A) Ransomware",
+            "B) Rootkit",
+            "C) Spyware",
+            "D) Worm"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Rootkit instala-se profundamente no sistema (nível de Kernel), interceptando as chamadas do SO para mentir ao antivírus, ocultando arquivos e processos maliciosos."
+    },
+    {
+        "dominio": "Mod 1 - Malware",
+        "pergunta": "Um funcionário planta um script no servidor de banco de dados programado para apagar todas as tabelas caso seu nome seja removido da folha de pagamento do RH. Isso é um exemplo de:",
+        "opcoes": [
+            "A) Trojan Horse",
+            "B) Worm",
+            "C) Logic Bomb (Bomba Lógica)",
+            "D) Keylogger"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "A Logic Bomb é um código malicioso que permanece dormente até que uma condição específica (data, hora, ou um evento no sistema) seja atendida."
+    },
+    {
+        "dominio": "Mod 1 - Classificação de Dados",
+        "pergunta": "Uma clínica de psicologia foi invadida e os diagnósticos dos pacientes foram vazados. De acordo com as leis de conformidade, qual classificação exata esses dados recebem?",
+        "opcoes": [
+            "A) PII (Personally Identifiable Information)",
+            "B) PCI (Payment Card Information)",
+            "C) PHI (Protected Health Information)",
+            "D) PSI (Personal Security Information)"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Embora diagnósticos identifiquem uma pessoa, eles possuem uma classificação legal muito mais rigorosa chamada PHI (Informações Protegidas de Saúde), regulada por leis como a HIPAA e a LGPD."
+    },
+    {
+        "dominio": "Mod 1 - Classificação de Dados",
+        "pergunta": "Dados como o CPF, Nome Completo e Biometria de um usuário são classificados em qual categoria de segurança da informação corporativa?",
+        "opcoes": [
+            "A) PHI",
+            "B) PII",
+            "C) Intellectual Property (IP)",
+            "D) PCI DSS"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "PII (Personally Identifiable Information) refere-se a qualquer informação que possa ser utilizada para identificar um indivíduo civilmente e de forma única."
+    }
+]
