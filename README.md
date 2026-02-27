@@ -23,8 +23,6 @@ Navegue pelos módulos abaixo para aceder aos meus *Tactical Field Reports*, res
 
 ---
 
----
-
 ## ⚡ O Diferencial: DevSecOps & Automação
 
 Acredito que a melhor forma de defender um sistema é compreendendo como ele é construído. Com o objetivo de atuar no desenvolvimento de software aplicado à segurança corporativa e proteção contra riscos digitais, este repositório traz um forte viés prático:
@@ -37,15 +35,11 @@ Acredito que a melhor forma de defender um sistema é compreendendo como ele é 
 
 ## 🗃️ Active Recall & Ecossistema de Defesa
 
-Construí o meu próprio ecossistema de ferramentas para fixar o conhecimento e agilizar a operação:
+Acredito que a melhor forma de fixar o conhecimento é construindo as ferramentas que o testam. Construí o meu próprio ecossistema de ferramentas para fixar o conhecimento e agilizar a operação:
 
-* 💻 **[CyberOps CLI Quizzer](./scripts-and-automation/cyberops_quizzer.py):** Simulador interativo com 100 questões baseadas no blueprint da certificação.
-* 🛡️ **[SOC IPS Unit](./scripts-and-automation/soc_ips_blocker.py):** Sistema de detecção e bloqueio automático de intrusos via Firewall.
-* 🔍 **[Integrity Checker](./scripts-and-automation/hash_checker.py):** Verificador tático de hashes para garantir a integridade de evidências e binários.
-
----
-
-*Desenvolvido e mantido por **Ícaro de Souza Mariano** | Conecte-se comigo no [LinkedIn](http://www.linkedin.com/in/icaro-s-m).*
+* 💻 **[CyberOps CLI Quizzer](./scripts-and-automation/cyberops_quizzer.py):** Um script em Python (v3.1) que consome uma base de dados JSON (`questoes_cbrops.json`) com 100 questões sobre portas, protocolos e TTPs.
+* 🛡️ **[SOC IPS Unit](./scripts-and-automation/soc_ips_blocker.py):** Sistema de Resposta Ativa que identifica ataques de Força Bruta via Regex e executa bloqueios automáticos no Firewall (Netsh/Iptables).
+* 🔍 **[Integrity Checker](./scripts-and-automation/hash_checker.py):** Verificador tático de hashes (v3.0) que utiliza leitura em blocos para garantir a integridade de evidências e binários.
 
 ---
 *Desenvolvido e mantido por **Ícaro de Souza Mariano** | Conecte-se comigo no [LinkedIn](http://www.linkedin.com/in/icaro-s-m).*
