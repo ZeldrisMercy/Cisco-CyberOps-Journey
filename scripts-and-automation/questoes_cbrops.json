@@ -299,7 +299,6 @@
         "resposta_correta": "B",
         "explicacao": "O privilégio mínimo reduz o risco de danos acidentais ou maliciosos na rede."
     },
-    ,
     {
         "dominio": "Mod 2 - Estrutura do SOC",
         "pergunta": "Qual nível de analista no SOC é responsável pela triagem inicial e classificação de alertas?",
@@ -600,7 +599,6 @@
         "resposta_correta": "B",
         "explicacao": "O uso de VMs com rede isolada permite detonar malwares com segurança para estudo de IoCs."
     }
-    ,
     {
         "dominio": "Mod 3 - Arquitetura Windows",
         "pergunta": "Em qual modo de execução do Windows os drivers de hardware operam com acesso total e direto à memória e ao processador?",
@@ -901,7 +899,6 @@
         "resposta_correta": "B",
         "explicacao": "A análise da árvore de processos revela comportamentos anômalos, como aplicativos de produtividade executando shells de comando."
     }
-    ,
     {
         "dominio": "Mod 4 - Filosofia Linux",
         "pergunta": "Qual é o princípio fundamental da arquitetura Linux em relação aos recursos do sistema (teclado, rede, processos)?",
