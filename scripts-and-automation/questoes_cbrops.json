@@ -356,7 +356,6 @@
     "resposta_correta": "B",
     "explicacao": "O Visualizador de Eventos (Event Viewer) é a fonte primária de análise forense no Windows."
   },
-  ,
   {
     "dominio": "Mod 3 - Análise Baseada em Host (Windows)",
     "pergunta": "52. Qual 'Hive' do registro do Windows armazena as associações de extensões de ficheiros e dados de OLE?",
