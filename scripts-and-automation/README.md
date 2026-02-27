@@ -2,30 +2,38 @@
 
 > **Missão:** Um analista de SOC de elite não se limita a operar *dashboards* construídos por terceiros; ele desenvolve as suas próprias ferramentas para acelerar a Resposta a Incidentes (IR) e proteger contra Riscos Digitais.
 
-Esta secção do repositório materializa a união entre a engenharia de software e a cibersegurança. Aqui arquivo os *scripts* e ferramentas de linha de comandos (CLI) desenvolvidos para automatizar tarefas de segurança e testar os meus conhecimentos.
+Esta secção materializa a união entre a engenharia de software e a cibersegurança. Aqui arquivo os *scripts* desenvolvidos para automatizar tarefas de defesa e testar o meu progresso.
 
 ---
 
 ## 🛠️ O Arsenal (Ferramentas Desenvolvidas)
 
-### 1. CyberOps CLI Quizzer (`cyberops_quizzer.py`)
-Porquê utilizar aplicações genéricas de *flashcards* quando podes construir o teu próprio motor de estudo? 
-* **Descrição:** Um *script* em Python desenvolvido do zero para testar os conhecimentos da certificação Cisco CBROPS. Ele consome uma base de dados JSON (`questoes_cbrops.json`), apresenta as questões de forma interativa no terminal, contabiliza a pontuação em tempo real e utiliza códigos de cor ANSI para *feedback* visual imediato.
-* **Competências Demonstradas:** Manipulação de ficheiros JSON, interfaces de linha de comandos (CLI), lógica de programação e estudo ativo.
+### 1. CyberOps CLI Quizzer (`cyberops_quizzer.py`) v3.1
+* **Descrição:** Motor de estudo desenvolvido do zero que consome uma base de dados JSON (`questoes_cbrops.json`). Possui barra de progresso, sistema de "pular questão", modo de seleção por módulo e tratamento de codificação para maior resiliência.
+* **Competências:** Manipulação de JSON, ANSI Colors, UX em Terminal e Estudo Ativo.
 
-### 2. SSH Log Parser & Threat Intel (`log_parser_ssh.py`) 
-* **Descrição:** Um *script* para dissecar ficheiros `/var/log/auth.log` de servidores Linux. O objetivo é identificar endereços IP com múltiplas falhas de autenticação (Força Bruta) e isolá-los automaticamente num relatório.
-* **Competências Demonstradas:** Expressões Regulares (Regex), manipulação de *strings*, análise forense e automação de SOC (Tier 1).
+### 2. SOC IPS Unit: Active Response (`soc_ips_blocker.py`)
+* **Descrição:** Ferramenta de **Resposta Ativa**. O script disseca logs de autenticação, identifica ataques de Força Bruta via Regex e oferece uma interface para bloqueio real no Firewall (Netsh/Iptables) com suporte a *Whitelists*.
+* **Competências:** Regex, Integração com OS (Subprocess), Gestão de Firewall e Lógica de IPS.
 
-### 3. API Hash Checker (`vt_hash_checker.py`) - *Em Breve*
-* **Descrição:** Ferramenta que consome a API pública do VirusTotal para verificar automaticamente se uma lista de *hashes* (MD5/SHA-256) extraídos de um incidente corresponde a malwares conhecidos.
-* **Competências Demonstradas:** Integração de APIs REST, pedidos HTTP (Requests) e Threat Intelligence.
+### 3. File Integrity & Hash Checker (`hash_checker.py`)
+* **Descrição:** Utilitário para garantir a **Integridade** (Tríade CIA). Calcula hashes SHA-256 de arquivos em blocos de memória, permitindo comparar binários suspeitos com hashes oficiais para detectar adulterações ou malwares disfarçados.
+* **Competências:** Criptografia (Hashlib), Manipulação de Arquivos Binários e Forense Digital.
 
 ---
 
-## 🚀 Como testar o CyberOps Quizzer na tua máquina
+## 🚀 Como Executar
 
-1. Certifica-te de que tens o Python 3 instalado.
-2. Clona este repositório.
-3. Navega até esta pasta: `cd scripts-and-automation`
-4. Executa o simulador: `python3 cyberops_quizzer.py`
+1. Certifique-se de que possui o Python 3.10+ instalado.
+2. Navegue até a pasta: `cd scripts-and-automation`
+3. Para o simulador: `python cyberops_quizzer.py`
+4. Para o bloqueador (Modo Real exige Admin/Sudo): `python soc_ips_blocker.py`
+
+---
+
+### 🛰️ Transmissão de Entrada: Próximas Missões...
+* [ ] **VT Threat Intel API:** Integração automática com VirusTotal para reputação de IPs detectados.
+* [ ] **Log Dashboard:** Interface web para visualização gráfica das tentativas de invasão bloqueadas.
+* [ ] **PCAP Auto-Analyzer:** Extração automática de metadados de arquivos de captura de rede.
+
+**[!] Novas ferramentas e módulos de defesa serão descriptografados em breve...**
