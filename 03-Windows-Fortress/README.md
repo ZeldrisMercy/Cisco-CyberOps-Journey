@@ -7,54 +7,73 @@
 
 ## 🏛️ Windows Internals (A Arquitetura Central)
 
-
-
 ### 1. Modos de Execução e Memória
-* **User Mode (Ring 3):** Onde rodam as aplicações comuns. O acesso ao hardware é restrito.
-* **Kernel Mode (Ring 0):** Possui acesso total ao hardware. Se um driver falha aqui, o sistema colapsa (BSOD). Malwares avançados (Rootkits) buscam este nível para obter invisibilidade.
-* **Virtual Address Space:** Cada processo no Windows recebe seu próprio espaço de endereço virtual. Isso significa que o Windows cria um conjunto de endereços de memória virtuais que mapeiam para a memória física que aquele processo tem permissão para usar. Isso isola os processos, impedindo que um programa acesse a memória do outro.
+* **User Mode (Ring 3):** Onde correm as aplicações comuns. O acesso ao hardware é restrito.
+* **Kernel Mode (Ring 0):** Possui acesso total ao hardware. Se um driver falha aqui, o sistema colapsa (BSOD). Malwares avançados (Rootkits) procuram este nível para obter invisibilidade.
+* **Virtual Address Space:** Cada processo no Windows recebe o seu próprio espaço de endereço virtual. O Windows cria um conjunto de endereços de memória virtuais que mapeiam para a memória física, isolando os processos.
 
 ### 2. A Tríade de Execução
-* **Processos:** Um contêiner de recursos (ex: `chrome.exe`). Cada processo tem um PID único.
+* **Processos:** Um contentor de recursos (ex: `chrome.exe`). Cada processo tem um PID único.
 * **Threads:** A unidade básica de execução dentro de um processo.
-* **Handles:** Um ponteiro que permite que um processo acesse um recurso do sistema de forma controlada (um arquivo, uma porta, etc.).
+* **Handles:** Um ponteiro que permite que um processo aceda a um recurso do sistema de forma controlada (um ficheiro, uma porta, etc.).
 
-### 3. NTFS e Ocultação de Malware
-O NTFS possui o **ADS (Alternate Data Streams)**. O ADS permite anexar fluxos de dados ocultos a um arquivo legítimo sem alterar o tamanho visível do arquivo principal. Adversários usam isso para esconder malwares dentro de arquivos de texto (`arquivo.txt:malware.exe`).
+---
+
+## 💀 Anatomia da Evasão: Case Study "Alternate Data Streams (ADS)"
+
+O sistema de ficheiros NTFS possui o **ADS (Alternate Data Streams)**, originalmente criado para compatibilidade com sistemas antigos da Apple. No entanto, é amplamente abusado por adversários para evasão de defesas. O ADS permite anexar fluxos de dados ocultos a um ficheiro legítimo sem alterar o tamanho visível no Windows Explorer.
+
+### 🧪 Análise Prática (Simulação de Ameaça)
+O teste prático de ofuscação que realizei demonstrou como dados críticos e binários podem desaparecer da vista de um utilizador comum e até de soluções antivírus baseadas em assinaturas estáticas.
+
+* **Fase 1: Ocultação de Texto (Exfiltração/Persistência):** Criação de um fluxo de dados oculto contendo a string `SENHA_ULTRA_SECRETA_123` dentro de um ficheiro de texto inofensivo.
+  * *Comando de Execução:* `echo "SENHA_ULTRA_SECRETA_123" > relatorio.txt:secreto.txt`
+* **Fase 2: Ocultação de Binário Malicioso:**
+  Ocultação de um payload simulado (`TROJAN_V8.exe`) atrás de um documento comum.
+  * *Comando de Execução:* `type TROJAN_V8.exe > relatorio.pdf:trojan.exe`
+
+### 🛡️ Táticas de Detenção e Limitações (Blue Team)
+O ADS não é autónomo. O fluxo oculto não se executa sozinho; necessita de um gatilho externo (uma "Logic Bomb", um script PowerShell, ou chamadas via WMI/WMIC) para extrair e executar o binário escondido.
+
+**Como o SOC deteta e erradica a ameaça?**
+1. **CLI Clássica:** O comando `dir` normal não mostra o ficheiro. É obrigatório utilizar `dir /r` no prompt de comando para listar os fluxos anexados.
+2. **PowerShell Avançado:** O cmdlet `Get-Item -Stream * relatorio.txt` revela todos os fluxos de dados (streams) associados ao ficheiro.
+3. **Sysinternals (O Padrão Ouro):** A ferramenta `streams.exe` (da suite Sysinternals da Microsoft) permite não só detetar, mas também apagar os fluxos maliciosos em massa numa diretoria, sem destruir o ficheiro original (`streams -d relatorio.txt`).
+
+> [!WARNING]
+> **Vulnerabilidade Arquitetural:** O ADS é uma funcionalidade exclusiva do NTFS. Se o atacante tentar exfiltrar o ficheiro para uma pen USB formatada em FAT32 ou transferi-lo via rede (HTTP/FTP para um servidor Linux), o fluxo oculto (e o malware) perde-se. É uma técnica estritamente de *permanência local*.
 
 ---
 
 ## 🛡️ Defesa de Endpoint e Hardening
 
-A Cisco cobra o entendimento das estratégias de defesa focadas no host.
+A Cisco exige a compreensão das estratégias de defesa focadas no host.
 
 ### 1. Abordagens de Proteção
-* **Agent-based (Com Agente):** Requer a instalação de um software (agente) diretamente no Windows (ex: Antivírus, Cisco AMP). Vantagem: Coleta dados em tempo real e inspeciona processos locais profundamente. Desvantagem: Consome recursos do host.
-* **Agentless (Sem Agente):** A proteção é feita pela rede ou hipervisor, sem instalar nada na máquina. Vantagem: Menor custo de manutenção e zero impacto na performance do host. Desvantagem: Menos visibilidade de processos internos.
+* **Agent-based (Com Agente):** Requer a instalação de um software diretamente no Windows (ex: Antivírus, Cisco Secure Endpoint). Coleta dados em tempo real, mas consome recursos da máquina local.
+* **Agentless (Sem Agente):** A proteção é feita pela rede ou hipervisor. Tem menor custo de manutenção e impacto zero na performance do endpoint, mas menor visibilidade de processos internos.
 
-### 2. Controle de Aplicações
-* **Blacklisting:** Bloqueia apenas o que é sabidamente ruim (ex: hashes de malwares conhecidos). Se a ameaça for um *Zero-Day*, ela passará.
-* **Whitelisting:** Abordagem "Zero Trust". Bloqueia tudo por padrão e permite rodar apenas o que o administrador aprovar explicitamente. É muito mais seguro.
+### 2. Controlo de Aplicações
+* **Blacklisting:** Bloqueia o que é sabidamente mau (ex: lista de hashes de malwares). Falha redondamente contra *Zero-Days*.
+* **Whitelisting:** Abordagem "Zero Trust". Bloqueia tudo por defeito e permite correr apenas o explicitamente aprovado pelo administrador de sistemas.
 
 ### 3. Systems-Based Sandboxing
-Ferramentas de *Sandboxing* (caixa de areia) criam um ambiente virtual altamente isolado onde arquivos suspeitos podem ser abertos (detonação de malware) de forma segura, sem risco de infectar o sistema operacional real.
+Ferramentas de *Sandboxing* criam um ambiente virtual altamente isolado onde ficheiros suspeitos (como aquele `relatorio.pdf:trojan.exe`) podem ser abertos (detonação de malware) de forma segura, sem risco de infetar o sistema operativo real e permitindo a recolha de *Indicadores de Comprometimento (IoCs)*.
 
 ---
 
-## 🔍 O Arsenal de Auditoria: Registro e Eventos
+## 🔍 O Arsenal de Auditoria: Registo e Eventos
 
-
-
-* **Windows Registry:** O banco de dados de configuração. A chave `HKEY_LOCAL_MACHINE (HKLM)` afeta o sistema e todos os usuários. A chave `HKEY_CURRENT_USER (HKCU)` afeta apenas o usuário logado. Malwares alteram as subchaves `\CurrentVersion\Run` para persistência.
-* **Event Viewer (IDs que caem na prova):**
+* **Windows Registry (Registo do Windows):** O banco de dados de configuração. A chave `HKEY_LOCAL_MACHINE (HKLM)` afeta o sistema e todos os utilizadores. Malwares alteram subchaves como `\CurrentVersion\Run` para persistência.
+* **Event Viewer (IDs Críticos para o Exame e para o SOC):**
   * `Event ID 4624`: Logon com sucesso.
-  * `Event ID 4625`: Falha de logon (Força Bruta).
-  * `Event ID 4688`: Um novo processo foi criado (Vital para rastrear malwares sendo iniciados).
-  * `Event ID 1102`: O log de auditoria foi limpo (Sinal clássico de atacante tentando apagar seus rastros).
+  * `Event ID 4625`: Falha de logon (Múltiplas tentativas indicam Força Bruta / Password Spraying).
+  * `Event ID 4688`: Um novo processo foi criado (Vital para rastrear execuções originadas de scripts que chamam um ficheiro oculto em ADS).
+  * `Event ID 1102`: O log de auditoria foi limpo (Sinal clássico de encobrimento de rastos após a invasão).
 
 ---
 
 ## 📑 Tactical Field Report: Lab Executions
 
-* **[Lab - Identify Running Processes]:** Uso do comando `netstat -abno` para listar conexões TCP, suas portas, e o executável (com PID) atrelado a elas.
-* **[Lab - Sysinternals Suite]:** Uso do *Process Explorer* para validar assinaturas digitais de imagens do Windows, identificando malwares camuflados de `svchost.exe`.
+* **[Lab - Identify Running Processes]:** Uso do comando `netstat -abno` para listar ligações TCP ativas, as suas portas, e o executável (com PID) atrelado a elas.
+* **[Lab - Sysinternals Suite]:** Uso do *Process Explorer* para validar assinaturas digitais de imagens do Windows, identificando malwares camuflados sob o nome de processos legítimos do sistema (como `svchost.exe`).
