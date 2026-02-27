@@ -1,17 +1,17 @@
 [
     {
         "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "Um ataque DDoS satura o link de internet de uma empresa. Qual princípio da Tríade CIA foi comprometido?",
-        "opcoes": [
-            "A) Confidencialidade",
-            "B) Integridade",
-            "C) Disponibilidade",
-            "D) Autenticação"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Ataques de negação de serviço visam interromper o acesso legítimo, ferindo a Disponibilidade."
-    },
-    {
+        "pergunta": "Um ataque DDoS satura o link de internet de uma empresa. Qual princípio da Tríade CIA foi comprometido?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Autenticação"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Ataques de negação de serviço visam interromper o acesso legítimo, ferindo a Disponibilidade."
+    },
+    {
         "dominio": "Mod 1 - Princípios CIA e AAA",
         "pergunta": "Qual processo do AAA é responsável por registrar as atividades de um usuário para fins de auditoria?",
         "opcoes": [
