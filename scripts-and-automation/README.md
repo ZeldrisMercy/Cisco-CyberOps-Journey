@@ -13,7 +13,7 @@ Porquê utilizar aplicações genéricas de *flashcards* quando podes construir 
 * **Descrição:** Um *script* em Python desenvolvido do zero para testar os conhecimentos da certificação Cisco CBROPS. Ele consome uma base de dados JSON (`questoes_cbrops.json`), apresenta as questões de forma interativa no terminal, contabiliza a pontuação em tempo real e utiliza códigos de cor ANSI para *feedback* visual imediato.
 * **Competências Demonstradas:** Manipulação de ficheiros JSON, interfaces de linha de comandos (CLI), lógica de programação e estudo ativo.
 
-### 2. SSH Log Parser & Threat Intel (`log_parser_ssh.py`) - 
+### 2. SSH Log Parser & Threat Intel (`log_parser_ssh.py`) 
 * **Descrição:** Um *script* para dissecar ficheiros `/var/log/auth.log` de servidores Linux. O objetivo é identificar endereços IP com múltiplas falhas de autenticação (Força Bruta) e isolá-los automaticamente num relatório.
 * **Competências Demonstradas:** Expressões Regulares (Regex), manipulação de *strings*, análise forense e automação de SOC (Tier 1).
 
