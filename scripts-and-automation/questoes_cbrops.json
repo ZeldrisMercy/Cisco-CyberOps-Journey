@@ -1,6 +1,6 @@
-{
-  {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
+[
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
         "pergunta": "Um ataque DDoS satura o link de internet de uma empresa. Qual princípio da Tríade CIA foi comprometido?",
         "opcoes": [
             "A) Confidencialidade",
