@@ -1,1202 +1,1202 @@
 [
-    {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "Um ataque DDoS satura o link de internet de uma empresa. Qual princípio da Tríade CIA foi comprometido?",
-        "opcoes": [
-            "A) Confidencialidade",
-            "B) Integridade",
-            "C) Disponibilidade",
-            "D) Autenticação"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Ataques de negação de serviço visam interromper o acesso legítimo, ferindo a Disponibilidade."
-    },
-    {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "Qual processo do AAA é responsável por registrar as atividades de um usuário para fins de auditoria?",
-        "opcoes": [
-            "A) Authentication",
-            "B) Authorization",
-            "C) Accounting",
-            "D) Administration"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Accounting (Contabilização) rastreia o que o usuário fez após logar."
-    },
-    {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "O uso de assinaturas digitais garante qual princípio da segurança?",
-        "opcoes": [
-            "A) Confidencialidade",
-            "B) Integridade e Não-Repúdio",
-            "C) Disponibilidade",
-            "D) Escalabilidade"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Assinaturas digitais provam que o dado não foi alterado e quem o enviou."
-    },
-    {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "Qual serviço garante a Confidencialidade de dados em repouso em um endpoint Windows?",
-        "opcoes": [
-            "A) Firewall",
-            "B) BitLocker (Criptografia)",
-            "C) Antivírus",
-            "D) Event Viewer"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Criptografia de disco protege os dados contra leitura não autorizada se o dispositivo for roubado."
-    },
-    {
-        "dominio": "Mod 1 - Princípios CIA e AAA",
-        "pergunta": "Verificar se um usuário tem permissão para ler uma pasta específica após ele ter logado é um exemplo de:",
-        "opcoes": [
-            "A) Autenticação",
-            "B) Autorização",
-            "C) Accounting",
-            "D) Identificação"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A Autorização define os privilégios e acessos de um usuário já autenticado."
-    },
-    {
-        "dominio": "Mod 1 - Controle de Acesso",
-        "pergunta": "Em qual modelo o dono do arquivo decide quem pode acessá-lo?",
-        "opcoes": [
-            "A) MAC (Mandatory)",
-            "B) DAC (Discretionary)",
-            "C) RBAC (Role-Based)",
-            "D) ABAC (Attribute-Based)"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "No DAC, o controle é discricionário, ficando a cargo do proprietário do recurso."
-    },
-    {
-        "dominio": "Mod 1 - Controle de Acesso",
-        "pergunta": "Qual modelo de acesso é baseado na função ou cargo do usuário na empresa?",
-        "opcoes": [
-            "A) DAC",
-            "B) MAC",
-            "C) RBAC",
-            "D) Rule-Based"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O RBAC (Role-Based Access Control) facilita a gestão ao agrupar acessos por cargos."
-    },
-    {
-        "dominio": "Mod 1 - Controle de Acesso",
-        "pergunta": "Qual modelo utiliza rótulos de sensibilidade (como Top Secret) impostos pelo sistema?",
-        "opcoes": [
-            "A) DAC",
-            "B) MAC",
-            "C) RBAC",
-            "D) ABAC"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "No MAC, o sistema impõe o acesso e o usuário não pode alterá-lo."
-    },
-    {
-        "dominio": "Mod 1 - Risco e CVSS",
-        "pergunta": "Qual é a definição técnica de Vulnerabilidade?",
-        "opcoes": [
-            "A) Um hacker mal-intencionado",
-            "B) Uma fraqueza ou falha no sistema",
-            "C) O impacto financeiro de um ataque",
-            "D) Um software de defesa"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Vulnerabilidade é a brecha ou fraqueza que pode ser explorada por uma ameaça."
-    },
-    {
-        "dominio": "Mod 1 - Risco e CVSS",
-        "pergunta": "No CVSS, qual métrica avalia se o ataque exige proximidade física ou pode ser via rede?",
-        "opcoes": [
-            "A) Attack Complexity (AC)",
-            "B) Privileges Required (PR)",
-            "C) Attack Vector (AV)",
-            "D) User Interaction (UI)"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O Attack Vector define o caminho necessário para explorar a falha (Network, Adjacent, Local ou Physical)."
-    },
-    {
-        "dominio": "Mod 1 - Risco e CVSS",
-        "pergunta": "Qual métrica do CVSS diminui quando um patch de correção é disponibilizado?",
-        "opcoes": [
-            "A) Base Score",
-            "B) Temporal Score",
-            "C) Environmental Score",
-            "D) Impact Score"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A pontuação Temporal reflete o estado atual de correção e disponibilidade de exploits."
-    },
-    {
-        "dominio": "Mod 1 - Risco e CVSS",
-        "pergunta": "A fórmula simplificada do Risco é:",
-        "opcoes": [
-            "A) Ameaça + Vulnerabilidade",
-            "B) Ameaça x Vulnerabilidade",
-            "C) Ameaça / Vulnerabilidade",
-            "D) Atacante + Exploit"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O risco é a intersecção entre a existência de uma ameaça e uma vulnerabilidade explorável."
-    },
-    {
-        "dominio": "Mod 1 - Ameaças e Atores",
-        "pergunta": "Qual ator de ameaça é motivado por causas políticas ou sociais?",
-        "opcoes": [
-            "A) Script Kiddie",
-            "B) Hacktivista",
-            "C) State-Sponsored",
-            "D) Cyber-criminal"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Hacktivistas utilizam técnicas de hacking para promover protestos ou ideologias."
-    },
-    {
-        "dominio": "Mod 1 - Ameaças e Atores",
-        "pergunta": "O que define uma APT (Advanced Persistent Threat)?",
-        "opcoes": [
-            "A) Ataques rápidos e aleatórios",
-            "B) Foco em persistência e objetivos de longo prazo",
-            "C) Uso exclusivo de vírus antigos",
-            "D) Ataques feitos apenas por amadores"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "APTs são ataques direcionados, furtivos e contínuos, geralmente com alto financiamento."
-    },
-    {
-        "dominio": "Mod 1 - Ameaças e Atores",
-        "pergunta": "Como é chamada a ameaça que vem de um funcionário atual ou antigo?",
-        "opcoes": [
-            "A) External Threat",
-            "B) Social Engineering",
-            "C) Insider Threat",
-            "D) Zero-day"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Insiders possuem conhecimento interno e, às vezes, acesso legítimo, sendo riscos críticos."
-    },
-    {
-        "dominio": "Mod 1 - Vetores de Ataque",
-        "pergunta": "Qual ataque envolve infectar um site que o alvo costuma visitar com frequência?",
-        "opcoes": [
-            "A) Phishing",
-            "B) Watering Hole",
-            "C) Spear Phishing",
-            "D) Vishing"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Watering Hole foca em comprometer a cadeia de confiança de sites frequentados pelo alvo."
-    },
-    {
-        "dominio": "Mod 1 - Vetores de Ataque",
-        "pergunta": "Um e-mail falso direcionado especificamente a um executivo do alto escalão (C-Level) é um:",
-        "opcoes": [
-            "A) Spam",
-            "B) Whaling",
-            "C) Smishing",
-            "D) Pharming"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Whaling é o phishing direcionado às 'baleias' (executivos importantes) da empresa."
-    },
-    {
-        "dominio": "Mod 1 - Vetores de Ataque",
-        "pergunta": "O que caracteriza um ataque 'Evil Twin' em redes Wi-Fi?",
-        "opcoes": [
-            "A) Quebra de senha WPA2",
-            "B) Um Access Point falso com o mesmo SSID da rede legítima",
-            "C) Inundação de pacotes de desautenticação",
-            "D) Roubo físico do roteador"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O Evil Twin induz o usuário a se conectar a um ponto de acesso malicioso idêntico ao real."
-    },
-    {
-        "dominio": "Mod 1 - Malware",
-        "pergunta": "Qual malware é projetado para se esconder no nível do Kernel e ocultar processos?",
-        "opcoes": [
-            "A) Adware",
-            "B) Rootkit",
-            "C) Ransomware",
-            "D) Spyware"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Rootkits modificam o sistema para esconder sua presença e de outros malwares."
-    },
-    {
-        "dominio": "Mod 1 - Malware",
-        "pergunta": "Um malware que se espalha automaticamente pela rede sem interação do usuário é um:",
-        "opcoes": [
-            "A) Virus",
-            "B) Worm",
-            "C) Trojan",
-            "D) Logic Bomb"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Worms são auto-replicantes e exploram vulnerabilidades de rede para se propagar."
-    },
-    {
-        "dominio": "Mod 1 - Malware",
-        "pergunta": "Qual malware criptografa arquivos e exige pagamento para liberá-los?",
-        "opcoes": [
-            "A) Spyware",
-            "B) Ransomware",
-            "C) Keylogger",
-            "D) Backdoor"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Ransomware sequestra os dados da vítima visando extorsão financeira."
-    },
-    {
-        "dominio": "Mod 1 - Classificação de Dados",
-        "pergunta": "O que significa a sigla PII?",
-        "opcoes": [
-            "A) Private Internet Intelligence",
-            "B) Personally Identifiable Information",
-            "C) Protected Information Interface",
-            "D) Personal Integrated Identity"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "PII refere-se a qualquer dado que possa identificar um indivíduo único."
-    },
-    {
-        "dominio": "Mod 1 - Classificação de Dados",
-        "pergunta": "Registros médicos de pacientes são classificados legalmente como:",
-        "opcoes": [
-            "A) PII",
-            "B) PHI (Protected Health Information)",
-            "C) PCI",
-            "D) Public Data"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "PHI é a categoria específica para dados de saúde, protegidos por leis como a HIPAA."
-    },
-    {
-        "dominio": "Mod 1 - Conceitos Gerais",
-        "pergunta": "O princípio de usar múltiplas camadas de defesa é conhecido como:",
-        "opcoes": [
-            "A) Least Privilege",
-            "B) Defense in Depth",
-            "C) Separation of Duties",
-            "D) Access Control List"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Defesa em Profundidade garante que se uma camada falhar, outras protejam o ativo."
-    },
-    {
-        "dominio": "Mod 1 - Conceitos Gerais",
-        "pergunta": "Dar ao usuário apenas o acesso necessário para sua função é o princípio do:",
-        "opcoes": [
-            "A) Máximo Acesso",
-            "B) Privilégio Mínimo (Least Privilege)",
-            "C) Compartilhamento de Contas",
-            "D) Trust but Verify"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O privilégio mínimo reduz o risco de danos acidentais ou maliciosos na rede."
-    },
-    {
-        "dominio": "Mod 2 - Estrutura do SOC",
-        "pergunta": "Qual nível de analista no SOC é responsável pela triagem inicial e classificação de alertas?",
-        "opcoes": [
-            "A) Tier 1",
-            "B) Tier 2",
-            "C) Tier 3",
-            "D) SOC Manager"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "O Analista Tier 1 monitora a fila de alertas e realiza a triagem (triage) para validar incidentes reais."
-    },
-    {
-        "dominio": "Mod 2 - Estrutura do SOC",
-        "pergunta": "Qual profissional do SOC atua de forma proativa, caçando ameaças que não geraram alertas automáticos?",
-        "opcoes": [
-            "A) Analista de Triagem",
-            "B) Threat Hunter (Tier 3)",
-            "C) Incident Responder",
-            "D) Compliance Officer"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O Threat Hunter realiza buscas proativas por anomalias e indicadores de comprometimento (IoCs)."
-    },
-    {
-        "dominio": "Mod 2 - Métricas de SOC",
-        "pergunta": "Qual métrica mede o tempo médio decorrido entre o início de uma intrusão e a sua detecção inicial?",
-        "opcoes": [
-            "A) MTTR",
-            "B) MTTC",
-            "C) MTTD (Mean Time to Detect)",
-            "D) Dwell Time"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O MTTD foca na eficácia e rapidez das ferramentas e analistas em identificar uma ameaça."
-    },
-    {
-        "dominio": "Mod 2 - Métricas de SOC",
-        "pergunta": "O tempo médio que uma equipe leva para isolar um host infectado, impedindo a propagação do malware, é o:",
-        "opcoes": [
-            "A) MTTC (Mean Time to Contain)",
-            "B) MTTD",
-            "C) MTTR",
-            "D) Uptime"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "O MTTC foca na contenção do incidente para limitar o dano operacional."
-    },
-    {
-        "dominio": "Mod 2 - Métricas de SOC",
-        "pergunta": "O que representa o 'Dwell Time' em uma investigação de segurança?",
-        "opcoes": [
-            "A) O tempo de restauração do backup",
-            "B) O tempo total que um invasor permanece na rede antes de ser detectado",
-            "C) O tempo de resposta do firewall",
-            "D) O tempo de treinamento da equipe"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Dwell Time é a janela de oportunidade que o atacante teve dentro do ambiente da vítima."
-    },
-    {
-        "dominio": "Mod 2 - Tecnologias de SOC",
-        "pergunta": "Qual é a função da 'Correlação' em um SIEM?",
-        "opcoes": [
-            "A) Apagar logs duplicados",
-            "B) Ligar eventos isolados de diferentes fontes para identificar um ataque complexo",
-            "C) Criptografar a comunicação entre hosts",
-            "D) Instalar patches automaticamente"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A correlação utiliza regras lógicas para encontrar padrões maliciosos em logs de origens distintas."
-    },
-    {
-        "dominio": "Mod 2 - Tecnologias de SOC",
-        "pergunta": "O processo de converter logs de diferentes formatos para um padrão único é a:",
-        "opcoes": [
-            "A) Agregação",
-            "B) Normalização",
-            "C) Retenção",
-            "D) Indexação"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A normalização permite que o SIEM trate dados de fontes variadas de forma uniforme."
-    },
-    {
-        "dominio": "Mod 2 - Tecnologias de SOC",
-        "pergunta": "Qual tecnologia foca na automação e orquestração de respostas através de Playbooks?",
-        "opcoes": [
-            "A) SIEM",
-            "B) SOAR",
-            "C) IDS",
-            "D) DLP"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O SOAR permite automatizar fluxos de resposta a incidentes via integração de APIs."
-    },
-    {
-        "dominio": "Mod 2 - Tecnologias de SOC",
-        "pergunta": "Qual é a principal vantagem de um SIEM em relação ao monitoramento de logs individuais?",
-        "opcoes": [
-            "A) Redução do uso de CPU nos servidores",
-            "B) Visibilidade centralizada e correlação de eventos em toda a infraestrutura",
-            "C) Substituição do antivírus tradicional",
-            "D) Bloqueio físico de portas USB"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O SIEM oferece uma visão holística, permitindo identificar ataques que se movem lateralmente."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "De acordo com o NIST SP 800-61, qual é a primeira fase do ciclo de resposta a incidentes?",
-        "opcoes": [
-            "A) Detecção e Análise",
-            "B) Preparação",
-            "C) Contenção",
-            "D) Erradicação"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A Preparação envolve estabelecer políticas, ferramentas e treinar a equipe antes que um incidente ocorra."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "Em qual fase do ciclo NIST os analistas determinam o escopo, vetor e impacto de uma intrusão?",
-        "opcoes": [
-            "A) Preparação",
-            "B) Detecção e Análise",
-            "C) Recuperação",
-            "D) Lições Aprendidas"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Nesta fase, IoCs são validados para entender a natureza do ataque."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "Isolar um servidor infectado em uma VLAN de quarentena é um exemplo de:",
-        "opcoes": [
-            "A) Erradicação",
-            "B) Contenção",
-            "C) Recuperação",
-            "D) Preparação"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A contenção visa limitar o alcance da ameaça e evitar danos adicionais."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "Remover o malware, fechar as contas vulneráveis e limpar o sistema refere-se à fase de:",
-        "opcoes": [
-            "A) Contenção",
-            "B) Erradicação",
-            "C) Recuperação",
-            "D) Análise"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A erradicação foca na eliminação completa dos componentes da ameaça do sistema."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "Restaurar os sistemas de produção a partir de backups limpos ocorre na fase de:",
-        "opcoes": [
-            "A) Preparação",
-            "B) Erradicação",
-            "C) Recuperação",
-            "D) Lições Aprendidas"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "A recuperação foca em devolver o sistema ao estado operacional normal."
-    },
-    {
-        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
-        "pergunta": "Qual fase do NIST foca na melhoria contínua após a resolução do incidente?",
-        "opcoes": [
-            "A) Detecção",
-            "B) Contenção",
-            "C) Atividades Pós-Incidente (Lições Aprendidas)",
-            "D) Preparação"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Esta fase permite identificar falhas no processo e fortalecer as defesas."
-    },
-    {
-        "dominio": "Mod 2 - Inteligência de Ameaças",
-        "pergunta": "O que são IoCs (Indicadores de Comprometimento)?",
-        "opcoes": [
-            "A) Políticas de senha forte",
-            "B) Evidências forenses (hashes, IPs, URLs) que sugerem uma intrusão",
-            "C) Manual de conduta ética",
-            "D) Modelos de firewall"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "IoCs são 'assinaturas' táticas deixadas pelo atacante que o SOC usa para detecção."
-    },
-    {
-        "dominio": "Mod 2 - Inteligência de Ameaças",
-        "pergunta": "Qual é a principal função de uma plataforma TIP (Threat Intelligence Platform)?",
-        "opcoes": [
-            "A) Fazer backup de arquivos",
-            "B) Agregar e organizar feeds de inteligência de ameaças externas",
-            "C) Criptografar e-mails",
-            "D) Substituir o analista Tier 1"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A TIP enriquece os dados do SOC com informações sobre ameaças conhecidas globalmente."
-    },
-    {
-        "dominio": "Mod 2 - Conceitos de SOC",
-        "pergunta": "O que é um 'Falso Positivo'?",
-        "opcoes": [
-            "A) Um ataque real que o sistema não detectou",
-            "B) Um alerta gerado por uma atividade legítima",
-            "C) Uma falha de hardware",
-            "D) Um ataque que foi bloqueado"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Falsos positivos geram fadiga de alertas e devem ser filtrados pelo Tier 1."
-    },
-    {
-        "dominio": "Mod 2 - Conceitos de SOC",
-        "pergunta": "O que é um 'Falso Negativo'?",
-        "opcoes": [
-            "A) Um alerta para uma atividade legítima",
-            "B) Um ataque real que passou despercebido pelas ferramentas de detecção",
-            "C) Um erro de configuração no SIEM",
-            "D) Uma queda de energia no datacenter"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Falsos negativos são perigosos, pois representam uma intrusão ativa não detectada."
-    },
-    {
-        "dominio": "Mod 2 - Conceitos de SOC",
-        "pergunta": "Qual documento descreve os passos técnicos exatos para responder a um tipo específico de alerta?",
-        "opcoes": [
-            "A) Service Level Agreement (SLA)",
-            "B) Playbook / Runbook",
-            "C) Política de Privacidade",
-            "D) NDA"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Playbooks garantem consistência e rapidez na resposta a incidentes padronizados."
-    },
-    {
-        "dominio": "Mod 2 - Métricas de SOC",
-        "pergunta": "Qual métrica mede o tempo total para detectar, conter e remediar completamente um incidente?",
-        "opcoes": [
-            "A) MTTD",
-            "B) MTTR (Mean Time to Respond/Recover)",
-            "C) MTTC",
-            "D) SLA"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O MTTR reflete o ciclo de vida completo da resposta até o restabelecimento do serviço."
-    },
-    {
-        "dominio": "Mod 2 - Infraestrutura",
-        "pergunta": "A prática de ter uma cópia de segurança dos dados fora do ambiente principal (off-site) visa proteger qual princípio?",
-        "opcoes": [
-            "A) Confidencialidade",
-            "B) Integridade",
-            "C) Disponibilidade",
-            "D) Autenticação"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Backups off-site garantem que o dado possa ser recuperado em caso de desastres no site principal."
-    },
-    {
-        "dominio": "Mod 2 - Gestão de SOC",
-        "pergunta": "O equilíbrio crítico no SOC entre Proteção e Disponibilidade deve considerar:",
-        "opcoes": [
-            "A) Apenas o custo das ferramentas",
-            "B) O impacto operacional das medidas de segurança nos negócios",
-            "C) Somente a opinião do analista",
-            "D) A marca dos servidores"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A segurança não deve impedir o funcionamento legítimo da empresa sem uma justificativa de risco proporcional."
-    },
-    {
-        "dominio": "Mod 2 - Carreira",
-        "pergunta": "Qual certificação é focada especificamente em operações de analista de SOC da Cisco?",
-        "opcoes": [
-            "A) CCNA",
-            "B) CyberOps Associate",
-            "C) DevNet Associate",
-            "D) CCNP Security"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A certificação CyberOps Associate valida as competências para atuar em centros de operações de segurança."
-    },
-    {
-        "dominio": "Mod 2 - Forense",
-        "pergunta": "Por que o isolamento de máquinas virtuais é importante para pesquisadores de segurança?",
-        "opcoes": [
-            "A) Para economizar eletricidade",
-            "B) Para impedir que malwares em análise infectem o sistema host físico",
-            "C) Para aumentar a velocidade da internet",
-            "D) Para evitar o uso de antivírus"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O uso de VMs com rede isolada permite detonar malwares com segurança para estudo de IoCs."
-    }
-    {
-        "dominio": "Mod 3 - Arquitetura Windows",
-        "pergunta": "Em qual modo de execução do Windows os drivers de hardware operam com acesso total e direto à memória e ao processador?",
-        "opcoes": [
-            "A) User Mode",
-            "B) Kernel Mode",
-            "C) Safe Mode",
-            "D) Protected Mode"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O Kernel Mode (Ring 0) possui privilégios totais. Falhas críticas neste modo resultam na 'Tela Azul da Morte' (BSOD)."
-    },
-    {
-        "dominio": "Mod 3 - Windows Internals",
-        "pergunta": "Qual termo descreve o objeto que um processo utiliza para identificar e acessar um recurso do sistema, como um arquivo ou chave de registro?",
-        "opcoes": [
-            "A) Thread",
-            "B) Handle",
-            "C) Hive",
-            "D) Inode"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Handles são identificadores abstratos que o Windows entrega aos processos para gerenciar o acesso a recursos do sistema."
-    },
-    {
-        "dominio": "Mod 3 - Sistema de Arquivos NTFS",
-        "pergunta": "Qual funcionalidade do NTFS permite ocultar arquivos ou binários maliciosos dentro de arquivos legítimos sem alterar o tamanho visível do arquivo principal?",
-        "opcoes": [
-            "A) BitLocker",
-            "B) Alternate Data Streams (ADS)",
-            "C) Volume Shadow Copy",
-            "D) EFS (Encrypting File System)"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O ADS permite anexar múltiplos fluxos de dados a um arquivo, sendo uma técnica clássica de evasão e ocultação de malware."
-    },
-    {
-        "dominio": "Mod 3 - Registro do Windows",
-        "pergunta": "Qual 'Hive' do registro contém configurações de hardware e software que se aplicam a todos os usuários da máquina local?",
-        "opcoes": [
-            "A) HKEY_CURRENT_USER (HKCU)",
-            "B) HKEY_LOCAL_MACHINE (HKLM)",
-            "C) HKEY_CLASSES_ROOT",
-            "D) HKEY_USERS"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A HKLM armazena as configurações globais do sistema operacional e de programas instalados para todos os perfis."
-    },
-    {
-        "dominio": "Mod 3 - Registro do Windows",
-        "pergunta": "Malwares frequentemente alteram as chaves 'Run' e 'RunOnce' para garantir que sejam iniciados junto com o sistema. Esse objetivo é chamado de:",
-        "opcoes": [
-            "A) Escalabilidade",
-            "B) Persistência",
-            "C) Exfiltração",
-            "D) Ofuscação"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Persistência é a capacidade de um malware manter-se ativo ou reiniciar-se após o sistema ser desligado ou o usuário deslogar."
-    },
-    {
-        "dominio": "Mod 3 - Auditoria e Logs",
-        "pergunta": "Qual Event ID no log de segurança do Windows indica que um usuário realizou um 'Logon com Sucesso'?",
-        "opcoes": [
-            "A) 4624",
-            "B) 4625",
-            "C) 4688",
-            "D) 1102"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "O Event ID 4624 documenta cada tentativa de logon bem-sucedida no sistema."
-    },
-    {
-        "dominio": "Mod 3 - Auditoria e Logs",
-        "pergunta": "Ao detectar uma sequência massiva de Event IDs 4625 seguidos de um Event ID 4624, o analista deve suspeitar de:",
-        "opcoes": [
-            "A) Um ataque de negação de serviço (DDoS)",
-            "B) Um ataque de Força Bruta (Brute Force) bem-sucedido",
-            "C) Uma falha no hardware de rede",
-            "D) Uma atualização automática do Windows"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O ID 4625 indica falha de logon. Muitas falhas seguidas de um sucesso (4624) sugerem que o atacante testou várias senhas até acertar."
-    },
-    {
-        "dominio": "Mod 3 - Auditoria e Logs",
-        "pergunta": "Qual Event ID é gerado quando o log de auditoria do Windows é limpo (Cleared), sinalizando possível tentativa de ocultação de rastros?",
-        "opcoes": [
-            "A) 4624",
-            "B) 4688",
-            "C) 1102",
-            "D) 4720"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O ID 1102 é um alerta crítico para o SOC, pois indica que alguém tentou apagar as evidências de suas atividades no host."
-    },
-    {
-        "dominio": "Mod 3 - Monitoramento de Processos",
-        "pergunta": "Qual comando via CLI é utilizado para listar conexões de rede ativas e o PID do processo responsável por cada uma no Windows?",
-        "opcoes": [
-            "A) ipconfig /all",
-            "B) netstat -abno",
-            "C) tracert -d",
-            "D) nslookup"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O comando netstat com os parâmetros -abno revela portas abertas, o nome do executável e o ID do processo (PID)."
-    },
-    {
-        "dominio": "Mod 3 - Sysinternals Suite",
-        "pergunta": "Qual ferramenta do Sysinternals é ideal para visualizar em tempo real quais arquivos, chaves de registro e DLLs um processo está acessando?",
-        "opcoes": [
-            "A) Autoruns",
-            "B) Process Monitor (ProcMon)",
-            "C) TCPView",
-            "D) RootkitRevealer"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O ProcMon fornece uma visão granular de todas as atividades do sistema de arquivos, registro e processos em tempo real."
-    },
-    {
-        "dominio": "Mod 3 - Sysinternals Suite",
-        "pergunta": "Qual utilitário gráfico da Sysinternals permite verificar se as imagens dos processos em execução no Windows possuem assinaturas digitais válidas da Microsoft?",
-        "opcoes": [
-            "A) Process Explorer",
-            "B) AccessChk",
-            "C) PsExec",
-            "D) SDelete"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "O Process Explorer possui a função 'Verify Image Signatures', fundamental para identificar malwares disfarçados de processos legítimos."
-    },
-    {
-        "dominio": "Mod 3 - Segurança de Endpoint",
-        "pergunta": "O que caracteriza uma solução de proteção de host 'Agentless'?",
-        "opcoes": [
-            "A) Requer a instalação de um software pesado em cada computador",
-            "B) A proteção é realizada via rede ou hipervisor, sem instalar agentes no sistema convidado",
-            "C) Funciona apenas se o computador estiver desligado",
-            "D) É exclusiva para sistemas Linux"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Soluções agentless reduzem a carga sobre o host e facilitam a manutenção por não exigirem instalação local."
-    },
-    {
-        "dominio": "Mod 3 - Políticas de Segurança",
-        "pergunta": "Qual mecanismo do Windows impede que aplicativos executem tarefas administrativas sem o consentimento explícito do usuário, escurecendo a tela para confirmação?",
-        "opcoes": [
-            "A) Firewall do Windows",
-            "B) User Account Control (UAC)",
-            "C) Windows Defender",
-            "D) AppLocker"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O UAC ajuda a mitigar o impacto de malwares que tentam elevar privilégios silenciosamente."
-    },
-    {
-        "dominio": "Mod 3 - Processos Críticos",
-        "pergunta": "Qual processo do Windows é responsável pela gerência da autoridade de segurança local, autenticação e armazenamento de hashes de senhas na memória?",
-        "opcoes": [
-            "A) svchost.exe",
-            "B) lsass.exe",
-            "C) services.exe",
-            "D) winlogon.exe"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O lsass.exe é o alvo principal de ferramentas de 'Credential Dumping' como o Mimikatz."
-    },
-    {
-        "dominio": "Mod 3 - PowerShell",
-        "pergunta": "Por que o PowerShell é frequentemente utilizado em ataques 'Fileless' (sem arquivo)?",
-        "opcoes": [
-            "A) Porque ele é incapaz de acessar a internet",
-            "B) Porque permite a execução de scripts e comandos diretamente na memória RAM, sem tocar o disco rígido",
-            "C) Porque ele desativa automaticamente o antivírus",
-            "D) Porque é uma ferramenta exclusiva para hackers"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Ataques fileless usam ferramentas legítimas do sistema (Living off the Land) para evitar detecção baseada em arquivos no disco."
-    },
-    {
-        "dominio": "Mod 3 - Auditoria e Logs",
-        "pergunta": "Qual Event ID documenta a criação de um novo processo (Process Creation) no Windows?",
-        "opcoes": [
-            "A) 4624",
-            "B) 4688",
-            "C) 7040",
-            "D) 5140"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O monitoramento do ID 4688 é vital para detectar a execução de softwares não autorizados ou scripts maliciosos."
-    },
-    {
-        "dominio": "Mod 3 - Estrutura de Memória",
-        "pergunta": "Como o Windows isola a memória de um processo para garantir que ele não acesse os dados de outro processo em execução?",
-        "opcoes": [
-            "A) Através de senhas para cada pasta",
-            "B) Através do Espaço de Endereçamento Virtual (Virtual Address Space)",
-            "C) Desligando a memória RAM periodicamente",
-            "D) Usando o Windows Firewall"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O espaço de endereçamento virtual garante que cada processo tenha sua própria visão 'privada' da memória."
-    },
-    {
-        "dominio": "Mod 3 - Segurança de Host",
-        "pergunta": "Qual técnica de defesa de host permite executar arquivos suspeitos em um ambiente virtual isolado para observar seu comportamento sem risco para o sistema real?",
-        "opcoes": [
-            "A) Whitelisting",
-            "B) Sandboxing",
-            "C) Blacklisting",
-            "D) Data Loss Prevention (DLP)"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Sandboxes são ambientes seguros de 'detonação' para análise de comportamento de ameaças."
-    },
-    {
-        "dominio": "Mod 3 - Registro do Windows",
-        "pergunta": "Qual Hive do registro contém as configurações específicas do usuário que está logado no momento?",
-        "opcoes": [
-            "A) HKEY_LOCAL_MACHINE",
-            "B) HKEY_CURRENT_USER (HKCU)",
-            "C) HKEY_CLASSES_ROOT",
-            "D) HKEY_DYN_DATA"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A HKCU armazena preferências de desktop, conexões de rede e configurações de software do perfil ativo."
-    },
-    {
-        "dominio": "Mod 3 - Hardening",
-        "pergunta": "A prática de desabilitar serviços desnecessários e fechar portas de rede não utilizadas em um servidor Windows é chamada de:",
-        "opcoes": [
-            "A) Sandboxing",
-            "B) Hardening (Endurecimento)",
-            "C) Exfiltração",
-            "D) Normalização"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Hardening visa reduzir a superfície de ataque ao minimizar as vulnerabilidades e serviços expostos."
-    },
-    {
-        "dominio": "Mod 3 - NTFS",
-        "pergunta": "Nas permissões NTFS, se um usuário tem permissão 'Negar' explícita em uma pasta e permissão 'Permitir' herdada de um grupo, qual será o resultado final?",
-        "opcoes": [
-            "A) O acesso será permitido",
-            "B) O acesso será negado (Negar tem precedência)",
-            "C) O Windows solicitará a senha do Administrador",
-            "D) O usuário terá acesso apenas leitura"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "No sistema de permissões do Windows, uma negação explícita sempre prevalece sobre permissões de permissão."
-    },
-    {
-        "dominio": "Mod 3 - Gerenciamento Remoto",
-        "pergunta": "Qual infraestrutura da Microsoft é utilizada para gerenciar dados e operações em sistemas Windows local ou remotamente, frequentemente abusada para execução de comandos?",
-        "opcoes": [
-            "A) WMI (Windows Management Instrumentation)",
-            "B) NTFS",
-            "C) BIOS",
-            "D) DHCP"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "O WMI é uma ferramenta administrativa poderosa que permite coletar informações e gerenciar o sistema de forma profunda."
-    },
-    {
-        "dominio": "Mod 3 - Sysinternals Suite",
-        "pergunta": "Qual ferramenta Sysinternals é usada para mostrar quais programas estão configurados para iniciar automaticamente durante o boot ou logon?",
-        "opcoes": [
-            "A) TCPView",
-            "B) Autoruns",
-            "C) Process Explorer",
-            "D) DiskMon"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O Autoruns tem o conhecimento mais abrangente de todos os locais de inicialização automática no Windows."
-    },
-    {
-        "dominio": "Mod 3 - Auditoria e Logs",
-        "pergunta": "O Event ID 4625 no log de segurança do Windows representa:",
-        "opcoes": [
-            "A) Uma conta de usuário criada",
-            "B) Uma falha na tentativa de logon",
-            "C) Um desligamento do sistema",
-            "D) Uma alteração de permissão de arquivo"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O ID 4625 é fundamental para detectar tentativas de invasão e ataques de dicionário."
-    },
-    {
-        "dominio": "Mod 3 - Host Analysis",
-        "pergunta": "Por que é importante analisar o 'Parent Process' (Processo Pai) de um executável suspeito?",
-        "opcoes": [
-            "A) Para saber o tamanho do arquivo",
-            "B) Para identificar a linhagem da execução (ex: um PDF que inicia um PowerShell)",
-            "C) Para descobrir a cor do ícone",
-            "D) Para verificar a conexão Wi-Fi"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A análise da árvore de processos revela comportamentos anômalos, como aplicativos de produtividade executando shells de comando."
-    }
-    {
-        "dominio": "Mod 4 - Filosofia Linux",
-        "pergunta": "Qual é o princípio fundamental da arquitetura Linux em relação aos recursos do sistema (teclado, rede, processos)?",
-        "opcoes": [
-            "A) Tudo é um banco de dados",
-            "B) Tudo é um arquivo",
-            "C) Tudo é um objeto criptográfico",
-            "D) Tudo é controlado pela BIOS"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "No Linux, quase tudo é tratado como um arquivo, facilitando a manipulação de hardware e dados via CLI."
-    },
-    {
-        "dominio": "Mod 4 - Sistema de Arquivos (FHS)",
-        "pergunta": "Qual diretório do Linux contém os arquivos de configuração globais do sistema e de serviços como SSH e Web?",
-        "opcoes": [
-            "A) /home",
-            "B) /var",
-            "C) /etc",
-            "D) /bin"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O diretório /etc é o 'cérebro' das configurações do sistema operacional."
-    },
-    {
-        "dominio": "Mod 4 - Sistema de Arquivos (FHS)",
-        "pergunta": "Em qual diretório um analista de SOC deve procurar pelos arquivos de logs dinâmicos do sistema?",
-        "opcoes": [
-            "A) /usr",
-            "B) /var/log",
-            "C) /tmp",
-            "D) /sbin"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O /var/log armazena os registros de atividades (syslog, auth.log, etc.) essenciais para auditoria."
-    },
-    {
-        "dominio": "Mod 4 - Permissões Linux",
-        "pergunta": "O que representa a permissão octal 755 em um arquivo?",
-        "opcoes": [
-            "A) Dono: rwx | Grupo: r-x | Outros: r-x",
-            "B) Dono: r-- | Grupo: r-- | Outros: r--",
-            "C) Dono: rwx | Grupo: --- | Outros: ---",
-            "D) Dono: rw- | Grupo: rw- | Outros: r--"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "7 (4+2+1=rwx), 5 (4+1=r-x). É a permissão comum para binários e diretórios públicos."
-    },
-    {
-        "dominio": "Mod 4 - Gestão de Identidades",
-        "pergunta": "Qual arquivo armazena os 'hashes' das senhas dos usuários e só pode ser lido pelo usuário root?",
-        "opcoes": [
-            "A) /etc/passwd",
-            "B) /etc/shadow",
-            "C) /etc/hosts",
-            "D) /etc/group"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O /etc/shadow protege as senhas contra ataques de força bruta offline por usuários não privilegiados."
-    },
-    {
-        "dominio": "Mod 4 - Permissões Linux",
-        "pergunta": "Qual comando é utilizado para alterar o dono (owner) e o grupo de um arquivo simultaneamente?",
-        "opcoes": [
-            "A) chmod",
-            "B) chown",
-            "C) chroot",
-            "D) umask"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "chown (Change Owner) permite definir as propriedades de posse dos arquivos no Linux."
-    },
-    {
-        "dominio": "Mod 4 - Sistema de Arquivos",
-        "pergunta": "Qual é a diferença de um Hard Link para um Soft Link?",
-        "opcoes": [
-            "A) Soft links são mais rápidos",
-            "B) Hard links apontam diretamente para o Inode; se o arquivo original for deletado, os dados permanecem acessíveis pelo hard link",
-            "C) Hard links funcionam apenas em rede",
-            "D) Soft links ocupam mais espaço em disco"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Diferente dos atalhos (soft links), hard links são referências físicas diretas aos dados no disco."
-    },
-    {
-        "dominio": "Mod 4 - Gerenciamento de Processos",
-        "pergunta": "Como é chamado o mecanismo no Linux onde um processo cria uma cópia de si mesmo para realizar uma tarefa paralela?",
-        "opcoes": [
-            "A) Threading",
-            "B) Forking",
-            "C) Paging",
-            "D) Spooling"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Forking é o método clássico do Unix/Linux para criação de novos processos (pai e filho)."
-    },
-    {
-        "dominio": "Mod 4 - Monitoramento de Rede",
-        "pergunta": "Qual comando lista todas as conexões TCP/UDP em formato numérico e revela o PID/Nome do programa no Linux?",
-        "opcoes": [
-            "A) lsblk",
-            "B) ps -aux",
-            "C) netstat -tunap",
-            "D) ifconfig"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "Este comando é vital para o SOC identificar conexões suspeitas e os processos que as originaram."
-    },
-    {
-        "dominio": "Mod 4 - Gestão de Serviços",
-        "pergunta": "Qual comando do systemd é usado para garantir que um serviço (daemon) inicie automaticamente junto com o boot do sistema?",
-        "opcoes": [
-            "A) systemctl start",
-            "B) systemctl enable",
-            "C) systemctl reload",
-            "D) systemctl mask"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O 'enable' cria os links simbólicos necessários para que o serviço seja persistente após o reboot."
-    },
-    {
-        "dominio": "Mod 4 - Análise de Logs",
-        "pergunta": "Qual utilitário moderno é usado para consultar os logs binários coletados pelo daemon systemd-journald?",
-        "opcoes": [
-            "A) cat",
-            "B) grep",
-            "C) journalctl",
-            "D) tail"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O journalctl permite filtros avançados por tempo, serviço ou nível de prioridade."
-    },
-    {
-        "dominio": "Mod 4 - Auditoria de Segurança",
-        "pergunta": "Qual arquivo de log deve ser analisado para investigar tentativas de login SSH mal-sucedidas em sistemas Debian?",
-        "opcoes": [
-            "A) /var/log/syslog",
-            "B) /var/log/auth.log",
-            "C) /var/log/boot.log",
-            "D) /var/log/kern.log"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O auth.log centraliza todos os eventos de autenticação e autorização (SSH, sudo, su)."
-    },
-    {
-        "dominio": "Mod 4 - Linha de Comando (CLI)",
-        "pergunta": "Qual caractere é usado para redirecionar a saída de um comando para a entrada de outro (Piping)?",
-        "opcoes": [
-            "A) >",
-            "B) >>",
-            "C) |",
-            "D) &"
-        ],
-        "resposta_correta": "C",
-        "explicacao": "O pipe (|) permite encadear comandos pequenos para realizar tarefas complexas de filtragem."
-    },
-    {
-        "dominio": "Mod 4 - Linha de Comando (CLI)",
-        "pergunta": "Qual comando é usado para procurar padrões de texto específicos dentro de um arquivo de log gigantesco?",
-        "opcoes": [
-            "A) sed",
-            "B) grep",
-            "C) awk",
-            "D) find"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Grep é a ferramenta padrão para busca e filtragem de texto via expressões regulares."
-    },
-    {
-        "dominio": "Mod 4 - Malwares Linux",
-        "pergunta": "Um malware que modifica binários como o 'ls' ou 'ps' para esconder arquivos e processos do administrador é um:",
-        "opcoes": [
-            "A) Ransomware",
-            "B) Rootkit",
-            "C) Worm",
-            "D) Trojan"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Rootkits visam a ocultação total da presença do atacante no sistema operacional."
-    },
-    {
-        "dominio": "Mod 4 - Sistema de Arquivos",
-        "pergunta": "Qual o perigo tático do diretório /tmp em termos de segurança?",
-        "opcoes": [
-            "A) Ele apaga arquivos do root",
-            "B) Possui permissões de escrita para qualquer usuário, sendo o 'pouso' ideal para scripts maliciosos",
-            "C) Ele bloqueia o acesso SSH",
-            "D) Ele contém as chaves de criptografia do sistema"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Devido à permissão global de escrita, atacantes o usam para baixar e executar ferramentas iniciais."
-    },
-    {
-        "dominio": "Mod 4 - Gestão de Usuários",
-        "pergunta": "Qual a principal diferença entre 'su' e 'sudo'?",
-        "opcoes": [
-            "A) O 'su' é mais seguro",
-            "B) O 'sudo' permite executar comandos como root usando a própria senha do usuário e deixa rastro de auditoria",
-            "C) O 'su' não exige senha",
-            "D) O 'sudo' apaga os logs após a execução"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Sudo (SuperUser Do) é preferido em ambientes corporativos pela trilha de auditoria (Accounting)."
-    },
-    {
-        "dominio": "Mod 4 - Administração de Rede",
-        "pergunta": "Qual ferramenta CLI é usada para testar a conectividade e 'banner grabbing' conectando-se a portas TCP específicas?",
-        "opcoes": [
-            "A) ping",
-            "B) telnet",
-            "C) traceroute",
-            "D) ip addr"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Telnet (ou nc) permite verificar manualmente o que um serviço responde ao ser contatado."
-    },
-    {
-        "dominio": "Mod 4 - Arquitetura",
-        "pergunta": "Qual diretório contém arquivos especiais que representam dispositivos de hardware (como discos e terminais)?",
-        "opcoes": [
-            "A) /etc",
-            "B) /dev",
-            "C) /proc",
-            "D) /sys"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O diretório /dev (devices) mapeia o hardware para a abstração de arquivos do Linux."
-    },
-    {
-        "dominio": "Mod 4 - Investigação de Processos",
-        "pergunta": "Ao notar um processo suspeito, o analista usa 'cat /proc/[PID]/exe'. O que ele está tentando descobrir?",
-        "opcoes": [
-            "A) O tempo de CPU usado",
-            "B) O caminho real do arquivo executável que iniciou o processo",
-            "C) A senha do dono do processo",
-            "D) O endereço IP do servidor C2"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "O sistema de arquivos /proc fornece informações em tempo real sobre os processos ativos."
-    },
-    {
-        "dominio": "Mod 4 - Gestão de Pacotes",
-        "pergunta": "Por que manter o sistema atualizado com 'apt update && apt upgrade' é vital para o SOC?",
-        "opcoes": [
-            "A) Para mudar a cor do terminal",
-            "B) Para aplicar patches de segurança que corrigem vulnerabilidades conhecidas",
-            "C) Para liberar espaço em disco",
-            "D) Para desinstalar o firewall"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Manter patches em dia é a defesa primária contra exploits conhecidos."
-    },
-    {
-        "dominio": "Mod 4 - Shell Scripting",
-        "pergunta": "Qual a função do caractere '#' no início de uma linha em um script bash?",
-        "opcoes": [
-            "A) Executar o comando como root",
-            "B) Indicar um comentário (será ignorado pelo interpretador)",
-            "C) Definir uma variável de ambiente",
-            "D) Criptografar a linha"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Comentários são essenciais para documentar a lógica de scripts de automação de segurança."
-    },
-    {
-        "dominio": "Mod 4 - DNS e Rede",
-        "pergunta": "Qual comando é usado para realizar consultas DNS manuais para investigar domínios suspeitos?",
-        "opcoes": [
-            "A) nslookup",
-            "B) route",
-            "C) ifconfig",
-            "D) uname"
-        ],
-        "resposta_correta": "A",
-        "explicacao": "Nslookup (ou dig) ajuda a mapear IPs e identificar possíveis infraestruturas de atacantes."
-    },
-    {
-        "dominio": "Mod 4 - Analise de Logs",
-        "pergunta": "O comando 'grep -i \"failed\" /var/log/auth.log' faz o quê?",
-        "opcoes": [
-            "A) Deleta as falhas de login",
-            "B) Procura pela palavra 'failed' ignorando a diferença entre maiúsculas e minúsculas",
-            "C) Altera a senha do usuário",
-            "D) Reinicia o serviço SSH"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "A flag -i torna a busca insensível a caixa, facilitando a captura de logs variados."
-    },
-    {
-        "dominio": "Mod 4 - Auditoria",
-        "pergunta": "Qual comando exibe informações detalhadas sobre o kernel e a arquitetura do sistema operacional Linux?",
-        "opcoes": [
-            "A) top",
-            "B) uname -a",
-            "C) df -h",
-            "D) free -m"
-        ],
-        "resposta_correta": "B",
-        "explicacao": "Uname fornece detalhes cruciais para identificar se o sistema está vulnerável a exploits de kernel específicos."
-    }
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Um ataque DDoS satura o link de internet de uma empresa. Qual princípio da Tríade CIA foi comprometido?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Autenticação"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Ataques de negação de serviço visam interromper o acesso legítimo, ferindo a Disponibilidade."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Qual processo do AAA é responsável por registrar as atividades de um usuário para fins de auditoria?",
+        "opcoes": [
+            "A) Authentication",
+            "B) Authorization",
+            "C) Accounting",
+            "D) Administration"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Accounting (Contabilização) rastreia o que o usuário fez após logar."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "O uso de assinaturas digitais garante qual princípio da segurança?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade e Não-Repúdio",
+            "C) Disponibilidade",
+            "D) Escalabilidade"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Assinaturas digitais provam que o dado não foi alterado e quem o enviou."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Qual serviço garante a Confidencialidade de dados em repouso em um endpoint Windows?",
+        "opcoes": [
+            "A) Firewall",
+            "B) BitLocker (Criptografia)",
+            "C) Antivírus",
+            "D) Event Viewer"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Criptografia de disco protege os dados contra leitura não autorizada se o dispositivo for roubado."
+    },
+    {
+        "dominio": "Mod 1 - Princípios CIA e AAA",
+        "pergunta": "Verificar se um usuário tem permissão para ler uma pasta específica após ele ter logado é um exemplo de:",
+        "opcoes": [
+            "A) Autenticação",
+            "B) Autorização",
+            "C) Accounting",
+            "D) Identificação"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A Autorização define os privilégios e acessos de um usuário já autenticado."
+    },
+    {
+        "dominio": "Mod 1 - Controle de Acesso",
+        "pergunta": "Em qual modelo o dono do arquivo decide quem pode acessá-lo?",
+        "opcoes": [
+            "A) MAC (Mandatory)",
+            "B) DAC (Discretionary)",
+            "C) RBAC (Role-Based)",
+            "D) ABAC (Attribute-Based)"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No DAC, o controle é discricionário, ficando a cargo do proprietário do recurso."
+    },
+    {
+        "dominio": "Mod 1 - Controle de Acesso",
+        "pergunta": "Qual modelo de acesso é baseado na função ou cargo do usuário na empresa?",
+        "opcoes": [
+            "A) DAC",
+            "B) MAC",
+            "C) RBAC",
+            "D) Rule-Based"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O RBAC (Role-Based Access Control) facilita a gestão ao agrupar acessos por cargos."
+    },
+    {
+        "dominio": "Mod 1 - Controle de Acesso",
+        "pergunta": "Qual modelo utiliza rótulos de sensibilidade (como Top Secret) impostos pelo sistema?",
+        "opcoes": [
+            "A) DAC",
+            "B) MAC",
+            "C) RBAC",
+            "D) ABAC"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No MAC, o sistema impõe o acesso e o usuário não pode alterá-lo."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Qual é a definição técnica de Vulnerabilidade?",
+        "opcoes": [
+            "A) Um hacker mal-intencionado",
+            "B) Uma fraqueza ou falha no sistema",
+            "C) O impacto financeiro de um ataque",
+            "D) Um software de defesa"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Vulnerabilidade é a brecha ou fraqueza que pode ser explorada por uma ameaça."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "No CVSS, qual métrica avalia se o ataque exige proximidade física ou pode ser via rede?",
+        "opcoes": [
+            "A) Attack Complexity (AC)",
+            "B) Privileges Required (PR)",
+            "C) Attack Vector (AV)",
+            "D) User Interaction (UI)"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O Attack Vector define o caminho necessário para explorar a falha (Network, Adjacent, Local ou Physical)."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "Qual métrica do CVSS diminui quando um patch de correção é disponibilizado?",
+        "opcoes": [
+            "A) Base Score",
+            "B) Temporal Score",
+            "C) Environmental Score",
+            "D) Impact Score"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A pontuação Temporal reflete o estado atual de correção e disponibilidade de exploits."
+    },
+    {
+        "dominio": "Mod 1 - Risco e CVSS",
+        "pergunta": "A fórmula simplificada do Risco é:",
+        "opcoes": [
+            "A) Ameaça + Vulnerabilidade",
+            "B) Ameaça x Vulnerabilidade",
+            "C) Ameaça / Vulnerabilidade",
+            "D) Atacante + Exploit"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O risco é a intersecção entre a existência de uma ameaça e uma vulnerabilidade explorável."
+    },
+    {
+        "dominio": "Mod 1 - Ameaças e Atores",
+        "pergunta": "Qual ator de ameaça é motivado por causas políticas ou sociais?",
+        "opcoes": [
+            "A) Script Kiddie",
+            "B) Hacktivista",
+            "C) State-Sponsored",
+            "D) Cyber-criminal"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Hacktivistas utilizam técnicas de hacking para promover protestos ou ideologias."
+    },
+    {
+        "dominio": "Mod 1 - Ameaças e Atores",
+        "pergunta": "O que define uma APT (Advanced Persistent Threat)?",
+        "opcoes": [
+            "A) Ataques rápidos e aleatórios",
+            "B) Foco em persistência e objetivos de longo prazo",
+            "C) Uso exclusivo de vírus antigos",
+            "D) Ataques feitos apenas por amadores"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "APTs são ataques direcionados, furtivos e contínuos, geralmente com alto financiamento."
+    },
+    {
+        "dominio": "Mod 1 - Ameaças e Atores",
+        "pergunta": "Como é chamada a ameaça que vem de um funcionário atual ou antigo?",
+        "opcoes": [
+            "A) External Threat",
+            "B) Social Engineering",
+            "C) Insider Threat",
+            "D) Zero-day"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Insiders possuem conhecimento interno e, às vezes, acesso legítimo, sendo riscos críticos."
+    },
+    {
+        "dominio": "Mod 1 - Vetores de Ataque",
+        "pergunta": "Qual ataque envolve infectar um site que o alvo costuma visitar com frequência?",
+        "opcoes": [
+            "A) Phishing",
+            "B) Watering Hole",
+            "C) Spear Phishing",
+            "D) Vishing"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Watering Hole foca em comprometer a cadeia de confiança de sites frequentados pelo alvo."
+    },
+    {
+        "dominio": "Mod 1 - Vetores de Ataque",
+        "pergunta": "Um e-mail falso direcionado especificamente a um executivo do alto escalão (C-Level) é um:",
+        "opcoes": [
+            "A) Spam",
+            "B) Whaling",
+            "C) Smishing",
+            "D) Pharming"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Whaling é o phishing direcionado às 'baleias' (executivos importantes) da empresa."
+    },
+    {
+        "dominio": "Mod 1 - Vetores de Ataque",
+        "pergunta": "O que caracteriza um ataque 'Evil Twin' em redes Wi-Fi?",
+        "opcoes": [
+            "A) Quebra de senha WPA2",
+            "B) Um Access Point falso com o mesmo SSID da rede legítima",
+            "C) Inundação de pacotes de desautenticação",
+            "D) Roubo físico do roteador"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Evil Twin induz o usuário a se conectar a um ponto de acesso malicioso idêntico ao real."
+    },
+    {
+        "dominio": "Mod 1 - Malware",
+        "pergunta": "Qual malware é projetado para se esconder no nível do Kernel e ocultar processos?",
+        "opcoes": [
+            "A) Adware",
+            "B) Rootkit",
+            "C) Ransomware",
+            "D) Spyware"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Rootkits modificam o sistema para esconder sua presença e de outros malwares."
+    },
+    {
+        "dominio": "Mod 1 - Malware",
+        "pergunta": "Um malware que se espalha automaticamente pela rede sem interação do usuário é um:",
+        "opcoes": [
+            "A) Virus",
+            "B) Worm",
+            "C) Trojan",
+            "D) Logic Bomb"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Worms são auto-replicantes e exploram vulnerabilidades de rede para se propagar."
+    },
+    {
+        "dominio": "Mod 1 - Malware",
+        "pergunta": "Qual malware criptografa arquivos e exige pagamento para liberá-los?",
+        "opcoes": [
+            "A) Spyware",
+            "B) Ransomware",
+            "C) Keylogger",
+            "D) Backdoor"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Ransomware sequestra os dados da vítima visando extorsão financeira."
+    },
+    {
+        "dominio": "Mod 1 - Classificação de Dados",
+        "pergunta": "O que significa a sigla PII?",
+        "opcoes": [
+            "A) Private Internet Intelligence",
+            "B) Personally Identifiable Information",
+            "C) Protected Information Interface",
+            "D) Personal Integrated Identity"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "PII refere-se a qualquer dado que possa identificar um indivíduo único."
+    },
+    {
+        "dominio": "Mod 1 - Classificação de Dados",
+        "pergunta": "Registros médicos de pacientes são classificados legalmente como:",
+        "opcoes": [
+            "A) PII",
+            "B) PHI (Protected Health Information)",
+            "C) PCI",
+            "D) Public Data"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "PHI é a categoria específica para dados de saúde, protegidos por leis como a HIPAA."
+    },
+    {
+        "dominio": "Mod 1 - Conceitos Gerais",
+        "pergunta": "O princípio de usar múltiplas camadas de defesa é conhecido como:",
+        "opcoes": [
+            "A) Least Privilege",
+            "B) Defense in Depth",
+            "C) Separation of Duties",
+            "D) Access Control List"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Defesa em Profundidade garante que se uma camada falhar, outras protejam o ativo."
+    },
+    {
+        "dominio": "Mod 1 - Conceitos Gerais",
+        "pergunta": "Dar ao usuário apenas o acesso necessário para sua função é o princípio do:",
+        "opcoes": [
+            "A) Máximo Acesso",
+            "B) Privilégio Mínimo (Least Privilege)",
+            "C) Compartilhamento de Contas",
+            "D) Trust but Verify"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O privilégio mínimo reduz o risco de danos acidentais ou maliciosos na rede."
+    },
+    {
+        "dominio": "Mod 2 - Estrutura do SOC",
+        "pergunta": "Qual nível de analista no SOC é responsável pela triagem inicial e classificação de alertas?",
+        "opcoes": [
+            "A) Tier 1",
+            "B) Tier 2",
+            "C) Tier 3",
+            "D) SOC Manager"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O Analista Tier 1 monitora a fila de alertas e realiza a triagem (triage) para validar incidentes reais."
+    },
+    {
+        "dominio": "Mod 2 - Estrutura do SOC",
+        "pergunta": "Qual profissional do SOC atua de forma proativa, caçando ameaças que não geraram alertas automáticos?",
+        "opcoes": [
+            "A) Analista de Triagem",
+            "B) Threat Hunter (Tier 3)",
+            "C) Incident Responder",
+            "D) Compliance Officer"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Threat Hunter realiza buscas proativas por anomalias e indicadores de comprometimento (IoCs)."
+    },
+    {
+        "dominio": "Mod 2 - Métricas de SOC",
+        "pergunta": "Qual métrica mede o tempo médio decorrido entre o início de uma intrusão e a sua detecção inicial?",
+        "opcoes": [
+            "A) MTTR",
+            "B) MTTC",
+            "C) MTTD (Mean Time to Detect)",
+            "D) Dwell Time"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O MTTD foca na eficácia e rapidez das ferramentas e analistas em identificar uma ameaça."
+    },
+    {
+        "dominio": "Mod 2 - Métricas de SOC",
+        "pergunta": "O tempo médio que uma equipe leva para isolar um host infectado, impedindo a propagação do malware, é o:",
+        "opcoes": [
+            "A) MTTC (Mean Time to Contain)",
+            "B) MTTD",
+            "C) MTTR",
+            "D) Uptime"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O MTTC foca na contenção do incidente para limitar o dano operacional."
+    },
+    {
+        "dominio": "Mod 2 - Métricas de SOC",
+        "pergunta": "O que representa o 'Dwell Time' em uma investigação de segurança?",
+        "opcoes": [
+            "A) O tempo de restauração do backup",
+            "B) O tempo total que um invasor permanece na rede antes de ser detectado",
+            "C) O tempo de resposta do firewall",
+            "D) O tempo de treinamento da equipe"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Dwell Time é a janela de oportunidade que o atacante teve dentro do ambiente da vítima."
+    },
+    {
+        "dominio": "Mod 2 - Tecnologias de SOC",
+        "pergunta": "Qual é a função da 'Correlação' em um SIEM?",
+        "opcoes": [
+            "A) Apagar logs duplicados",
+            "B) Ligar eventos isolados de diferentes fontes para identificar um ataque complexo",
+            "C) Criptografar a comunicação entre hosts",
+            "D) Instalar patches automaticamente"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A correlação utiliza regras lógicas para encontrar padrões maliciosos em logs de origens distintas."
+    },
+    {
+        "dominio": "Mod 2 - Tecnologias de SOC",
+        "pergunta": "O processo de converter logs de diferentes formatos para um padrão único é a:",
+        "opcoes": [
+            "A) Agregação",
+            "B) Normalização",
+            "C) Retenção",
+            "D) Indexação"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A normalização permite que o SIEM trate dados de fontes variadas de forma uniforme."
+    },
+    {
+        "dominio": "Mod 2 - Tecnologias de SOC",
+        "pergunta": "Qual tecnologia foca na automação e orquestração de respostas através de Playbooks?",
+        "opcoes": [
+            "A) SIEM",
+            "B) SOAR",
+            "C) IDS",
+            "D) DLP"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O SOAR permite automatizar fluxos de resposta a incidentes via integração de APIs."
+    },
+    {
+        "dominio": "Mod 2 - Tecnologias de SOC",
+        "pergunta": "Qual é a principal vantagem de um SIEM em relação ao monitoramento de logs individuais?",
+        "opcoes": [
+            "A) Redução do uso de CPU nos servidores",
+            "B) Visibilidade centralizada e correlação de eventos em toda a infraestrutura",
+            "C) Substituição do antivírus tradicional",
+            "D) Bloqueio físico de portas USB"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O SIEM oferece uma visão holística, permitindo identificar ataques que se movem lateralmente."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "De acordo com o NIST SP 800-61, qual é a primeira fase do ciclo de resposta a incidentes?",
+        "opcoes": [
+            "A) Detecção e Análise",
+            "B) Preparação",
+            "C) Contenção",
+            "D) Erradicação"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A Preparação envolve estabelecer políticas, ferramentas e treinar a equipe antes que um incidente ocorra."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "Em qual fase do ciclo NIST os analistas determinam o escopo, vetor e impacto de uma intrusão?",
+        "opcoes": [
+            "A) Preparação",
+            "B) Detecção e Análise",
+            "C) Recuperação",
+            "D) Lições Aprendidas"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Nesta fase, IoCs são validados para entender a natureza do ataque."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "Isolar um servidor infectado em uma VLAN de quarentena é um exemplo de:",
+        "opcoes": [
+            "A) Erradicação",
+            "B) Contenção",
+            "C) Recuperação",
+            "D) Preparação"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A contenção visa limitar o alcance da ameaça e evitar danos adicionais."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "Remover o malware, fechar as contas vulneráveis e limpar o sistema refere-se à fase de:",
+        "opcoes": [
+            "A) Contenção",
+            "B) Erradicação",
+            "C) Recuperação",
+            "D) Análise"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A erradicação foca na eliminação completa dos componentes da ameaça do sistema."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "Restaurar os sistemas de produção a partir de backups limpos ocorre na fase de:",
+        "opcoes": [
+            "A) Preparação",
+            "B) Erradicação",
+            "C) Recuperação",
+            "D) Lições Aprendidas"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "A recuperação foca em devolver o sistema ao estado operacional normal."
+    },
+    {
+        "dominio": "Mod 2 - Resposta a Incidentes (NIST)",
+        "pergunta": "Qual fase do NIST foca na melhoria contínua após a resolução do incidente?",
+        "opcoes": [
+            "A) Detecção",
+            "B) Contenção",
+            "C) Atividades Pós-Incidente (Lições Aprendidas)",
+            "D) Preparação"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Esta fase permite identificar falhas no processo e fortalecer as defesas."
+    },
+    {
+        "dominio": "Mod 2 - Inteligência de Ameaças",
+        "pergunta": "O que são IoCs (Indicadores de Comprometimento)?",
+        "opcoes": [
+            "A) Políticas de senha forte",
+            "B) Evidências forenses (hashes, IPs, URLs) que sugerem uma intrusão",
+            "C) Manual de conduta ética",
+            "D) Modelos de firewall"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "IoCs são 'assinaturas' táticas deixadas pelo atacante que o SOC usa para detecção."
+    },
+    {
+        "dominio": "Mod 2 - Inteligência de Ameaças",
+        "pergunta": "Qual é a principal função de uma plataforma TIP (Threat Intelligence Platform)?",
+        "opcoes": [
+            "A) Fazer backup de arquivos",
+            "B) Agregar e organizar feeds de inteligência de ameaças externas",
+            "C) Criptografar e-mails",
+            "D) Substituir o analista Tier 1"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A TIP enriquece os dados do SOC com informações sobre ameaças conhecidas globalmente."
+    },
+    {
+        "dominio": "Mod 2 - Conceitos de SOC",
+        "pergunta": "O que é um 'Falso Positivo'?",
+        "opcoes": [
+            "A) Um ataque real que o sistema não detectou",
+            "B) Um alerta gerado por uma atividade legítima",
+            "C) Uma falha de hardware",
+            "D) Um ataque que foi bloqueado"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Falsos positivos geram fadiga de alertas e devem ser filtrados pelo Tier 1."
+    },
+    {
+        "dominio": "Mod 2 - Conceitos de SOC",
+        "pergunta": "O que é um 'Falso Negativo'?",
+        "opcoes": [
+            "A) Um alerta para uma atividade legítima",
+            "B) Um ataque real que passou despercebido pelas ferramentas de detecção",
+            "C) Um erro de configuração no SIEM",
+            "D) Uma queda de energia no datacenter"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Falsos negativos são perigosos, pois representam uma intrusão ativa não detectada."
+    },
+    {
+        "dominio": "Mod 2 - Conceitos de SOC",
+        "pergunta": "Qual documento descreve os passos técnicos exatos para responder a um tipo específico de alerta?",
+        "opcoes": [
+            "A) Service Level Agreement (SLA)",
+            "B) Playbook / Runbook",
+            "C) Política de Privacidade",
+            "D) NDA"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Playbooks garantem consistência e rapidez na resposta a incidentes padronizados."
+    },
+    {
+        "dominio": "Mod 2 - Métricas de SOC",
+        "pergunta": "Qual métrica mede o tempo total para detectar, conter e remediar completamente um incidente?",
+        "opcoes": [
+            "A) MTTD",
+            "B) MTTR (Mean Time to Respond/Recover)",
+            "C) MTTC",
+            "D) SLA"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O MTTR reflete o ciclo de vida completo da resposta até o restabelecimento do serviço."
+    },
+    {
+        "dominio": "Mod 2 - Infraestrutura",
+        "pergunta": "A prática de ter uma cópia de segurança dos dados fora do ambiente principal (off-site) visa proteger qual princípio?",
+        "opcoes": [
+            "A) Confidencialidade",
+            "B) Integridade",
+            "C) Disponibilidade",
+            "D) Autenticação"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Backups off-site garantem que o dado possa ser recuperado em caso de desastres no site principal."
+    },
+    {
+        "dominio": "Mod 2 - Gestão de SOC",
+        "pergunta": "O equilíbrio crítico no SOC entre Proteção e Disponibilidade deve considerar:",
+        "opcoes": [
+            "A) Apenas o custo das ferramentas",
+            "B) O impacto operacional das medidas de segurança nos negócios",
+            "C) Somente a opinião do analista",
+            "D) A marca dos servidores"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A segurança não deve impedir o funcionamento legítimo da empresa sem uma justificativa de risco proporcional."
+    },
+    {
+        "dominio": "Mod 2 - Carreira",
+        "pergunta": "Qual certificação é focada especificamente em operações de analista de SOC da Cisco?",
+        "opcoes": [
+            "A) CCNA",
+            "B) CyberOps Associate",
+            "C) DevNet Associate",
+            "D) CCNP Security"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A certificação CyberOps Associate valida as competências para atuar em centros de operações de segurança."
+    },
+    {
+        "dominio": "Mod 2 - Forense",
+        "pergunta": "Por que o isolamento de máquinas virtuais é importante para pesquisadores de segurança?",
+        "opcoes": [
+            "A) Para economizar eletricidade",
+            "B) Para impedir que malwares em análise infectem o sistema host físico",
+            "C) Para aumentar a velocidade da internet",
+            "D) Para evitar o uso de antivírus"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O uso de VMs com rede isolada permite detonar malwares com segurança para estudo de IoCs."
+    }
+    ,{
+        "dominio": "Mod 3 - Arquitetura Windows",
+        "pergunta": "Em qual modo de execução do Windows os drivers de hardware operam com acesso total e direto à memória e ao processador?",
+        "opcoes": [
+            "A) User Mode",
+            "B) Kernel Mode",
+            "C) Safe Mode",
+            "D) Protected Mode"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Kernel Mode (Ring 0) possui privilégios totais. Falhas críticas neste modo resultam na 'Tela Azul da Morte' (BSOD)."
+    },
+    {
+        "dominio": "Mod 3 - Windows Internals",
+        "pergunta": "Qual termo descreve o objeto que um processo utiliza para identificar e acessar um recurso do sistema, como um arquivo ou chave de registro?",
+        "opcoes": [
+            "A) Thread",
+            "B) Handle",
+            "C) Hive",
+            "D) Inode"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Handles são identificadores abstratos que o Windows entrega aos processos para gerenciar o acesso a recursos do sistema."
+    },
+    {
+        "dominio": "Mod 3 - Sistema de Arquivos NTFS",
+        "pergunta": "Qual funcionalidade do NTFS permite ocultar arquivos ou binários maliciosos dentro de arquivos legítimos sem alterar o tamanho visível do arquivo principal?",
+        "opcoes": [
+            "A) BitLocker",
+            "B) Alternate Data Streams (ADS)",
+            "C) Volume Shadow Copy",
+            "D) EFS (Encrypting File System)"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O ADS permite anexar múltiplos fluxos de dados a um arquivo, sendo uma técnica clássica de evasão e ocultação de malware."
+    },
+    {
+        "dominio": "Mod 3 - Registro do Windows",
+        "pergunta": "Qual 'Hive' do registro contém configurações de hardware e software que se aplicam a todos os usuários da máquina local?",
+        "opcoes": [
+            "A) HKEY_CURRENT_USER (HKCU)",
+            "B) HKEY_LOCAL_MACHINE (HKLM)",
+            "C) HKEY_CLASSES_ROOT",
+            "D) HKEY_USERS"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A HKLM armazena as configurações globais do sistema operacional e de programas instalados para todos os perfis."
+    },
+    {
+        "dominio": "Mod 3 - Registro do Windows",
+        "pergunta": "Malwares frequentemente alteram as chaves 'Run' e 'RunOnce' para garantir que sejam iniciados junto com o sistema. Esse objetivo é chamado de:",
+        "opcoes": [
+            "A) Escalabilidade",
+            "B) Persistência",
+            "C) Exfiltração",
+            "D) Ofuscação"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Persistência é a capacidade de um malware manter-se ativo ou reiniciar-se após o sistema ser desligado ou o usuário deslogar."
+    },
+    {
+        "dominio": "Mod 3 - Auditoria e Logs",
+        "pergunta": "Qual Event ID no log de segurança do Windows indica que um usuário realizou um 'Logon com Sucesso'?",
+        "opcoes": [
+            "A) 4624",
+            "B) 4625",
+            "C) 4688",
+            "D) 1102"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O Event ID 4624 documenta cada tentativa de logon bem-sucedida no sistema."
+    },
+    {
+        "dominio": "Mod 3 - Auditoria e Logs",
+        "pergunta": "Ao detectar uma sequência massiva de Event IDs 4625 seguidos de um Event ID 4624, o analista deve suspeitar de:",
+        "opcoes": [
+            "A) Um ataque de negação de serviço (DDoS)",
+            "B) Um ataque de Força Bruta (Brute Force) bem-sucedido",
+            "C) Uma falha no hardware de rede",
+            "D) Uma atualização automática do Windows"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O ID 4625 indica falha de logon. Muitas falhas seguidas de um sucesso (4624) sugerem que o atacante testou várias senhas até acertar."
+    },
+    {
+        "dominio": "Mod 3 - Auditoria e Logs",
+        "pergunta": "Qual Event ID é gerado quando o log de auditoria do Windows é limpo (Cleared), sinalizando possível tentativa de ocultação de rastros?",
+        "opcoes": [
+            "A) 4624",
+            "B) 4688",
+            "C) 1102",
+            "D) 4720"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O ID 1102 é um alerta crítico para o SOC, pois indica que alguém tentou apagar as evidências de suas atividades no host."
+    },
+    {
+        "dominio": "Mod 3 - Monitoramento de Processos",
+        "pergunta": "Qual comando via CLI é utilizado para listar conexões de rede ativas e o PID do processo responsável por cada uma no Windows?",
+        "opcoes": [
+            "A) ipconfig /all",
+            "B) netstat -abno",
+            "C) tracert -d",
+            "D) nslookup"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O comando netstat com os parâmetros -abno revela portas abertas, o nome do executável e o ID do processo (PID)."
+    },
+    {
+        "dominio": "Mod 3 - Sysinternals Suite",
+        "pergunta": "Qual ferramenta do Sysinternals é ideal para visualizar em tempo real quais arquivos, chaves de registro e DLLs um processo está acessando?",
+        "opcoes": [
+            "A) Autoruns",
+            "B) Process Monitor (ProcMon)",
+            "C) TCPView",
+            "D) RootkitRevealer"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O ProcMon fornece uma visão granular de todas as atividades do sistema de arquivos, registro e processos em tempo real."
+    },
+    {
+        "dominio": "Mod 3 - Sysinternals Suite",
+        "pergunta": "Qual utilitário gráfico da Sysinternals permite verificar se as imagens dos processos em execução no Windows possuem assinaturas digitais válidas da Microsoft?",
+        "opcoes": [
+            "A) Process Explorer",
+            "B) AccessChk",
+            "C) PsExec",
+            "D) SDelete"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O Process Explorer possui a função 'Verify Image Signatures', fundamental para identificar malwares disfarçados de processos legítimos."
+    },
+    {
+        "dominio": "Mod 3 - Segurança de Endpoint",
+        "pergunta": "O que caracteriza uma solução de proteção de host 'Agentless'?",
+        "opcoes": [
+            "A) Requer a instalação de um software pesado em cada computador",
+            "B) A proteção é realizada via rede ou hipervisor, sem instalar agentes no sistema convidado",
+            "C) Funciona apenas se o computador estiver desligado",
+            "D) É exclusiva para sistemas Linux"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Soluções agentless reduzem a carga sobre o host e facilitam a manutenção por não exigirem instalação local."
+    },
+    {
+        "dominio": "Mod 3 - Políticas de Segurança",
+        "pergunta": "Qual mecanismo do Windows impede que aplicativos executem tarefas administrativas sem o consentimento explícito do usuário, escurecendo a tela para confirmação?",
+        "opcoes": [
+            "A) Firewall do Windows",
+            "B) User Account Control (UAC)",
+            "C) Windows Defender",
+            "D) AppLocker"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O UAC ajuda a mitigar o impacto de malwares que tentam elevar privilégios silenciosamente."
+    },
+    {
+        "dominio": "Mod 3 - Processos Críticos",
+        "pergunta": "Qual processo do Windows é responsável pela gerência da autoridade de segurança local, autenticação e armazenamento de hashes de senhas na memória?",
+        "opcoes": [
+            "A) svchost.exe",
+            "B) lsass.exe",
+            "C) services.exe",
+            "D) winlogon.exe"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O lsass.exe é o alvo principal de ferramentas de 'Credential Dumping' como o Mimikatz."
+    },
+    {
+        "dominio": "Mod 3 - PowerShell",
+        "pergunta": "Por que o PowerShell é frequentemente utilizado em ataques 'Fileless' (sem arquivo)?",
+        "opcoes": [
+            "A) Porque ele é incapaz de acessar a internet",
+            "B) Porque permite a execução de scripts e comandos diretamente na memória RAM, sem tocar o disco rígido",
+            "C) Porque ele desativa automaticamente o antivírus",
+            "D) Porque é uma ferramenta exclusiva para hackers"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Ataques fileless usam ferramentas legítimas do sistema (Living off the Land) para evitar detecção baseada em arquivos no disco."
+    },
+    {
+        "dominio": "Mod 3 - Auditoria e Logs",
+        "pergunta": "Qual Event ID documenta a criação de um novo processo (Process Creation) no Windows?",
+        "opcoes": [
+            "A) 4624",
+            "B) 4688",
+            "C) 7040",
+            "D) 5140"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O monitoramento do ID 4688 é vital para detectar a execução de softwares não autorizados ou scripts maliciosos."
+    },
+    {
+        "dominio": "Mod 3 - Estrutura de Memória",
+        "pergunta": "Como o Windows isola a memória de um processo para garantir que ele não acesse os dados de outro processo em execução?",
+        "opcoes": [
+            "A) Através de senhas para cada pasta",
+            "B) Através do Espaço de Endereçamento Virtual (Virtual Address Space)",
+            "C) Desligando a memória RAM periodicamente",
+            "D) Usando o Windows Firewall"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O espaço de endereçamento virtual garante que cada processo tenha sua própria visão 'privada' da memória."
+    },
+    {
+        "dominio": "Mod 3 - Segurança de Host",
+        "pergunta": "Qual técnica de defesa de host permite executar arquivos suspeitos em um ambiente virtual isolado para observar seu comportamento sem risco para o sistema real?",
+        "opcoes": [
+            "A) Whitelisting",
+            "B) Sandboxing",
+            "C) Blacklisting",
+            "D) Data Loss Prevention (DLP)"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Sandboxes são ambientes seguros de 'detonação' para análise de comportamento de ameaças."
+    },
+    {
+        "dominio": "Mod 3 - Registro do Windows",
+        "pergunta": "Qual Hive do registro contém as configurações específicas do usuário que está logado no momento?",
+        "opcoes": [
+            "A) HKEY_LOCAL_MACHINE",
+            "B) HKEY_CURRENT_USER (HKCU)",
+            "C) HKEY_CLASSES_ROOT",
+            "D) HKEY_DYN_DATA"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A HKCU armazena preferências de desktop, conexões de rede e configurações de software do perfil ativo."
+    },
+    {
+        "dominio": "Mod 3 - Hardening",
+        "pergunta": "A prática de desabilitar serviços desnecessários e fechar portas de rede não utilizadas em um servidor Windows é chamada de:",
+        "opcoes": [
+            "A) Sandboxing",
+            "B) Hardening (Endurecimento)",
+            "C) Exfiltração",
+            "D) Normalização"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Hardening visa reduzir a superfície de ataque ao minimizar as vulnerabilidades e serviços expostos."
+    },
+    {
+        "dominio": "Mod 3 - NTFS",
+        "pergunta": "Nas permissões NTFS, se um usuário tem permissão 'Negar' explícita em uma pasta e permissão 'Permitir' herdada de um grupo, qual será o resultado final?",
+        "opcoes": [
+            "A) O acesso será permitido",
+            "B) O acesso será negado (Negar tem precedência)",
+            "C) O Windows solicitará a senha do Administrador",
+            "D) O usuário terá acesso apenas leitura"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No sistema de permissões do Windows, uma negação explícita sempre prevalece sobre permissões de permissão."
+    },
+    {
+        "dominio": "Mod 3 - Gerenciamento Remoto",
+        "pergunta": "Qual infraestrutura da Microsoft é utilizada para gerenciar dados e operações em sistemas Windows local ou remotamente, frequentemente abusada para execução de comandos?",
+        "opcoes": [
+            "A) WMI (Windows Management Instrumentation)",
+            "B) NTFS",
+            "C) BIOS",
+            "D) DHCP"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "O WMI é uma ferramenta administrativa poderosa que permite coletar informações e gerenciar o sistema de forma profunda."
+    },
+    {
+        "dominio": "Mod 3 - Sysinternals Suite",
+        "pergunta": "Qual ferramenta Sysinternals é usada para mostrar quais programas estão configurados para iniciar automaticamente durante o boot ou logon?",
+        "opcoes": [
+            "A) TCPView",
+            "B) Autoruns",
+            "C) Process Explorer",
+            "D) DiskMon"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O Autoruns tem o conhecimento mais abrangente de todos os locais de inicialização automática no Windows."
+    },
+    {
+        "dominio": "Mod 3 - Auditoria e Logs",
+        "pergunta": "O Event ID 4625 no log de segurança do Windows representa:",
+        "opcoes": [
+            "A) Uma conta de usuário criada",
+            "B) Uma falha na tentativa de logon",
+            "C) Um desligamento do sistema",
+            "D) Uma alteração de permissão de arquivo"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O ID 4625 é fundamental para detectar tentativas de invasão e ataques de dicionário."
+    },
+    {
+        "dominio": "Mod 3 - Host Analysis",
+        "pergunta": "Por que é importante analisar o 'Parent Process' (Processo Pai) de um executável suspeito?",
+        "opcoes": [
+            "A) Para saber o tamanho do arquivo",
+            "B) Para identificar a linhagem da execução (ex: um PDF que inicia um PowerShell)",
+            "C) Para descobrir a cor do ícone",
+            "D) Para verificar a conexão Wi-Fi"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A análise da árvore de processos revela comportamentos anômalos, como aplicativos de produtividade executando shells de comando."
+    }
+    ,{
+        "dominio": "Mod 4 - Filosofia Linux",
+        "pergunta": "Qual é o princípio fundamental da arquitetura Linux em relação aos recursos do sistema (teclado, rede, processos)?",
+        "opcoes": [
+            "A) Tudo é um banco de dados",
+            "B) Tudo é um arquivo",
+            "C) Tudo é um objeto criptográfico",
+            "D) Tudo é controlado pela BIOS"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "No Linux, quase tudo é tratado como um arquivo, facilitando a manipulação de hardware e dados via CLI."
+    },
+    {
+        "dominio": "Mod 4 - Sistema de Arquivos (FHS)",
+        "pergunta": "Qual diretório do Linux contém os arquivos de configuração globais do sistema e de serviços como SSH e Web?",
+        "opcoes": [
+            "A) /home",
+            "B) /var",
+            "C) /etc",
+            "D) /bin"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O diretório /etc é o 'cérebro' das configurações do sistema operacional."
+    },
+    {
+        "dominio": "Mod 4 - Sistema de Arquivos (FHS)",
+        "pergunta": "Em qual diretório um analista de SOC deve procurar pelos arquivos de logs dinâmicos do sistema?",
+        "opcoes": [
+            "A) /usr",
+            "B) /var/log",
+            "C) /tmp",
+            "D) /sbin"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O /var/log armazena os registros de atividades (syslog, auth.log, etc.) essenciais para auditoria."
+    },
+    {
+        "dominio": "Mod 4 - Permissões Linux",
+        "pergunta": "O que representa a permissão octal 755 em um arquivo?",
+        "opcoes": [
+            "A) Dono: rwx | Grupo: r-x | Outros: r-x",
+            "B) Dono: r-- | Grupo: r-- | Outros: r--",
+            "C) Dono: rwx | Grupo: --- | Outros: ---",
+            "D) Dono: rw- | Grupo: rw- | Outros: r--"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "7 (4+2+1=rwx), 5 (4+1=r-x). É a permissão comum para binários e diretórios públicos."
+    },
+    {
+        "dominio": "Mod 4 - Gestão de Identidades",
+        "pergunta": "Qual arquivo armazena os 'hashes' das senhas dos usuários e só pode ser lido pelo usuário root?",
+        "opcoes": [
+            "A) /etc/passwd",
+            "B) /etc/shadow",
+            "C) /etc/hosts",
+            "D) /etc/group"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O /etc/shadow protege as senhas contra ataques de força bruta offline por usuários não privilegiados."
+    },
+    {
+        "dominio": "Mod 4 - Permissões Linux",
+        "pergunta": "Qual comando é utilizado para alterar o dono (owner) e o grupo de um arquivo simultaneamente?",
+        "opcoes": [
+            "A) chmod",
+            "B) chown",
+            "C) chroot",
+            "D) umask"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "chown (Change Owner) permite definir as propriedades de posse dos arquivos no Linux."
+    },
+    {
+        "dominio": "Mod 4 - Sistema de Arquivos",
+        "pergunta": "Qual é a diferença de um Hard Link para um Soft Link?",
+        "opcoes": [
+            "A) Soft links são mais rápidos",
+            "B) Hard links apontam diretamente para o Inode; se o arquivo original for deletado, os dados permanecem acessíveis pelo hard link",
+            "C) Hard links funcionam apenas em rede",
+            "D) Soft links ocupam mais espaço em disco"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Diferente dos atalhos (soft links), hard links são referências físicas diretas aos dados no disco."
+    },
+    {
+        "dominio": "Mod 4 - Gerenciamento de Processos",
+        "pergunta": "Como é chamado o mecanismo no Linux onde um processo cria uma cópia de si mesmo para realizar uma tarefa paralela?",
+        "opcoes": [
+            "A) Threading",
+            "B) Forking",
+            "C) Paging",
+            "D) Spooling"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Forking é o método clássico do Unix/Linux para criação de novos processos (pai e filho)."
+    },
+    {
+        "dominio": "Mod 4 - Monitoramento de Rede",
+        "pergunta": "Qual comando lista todas as conexões TCP/UDP em formato numérico e revela o PID/Nome do programa no Linux?",
+        "opcoes": [
+            "A) lsblk",
+            "B) ps -aux",
+            "C) netstat -tunap",
+            "D) ifconfig"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "Este comando é vital para o SOC identificar conexões suspeitas e os processos que as originaram."
+    },
+    {
+        "dominio": "Mod 4 - Gestão de Serviços",
+        "pergunta": "Qual comando do systemd é usado para garantir que um serviço (daemon) inicie automaticamente junto com o boot do sistema?",
+        "opcoes": [
+            "A) systemctl start",
+            "B) systemctl enable",
+            "C) systemctl reload",
+            "D) systemctl mask"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O 'enable' cria os links simbólicos necessários para que o serviço seja persistente após o reboot."
+    },
+    {
+        "dominio": "Mod 4 - Análise de Logs",
+        "pergunta": "Qual utilitário moderno é usado para consultar os logs binários coletados pelo daemon systemd-journald?",
+        "opcoes": [
+            "A) cat",
+            "B) grep",
+            "C) journalctl",
+            "D) tail"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O journalctl permite filtros avançados por tempo, serviço ou nível de prioridade."
+    },
+    {
+        "dominio": "Mod 4 - Auditoria de Segurança",
+        "pergunta": "Qual arquivo de log deve ser analisado para investigar tentativas de login SSH mal-sucedidas em sistemas Debian?",
+        "opcoes": [
+            "A) /var/log/syslog",
+            "B) /var/log/auth.log",
+            "C) /var/log/boot.log",
+            "D) /var/log/kern.log"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O auth.log centraliza todos os eventos de autenticação e autorização (SSH, sudo, su)."
+    },
+    {
+        "dominio": "Mod 4 - Linha de Comando (CLI)",
+        "pergunta": "Qual caractere é usado para redirecionar a saída de um comando para a entrada de outro (Piping)?",
+        "opcoes": [
+            "A) >",
+            "B) >>",
+            "C) |",
+            "D) &"
+        ],
+        "resposta_correta": "C",
+        "explicacao": "O pipe (|) permite encadear comandos pequenos para realizar tarefas complexas de filtragem."
+    },
+    {
+        "dominio": "Mod 4 - Linha de Comando (CLI)",
+        "pergunta": "Qual comando é usado para procurar padrões de texto específicos dentro de um arquivo de log gigantesco?",
+        "opcoes": [
+            "A) sed",
+            "B) grep",
+            "C) awk",
+            "D) find"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Grep é a ferramenta padrão para busca e filtragem de texto via expressões regulares."
+    },
+    {
+        "dominio": "Mod 4 - Malwares Linux",
+        "pergunta": "Um malware que modifica binários como o 'ls' ou 'ps' para esconder arquivos e processos do administrador é um:",
+        "opcoes": [
+            "A) Ransomware",
+            "B) Rootkit",
+            "C) Worm",
+            "D) Trojan"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Rootkits visam a ocultação total da presença do atacante no sistema operacional."
+    },
+    {
+        "dominio": "Mod 4 - Sistema de Arquivos",
+        "pergunta": "Qual o perigo tático do diretório /tmp em termos de segurança?",
+        "opcoes": [
+            "A) Ele apaga arquivos do root",
+            "B) Possui permissões de escrita para qualquer usuário, sendo o 'pouso' ideal para scripts maliciosos",
+            "C) Ele bloqueia o acesso SSH",
+            "D) Ele contém as chaves de criptografia do sistema"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Devido à permissão global de escrita, atacantes o usam para baixar e executar ferramentas iniciais."
+    },
+    {
+        "dominio": "Mod 4 - Gestão de Usuários",
+        "pergunta": "Qual a principal diferença entre 'su' e 'sudo'?",
+        "opcoes": [
+            "A) O 'su' é mais seguro",
+            "B) O 'sudo' permite executar comandos como root usando a própria senha do usuário e deixa rastro de auditoria",
+            "C) O 'su' não exige senha",
+            "D) O 'sudo' apaga os logs após a execução"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Sudo (SuperUser Do) é preferido em ambientes corporativos pela trilha de auditoria (Accounting)."
+    },
+    {
+        "dominio": "Mod 4 - Administração de Rede",
+        "pergunta": "Qual ferramenta CLI é usada para testar a conectividade e 'banner grabbing' conectando-se a portas TCP específicas?",
+        "opcoes": [
+            "A) ping",
+            "B) telnet",
+            "C) traceroute",
+            "D) ip addr"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Telnet (ou nc) permite verificar manualmente o que um serviço responde ao ser contatado."
+    },
+    {
+        "dominio": "Mod 4 - Arquitetura",
+        "pergunta": "Qual diretório contém arquivos especiais que representam dispositivos de hardware (como discos e terminais)?",
+        "opcoes": [
+            "A) /etc",
+            "B) /dev",
+            "C) /proc",
+            "D) /sys"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O diretório /dev (devices) mapeia o hardware para a abstração de arquivos do Linux."
+    },
+    {
+        "dominio": "Mod 4 - Investigação de Processos",
+        "pergunta": "Ao notar um processo suspeito, o analista usa 'cat /proc/[PID]/exe'. O que ele está tentando descobrir?",
+        "opcoes": [
+            "A) O tempo de CPU usado",
+            "B) O caminho real do arquivo executável que iniciou o processo",
+            "C) A senha do dono do processo",
+            "D) O endereço IP do servidor C2"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "O sistema de arquivos /proc fornece informações em tempo real sobre os processos ativos."
+    },
+    {
+        "dominio": "Mod 4 - Gestão de Pacotes",
+        "pergunta": "Por que manter o sistema atualizado com 'apt update && apt upgrade' é vital para o SOC?",
+        "opcoes": [
+            "A) Para mudar a cor do terminal",
+            "B) Para aplicar patches de segurança que corrigem vulnerabilidades conhecidas",
+            "C) Para liberar espaço em disco",
+            "D) Para desinstalar o firewall"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Manter patches em dia é a defesa primária contra exploits conhecidos."
+    },
+    {
+        "dominio": "Mod 4 - Shell Scripting",
+        "pergunta": "Qual a função do caractere '#' no início de uma linha em um script bash?",
+        "opcoes": [
+            "A) Executar o comando como root",
+            "B) Indicar um comentário (será ignorado pelo interpretador)",
+            "C) Definir uma variável de ambiente",
+            "D) Criptografar a linha"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Comentários são essenciais para documentar a lógica de scripts de automação de segurança."
+    },
+    {
+        "dominio": "Mod 4 - DNS e Rede",
+        "pergunta": "Qual comando é usado para realizar consultas DNS manuais para investigar domínios suspeitos?",
+        "opcoes": [
+            "A) nslookup",
+            "B) route",
+            "C) ifconfig",
+            "D) uname"
+        ],
+        "resposta_correta": "A",
+        "explicacao": "Nslookup (ou dig) ajuda a mapear IPs e identificar possíveis infraestruturas de atacantes."
+    },
+    {
+        "dominio": "Mod 4 - Analise de Logs",
+        "pergunta": "O comando 'grep -i \"failed\" /var/log/auth.log' faz o quê?",
+        "opcoes": [
+            "A) Deleta as falhas de login",
+            "B) Procura pela palavra 'failed' ignorando a diferença entre maiúsculas e minúsculas",
+            "C) Altera a senha do usuário",
+            "D) Reinicia o serviço SSH"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "A flag -i torna a busca insensível a caixa, facilitando a captura de logs variados."
+    },
+    {
+        "dominio": "Mod 4 - Auditoria",
+        "pergunta": "Qual comando exibe informações detalhadas sobre o kernel e a arquitetura do sistema operacional Linux?",
+        "opcoes": [
+            "A) top",
+            "B) uname -a",
+            "C) df -h",
+            "D) free -m"
+        ],
+        "resposta_correta": "B",
+        "explicacao": "Uname fornece detalhes cruciais para identificar se o sistema está vulnerável a exploits de kernel específicos."
+    }
 ]
