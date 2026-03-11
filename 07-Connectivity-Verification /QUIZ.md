@@ -76,7 +76,6 @@ d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
 **Resposta Correta:** d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
-
 **Explicação:** Quando o cálculo AND indica um "Remote Host" (outra rede), o computador confia no seu roteador (Default Gateway) para encontrar o caminho, endereçando o MAC do quadro para a porta local do roteador.
 </details>
 
@@ -111,8 +110,7 @@ d) Time to Live (TTL)
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
 **Resposta Correta:** d) Time to Live (TTL)
-
-**Explicação:** O TTL é o mecanismo anti-loop da internet. Cada roteador subtrai 1. Se chegar a 0, o pacote é destruído e um erro ICMP "Time Exceeded" é enviado. O *Header Checksum* também é modificado porque precisa de ser recalcular após a alteração do TTL.
+**Explicação:** O TTL é o mecanismo anti-loop da internet. Cada roteador subtrai 1. Se chegar a 0, o pacote é destruído e um erro ICMP "Time Exceeded" é enviado. O *Header Checksum* também é modificado porque precisa de ser recalculado após a alteração do TTL.
 </details>
 
 <br>
@@ -195,7 +193,6 @@ d) Repassá-lo-á para o Default Gateway para análise.
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
 **Resposta Correta:** b) Tratá-lo-á como um "Runt Frame" (ou Fragmento de Colisão) e descartá-lo-á automaticamente.
-
 **Explicação:** O limite mínimo inegociável da Ethernet é 64 bytes. Menos do que isso é fisicamente impossível num frame válido, pelo que as placas de rede descartam silenciosamente como lixo/colisão.
 </details>
 
@@ -245,4 +242,3 @@ d) Auditar exclusivamente os cabeçalhos IPv4 e TCP do payload.
 </details>
 
 <br>
-
