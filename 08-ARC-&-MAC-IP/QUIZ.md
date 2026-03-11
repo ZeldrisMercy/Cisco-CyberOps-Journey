@@ -2,7 +2,7 @@
 
 Este simulado contém **15 questões de nível de certificação**, focadas nos objetivos do exame **Cisco CBROPS 200-201**.
 
----
+
 
 **1. Quando um dispositivo precisa enviar dados para um destino que está na mesma sub-rede IPv4, como ele descobre o endereço MAC de destino?**
 
@@ -23,7 +23,7 @@ Para comunicação local o dispositivo utiliza ARP para mapear o IP destino ao e
 
 <br>
 
----
+
 
 **2. Qual é o endereço MAC de destino utilizado em um ARP Request?**
 
@@ -44,7 +44,7 @@ ARP Requests são enviados em broadcast para todos os dispositivos da rede.
 
 <br>
 
----
+
 
 **3. Qual protocolo está identificado pelo valor hexadecimal 0x0806 no campo Type do quadro Ethernet?**
 
@@ -65,7 +65,7 @@ O valor 0x0806 identifica pacotes ARP encapsulados em quadros Ethernet.
 
 <br>
 
----
+
 
 **4. Um host precisa enviar dados para o endereço IP 8.8.8.8. Qual será o MAC destino no quadro Ethernet inicial?**
 
@@ -86,7 +86,7 @@ Quando o destino está em outra rede, o host envia o quadro ao roteador local.
 
 <br>
 
----
+
 
 **5. Um atacante envia respostas ARP falsas afirmando que o gateway pertence ao seu MAC. Qual ataque é esse?**
 
@@ -107,7 +107,7 @@ O ARP Spoofing altera as tabelas ARP das vítimas permitindo interceptação de 
 
 <br>
 
----
+
 
 **6. Qual comando mostra a tabela ARP de um sistema?**
 
@@ -128,7 +128,7 @@ O comando arp -a exibe o cache ARP armazenado no sistema.
 
 <br>
 
----
+
 
 **7. Qual parte do endereço MAC identifica o fabricante da placa de rede?**
 
@@ -149,7 +149,7 @@ O OUI (Organizationally Unique Identifier) identifica o fabricante do hardware.
 
 <br>
 
----
+
 
 **8. Por que entradas ARP possuem tempo de expiração?**
 
@@ -170,7 +170,7 @@ Entradas expiradas evitam inconsistências caso dispositivos mudem de IP ou MAC.
 
 <br>
 
----
+
 
 **9. O que acontece se o FCS de um quadro Ethernet estiver incorreto?**
 
@@ -191,7 +191,7 @@ Erro no FCS indica corrupção durante transmissão.
 
 <br>
 
----
+
 
 **10. Qual campo do quadro Ethernet não aparece normalmente no Wireshark?**
 
@@ -212,7 +212,7 @@ O preâmbulo é tratado pelo hardware da placa de rede.
 
 <br>
 
----
+
 
 **11. Qual diferença entre ARP e ICMP?**
 
@@ -233,7 +233,7 @@ ARP funciona apenas na LAN, enquanto ICMP pode atravessar roteadores.
 
 <br>
 
----
+
 
 **12. Qual comando limpa o cache ARP no Windows?**
 
@@ -254,7 +254,7 @@ Esse comando remove todas as entradas ARP.
 
 <br>
 
----
+
 
 **13. Qual tipo de comunicação representa um ARP Reply?**
 
@@ -275,7 +275,7 @@ A resposta ARP é enviada diretamente ao solicitante.
 
 <br>
 
----
+
 
 **14. Qual protocolo pode gerar flooding natural em redes grandes?**
 
@@ -296,7 +296,7 @@ ARP utiliza broadcast, o que pode gerar tráfego excessivo.
 
 <br>
 
----
+
 
 **15. O filtro "arp or icmp" no Wireshark mostra o que?**
 
