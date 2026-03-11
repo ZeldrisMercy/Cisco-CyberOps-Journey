@@ -1,4 +1,4 @@
-# 🧠 Simulado Definitivo: Módulo 06 - Ethernet e Internet Protocol (IP)
+# 🧠 Simulado Definitivo: Module 06 - Ethernet e Internet Protocol (IP)
 
 Este simulado foca-se nas características operacionais do protocolo IP, dissecação de cabeçalhos IPv4, regras de encapsulamento da tecnologia Ethernet e a estrutura de quadros (frames) na Camada de Enlace.
 
