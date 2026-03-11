@@ -1,4 +1,4 @@
-# 🧠 Simulado Definitivo: Module 05 (Protocols & Encapsulation) - Edição CyberOps
+# 🧠 Simulado Definitivo: Module 05 (Protocols & Encapsulation) 
 
 Este simulado contém 15 questões de nível de certificação, focadas nos objetivos oficiais do exame **Cisco CBROPS 200-201**. Ele testa a sua capacidade de compreender o fluxo de dados, dissecar pacotes e entender o comportamento de protocolos em cenários reais de defesa.
 
