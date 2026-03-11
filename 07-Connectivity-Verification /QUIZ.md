@@ -4,241 +4,241 @@ Este simulado foca nos mecanismos do ICMP, resolução de vizinhos e ferramentas
 
 ---
 
-### 🌐 Domínio 1: Protocolo IP e Decisões de Roteamento (L3)
+### 📡 Domínio 1: O Protocolo ICMP e Mensagens de Diagnóstico
 
-**1. Uma das características operacionais do protocolo IP é ser "Connectionless" (Sem conexão). Qual afirmação descreve corretamente essa característica em relação à transmissão de dados?**
-a) O IP assegura que os pacotes cheguem na mesma ordem em que foram enviados.
-b) O IP exige uma troca inicial de mensagens de controle (Handshake) antes de enviar o payload.
-c) O IP envia pacotes ao destinatário sem notificá-lo previamente, assim como enviar uma carta tradicional pelo correio.
-d) O IP retransmite automaticamente qualquer pacote que não receba um aviso de recebimento.
+**1. No modelo TCP/IP, protocolos como TCP e UDP transportam dados de aplicações. Qual é a função central do protocolo ICMP (Internet Control Message Protocol) na Camada de Rede?**
+a) Estabelecer canais seguros de comunicação encriptada entre roteadores de borda.
+b) Realizar a tradução de endereços IP privados para endereços IP públicos roteáveis.
+c) Fornecer mensagens de diagnóstico, testes de conectividade e relatar erros de roteamento.
+d) Garantir a entrega confiável e sequencial de pacotes entre o remetente e o destinatário.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** c) O IP envia pacotes ao destinatário sem notificá-lo previamente, assim como enviar uma carta tradicional pelo correio.
-**Explicação:** Ser "Connectionless" significa que não há criação de um canal dedicado de ponta a ponta antes da transmissão. O remetente apenas injeta o pacote na rede. Quem garante ordem e retransmissões (Handshake) é o TCP, não o IP.
+**Resposta Correta:** c) Fornecer mensagens de diagnóstico, testes de conectividade e relatar erros de roteamento.
+**Explicação:** O ICMP atua como o protocolo "mensageiro" do IP. Ele não carrega dados de utilizador, mas reporta problemas (como destinos inalcançáveis) e permite diagnósticos (como o Ping).
 </details>
 
 <br>
 
-**2. O protocolo IP opera sob o princípio de "Best Effort" (Melhor Esforço). No contexto da Camada de Rede (L3), o que isso significa na prática?**
-a) O protocolo tenta enviar os dados pelo meio mais rápido disponível (fibra óptica em vez de cobre).
-b) O IP não garante que todos os pacotes enviados serão recebidos; ele não possui rastreamento de entrega ou recuperação.
-c) O IP calculará a rota de menor custo matemático em cada roteador antes de encaminhar o tráfego.
-d) O IP ajustará automaticamente o tamanho do cabeçalho para evitar a fragmentação.
+**2. Durante um ataque de negação de serviço ou um loop de roteamento, pacotes podem ficar presos na rede. O que acontece quando o campo TTL (IPv4) ou Hop Limit (IPv6) chega a zero num roteador?**
+a) O roteador recarrega o TTL para 255 e reencaminha o pacote.
+b) O roteador encapsula o pacote num quadro Ethernet de broadcast.
+c) O roteador descarta o pacote e envia uma mensagem ICMP "Time Exceeded" ao remetente.
+d) O roteador envia uma mensagem de "Echo Reply" para o destino final.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** b) O IP não garante que todos os pacotes enviados serão recebidos; ele não possui rastreamento de entrega ou recuperação.
-**Explicação:** "Best Effort" é sinônimo de "não confiável" no jargão de redes. O IP faz o possível para encaminhar o pacote, mas não fornece aviso de recebimento. Se houver congestionamento, pacotes podem ser descartados sem aviso.
+**Resposta Correta:** c) O roteador descarta o pacote e envia uma mensagem ICMP "Time Exceeded" ao remetente.
+**Explicação:** Este mecanismo anti-loop destrói o pacote expirado e utiliza o ICMP para avisar a máquina de origem que o tráfego se perdeu no caminho.
 </details>
 
 <br>
 
-**3. A característica do IPv4 e IPv6 de ser "Media Independent" (Independente do Meio) significa que o pacote IP:**
-a) É imune a interferências eletromagnéticas (EMI) geradas pelo cabeamento.
-b) Pode conter qualquer tipo de dados de aplicação, como HTTP, FTP ou SMTP.
-c) Não sofre modificações em sua estrutura lógica interna, quer viaje por um cabo de cobre, fibra óptica ou sinal Wi-Fi.
-d) Ajusta seu tamanho de MTU de forma autônoma para evitar fragmentação no caminho.
+**3. No protocolo ICMPv4, como a estrutura do cabeçalho distingue exatamente o propósito de uma mensagem de controle (por exemplo, diferenciar entre um simples ping e um aviso de rota inalcançável)?**
+a) Através da variação de bits na subcamada LLC.
+b) Pelos campos "Type" e "Code" no cabeçalho ICMP.
+c) Lendo e processando dados armazenados no campo TTL estendido.
+d) Avaliando a porta lógica de origem usada pelo UDP.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** c) Não sofre modificações em sua estrutura lógica interna, quer viaje por um cabo de cobre, fibra óptica ou sinal Wi-Fi.
-**Explicação:** A Camada de Rede (IP) opera em nível lógico e não se "importa" com as leis da física da Camada 1. O pacote IP permanece idêntico durante toda a viagem; apenas o quadro Ethernet (L2) muda de tecnologia a cada salto.
+**Resposta Correta:** b) Pelos campos "Type" e "Code" no cabeçalho ICMP.
+**Explicação:** O "Type" define a classe do evento (ex: Tipo 8 = Echo Request, Tipo 3 = Destination Unreachable) e o "Code" especifica o motivo exato dentro dessa classe.
 </details>
 
 <br>
 
-**4. Um desenvolvedor utiliza o endereço IP `127.0.0.1` no seu código fonte. Ao gerar pacotes com este endereço de destino, o que acontece ao fluxo de rede do computador?**
-a) O pacote é roteado para a internet, mas bloqueado no ISP do provedor.
-b) O pacote desce a pilha TCP/IP até a placa de rede e volta para o próprio sistema operativo, sem nunca entrar no cabo de rede físico.
-c) O pacote é transmitido via cabo e retorna ao PC pelo switch local.
-d) O pacote dispara um Broadcast de descoberta para todos os hosts da mesma sub-rede.
+**4. Num contexto de SOC, a equipe detecta a geração de mensagens ICMP "Redirect". Qual é o motivo para um roteador enviar essa mensagem a uma máquina corporativa?**
+a) O roteador informa à máquina que existe um caminho melhor (outro roteador) na mesma rede local para alcançar o destino desejado.
+b) O servidor detectou anomalias no tráfego HTTPS e está forçando o cliente a reconectar.
+c) A interface física do switch foi desativada e o tráfego deve fluir pelo circuito de backup.
+d) A máquina alcançou o seu limite de banda de Quality of Service (QoS).
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** b) O pacote desce a pilha TCP/IP até a placa de rede e volta para o próprio sistema operativo, sem nunca entrar no cabo de rede físico.
-**Explicação:** Os endereços do bloco `127.0.0.0/8` (ou `::1` em IPv6) são interfaces de Loopback. Servem para testes internos e garantem que a arquitetura de rede do sistema operativo local está funcional.
-</details>
-
-<br>
-
-**5. Um Host final executa uma operação matemática de *Logical AND* entre o IP de destino e a sua própria Máscara de Sub-rede antes de enviar o tráfego. Se o resultado revelar que o destino NÃO está na rede local, para onde o Host enviará o quadro (Frame) na Camada 2?**
-a) Para o endereço MAC de Loopback (127.0.0.1).
-b) Para o endereço MAC de Broadcast (`FF:FF:FF:FF:FF:FF`).
-c) Diretamente para o endereço MAC do dispositivo de destino usando ARP.
-d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
-
-<details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
-**Explicação:** Quando o cálculo AND indica um "Remote Host" (outra rede), o computador confia no seu roteador (Default Gateway) para encontrar o caminho, endereçando o MAC do quadro para a porta local do roteador.
+**Resposta Correta:** a) O roteador informa à máquina que existe um caminho melhor (outro roteador) na mesma rede local para alcançar o destino desejado.
+**Explicação:** O ICMP Redirect otimiza o roteamento avisando o host que ele enviou o pacote para o gateway errado, quando havia um atalho mais eficiente no mesmo segmento LAN.
 </details>
 
 <br>
 
 ---
 
-### 📦 Domínio 2: Cabeçalhos IPv4 e Campos de Controle
+### 🌍 Domínio 2: O Poder do ICMPv6 e Neighbor Discovery (NDP)
 
-**6. Durante uma investigação no Wireshark, um analista observa um tráfego de rede e inspeciona o cabeçalho IPv4. O campo "Protocol" possui o valor decimal `6`. Qual protocolo da camada superior está contido no payload deste pacote IP?**
-a) ICMP
-b) UDP
-c) TCP
-d) IPv6
+**5. Uma rede corporativa migrou para o protocolo IPv6. Como o IPv6 resolve a ausência do protocolo ARP (usado no IPv4) para a resolução de endereços MAC na rede local?**
+a) Através do uso extensivo de pacotes de Broadcast em Nível 2.
+b) Utilizando o Neighbor Discovery Protocol (NDP), com mensagens NS (Neighbor Solicitation) e NA (Neighbor Advertisement).
+c) Consultando um servidor DNS centralizado na rede corporativa.
+d) Aplicando um cálculo matemático fixo nos últimos 64 bits do endereço IPv6.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** c) TCP
-**Explicação:** O campo Protocol (8 bits) informa ao roteador e ao receptor quem deve tratar os dados. `6` é TCP, `17` é UDP e `1` é ICMP.
+**Resposta Correta:** b) Utilizando o Neighbor Discovery Protocol (NDP), com mensagens NS (Neighbor Solicitation) e NA (Neighbor Advertisement). 
+**Explicação:** O Host A envia um NS em multicast perguntando "Quem tem este IPv6?", e o alvo responde diretamente com um NA fornecendo o seu MAC Address.
 </details>
 
 <br>
 
-**7. Qual campo dentro do cabeçalho de um pacote IPv4 sofre decrementação (redução) obrigatória toda vez que o pacote é processado e repassado por um roteador de Camada 3?**
-a) Header Checksum
-b) Differentiated Services (DS)
-c) Fragment Offset
-d) Time to Live (TTL)
+**6. Num ambiente com SLAAC, um host IPv6 recém-conectado precisa descobrir o prefixo da rede para se autoconfigurar. Qual par de mensagens ICMPv6 realiza este processo?**
+a) Echo Request e Echo Reply.
+b) Neighbor Solicitation (NS) e Neighbor Advertisement (NA).
+c) Router Solicitation (RS) e Router Advertisement (RA).
+d) Destination Unreachable e Time Exceeded.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** d) Time to Live (TTL)
-**Explicação:** O TTL é o mecanismo anti-loop da internet. Cada roteador subtrai 1. Se chegar a 0, o pacote é destruído e um erro ICMP "Time Exceeded" é enviado. O *Header Checksum* também é modificado porque precisa de ser recalculado após a alteração do TTL.
+**Resposta Correta:** c) Router Solicitation (RS) e Router Advertisement (RA).
+**Explicação:** O host emite um RS perguntando pelas configurações da rede. Os roteadores locais respondem com um RA, entregando o prefixo da sub-rede para que a máquina crie o seu próprio IP.
 </details>
 
 <br>
 
-**8. Qual campo do pacote IPv4 substituiu o antigo *Type of Service (ToS)* e é hoje utilizado ativamente para a priorização de pacotes (Quality of Service - QoS) durante congestionamentos?**
-a) DiffServ (Differentiated Services)
-b) IHL (Internet Header Length)
-c) Header Checksum
-d) ECN (Explicit Congestion Notification)
+**7. O Duplicate Address Detection (DAD) previne conflitos de IP no IPv6. Como um dispositivo verifica se o IP que deseja usar está livre na rede?**
+a) Envia um Echo Request para o endereço de broadcast da rede.
+b) Pergunta ao servidor DHCPv6 central se o IP está em lease.
+c) Envia uma mensagem NS direcionada ao próprio endereço IP que deseja assumir e aguarda para ver se alguém responde.
+d) Executa um ARP reverso no switch local.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** a) DiffServ (Differentiated Services)
-**Explicação:** O campo DS (8 bits) contém o DSCP para classificar o tráfego (garantindo que pacotes de VoIP não fiquem presos atrás de downloads pesados) e o ECN para notificar sobre congestionamentos iminentes.
+**Resposta Correta:** c) Envia uma mensagem NS direcionada ao próprio endereço IP que deseja assumir e aguarda para ver se alguém responde.
+**Explicação:** Se houver um NA de resposta, significa que outro host já possui esse IP. Se houver silêncio, o IP é único e seguro para ser utilizado.
 </details>
 
 <br>
 
----
-
-### 🔗 Domínio 3: Subcamadas Ethernet e Endereçamento (L2)
-
-**9. A Camada de Enlace de Dados (Layer 2) sob o padrão IEEE 802 é dividida em duas subcamadas distintas. Qual delas atua como a "ponte de software" que comunica diretamente com os protocolos de Camada 3 (IPv4/IPv6)?**
-a) MAC (Media Access Control)
-b) LLC (Logical Link Control)
-c) FCS (Frame Check Sequence)
-d) CSMA/CD
+**8. Qual tipo de endereço IPv6 possui escopo focado apenas na rede local (mesmo link), é essencial para o descobrimento de vizinhos (NDP), não é roteável para a internet e tipicamente começa com `fe80::`?**
+a) Global Unicast
+b) Link-Local
+c) Unique Local
+d) Loopback
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** b) LLC (Logical Link Control)
-**Explicação:** A subcamada LLC (802.2) identifica qual protocolo de rede está a ser usado e faz a ponte lógica com o sistema operativo. A subcamada inferior, MAC (802.3), lida fisicamente com a placa de rede e a formatação do meio físico.
+**Resposta Correta:** b) Link-Local
+**Explicação:** Todo o tráfego de controle local do IPv6 (incluindo a comunicação com o Gateway Padrão em ambientes SLAAC) ocorre utilizando endereços Link-Local.
 </details>
 
 <br>
 
-**10. O endereço MAC é o identificador físico de um dispositivo. Qual alternativa descreve com precisão a estrutura e o formato padrão de um MAC Address Ethernet?**
-a) Um valor binário de 32 bits, expresso em formato decimal pontuado.
-b) Um valor binário de 64 bits, expresso em oito grupos hexadecimais.
-c) Um valor binário de 48 bits, expresso por 12 dígitos hexadecimais.
-d) Um valor alfanumérico de 128 bits atribuído pelo ISP.
+**9. Por que um ataque clássico de amplificação como o "Smurf", que causa negação de serviço, não é viável em infraestruturas puramente IPv6?**
+a) O IPv6 descarta nativamente pacotes ICMP não criptografados pelo IPsec.
+b) A arquitetura do protocolo IPv6 eliminou o uso de endereços de broadcast, impossibilitando a amplificação de respostas em massa.
+c) O tráfego IPv6 possui verificações matemáticas inquebráveis baseadas no MAC.
+d) Os pacotes ICMPv6 não contêm mais o campo equivalente ao TTL.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** c) Um valor binário de 48 bits, expresso por 12 dígitos hexadecimais.
-**Explicação:** Os endereços MAC (ex: `00:1A:2B:3C:4D:5E`) têm 48 bits de comprimento. Para leitura humana, os bits são agrupados e convertidos em 12 caracteres hexadecimais.
-</details>
-
-<br>
-
-**11. No cabeçalho de um quadro Ethernet, o campo `Type / Length` (EtherType) é crucial para o desencapsulamento. Se este campo apresentar o valor hexadecimal `0x86DD`, o que o sistema receptor espera encontrar no payload?**
-a) Um pacote IPv4.
-b) Um pacote IPv6.
-c) Uma solicitação ARP (Address Resolution Protocol).
-d) Uma mensagem de erro ICMP.
-
-<details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) Um pacote IPv6.
-**Explicação:** O EtherType é como uma etiqueta de correio. `0x0800` sinaliza que dentro do envelope há um pacote IPv4, `0x0806` sinaliza ARP, e `0x86DD` sinaliza IPv6.
+**Resposta Correta:** b) A arquitetura do protocolo IPv6 eliminou o uso de endereços de broadcast, impossibilitando a amplificação de respostas em massa.
+**Explicação:** O Smurf falsificava o IP de origem e disparava pings para o endereço de broadcast IPv4, forçando todos os hosts a responderem ao alvo. O IPv6 substituiu o broadcast pelo multicast, mitigando essa técnica.
 </details>
 
 <br>
 
 ---
 
-### 🛡️ Domínio 4: O Quadro Ethernet (Frame) e Integridade
+### 🛠️ Domínio 3: Utilitários de Teste e Troubleshooting (Ping e Traceroute)
 
-**12. Num analisador de rede, um analista depara-se com um quadro Ethernet cujo tamanho total (do MAC de destino até ao FCS) é de apenas 52 bytes. Como o hardware receptor tratará este quadro?**
-a) Solicitará ao switch que adicione 12 bytes de Padding.
-b) Tratá-lo-á como um "Runt Frame" (ou Fragmento de Colisão) e descartá-lo-á automaticamente.
-c) Processá-lo-á normalmente se for um pacote ICMP.
-d) Repassá-lo-á para o Default Gateway para análise.
+**10. Uma estação falha ao se conectar à internet. O analista executa o comando `ping 127.0.0.1` (ou `ping ::1`) e o teste funciona. O que isto valida isoladamente?**
+a) Que o cabo de rede está conectado ao switch físico.
+b) Que a pilha TCP/IP interna e os drivers de rede do próprio computador estão operacionais.
+c) Que a resolução de nomes (DNS) está a funcionar corretamente.
+d) Que o roteador da rede local está alcançável.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** b) Tratá-lo-á como um "Runt Frame" (ou Fragmento de Colisão) e descartá-lo-á automaticamente.
-**Explicação:** O limite mínimo inegociável da Ethernet é 64 bytes. Menos do que isso é fisicamente impossível num frame válido, pelo que as placas de rede descartam silenciosamente como lixo/colisão.
+**Resposta Correta:** b) Que a pilha TCP/IP interna e os drivers de rede do próprio computador estão operacionais.
+**Explicação:** O endereço de Loopback nunca sai da placa de rede para o cabo físico. Este ping confirma apenas que a infraestrutura lógica do sistema operativo está saudável.
 </details>
 
 <br>
 
-**13. Qual componente de um quadro Ethernet não contém dados úteis, mas tem a função crítica de sincronizar os relógios físicos dos emissores e recetores avisando que um novo quadro está a chegar?**
-a) FCS (Frame Check Sequence)
-b) Type / Length
-c) Preamble e Start Frame Delimiter (SFD)
-d) Endereço MAC de Broadcast
+**11. Enquanto o ping testa a conectividade, o utilitário Traceroute mapeia os saltos até ao destino. Qual técnica o Traceroute utiliza para forçar os roteadores intermediários a revelarem a sua identidade?**
+a) Envia mensagens NS (Neighbor Solicitation) em cada salto físico da rede.
+b) Altera a porta de origem do UDP a cada pacote enviado.
+c) Inicia o campo TTL (ou Hop Limit) em 1 e incrementa-o sequencialmente, forçando os roteadores a responderem com erros "Time Exceeded".
+d) Inunda a rede com requisições ARP corrompidas.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** c) Preamble e Start Frame Delimiter (SFD)
-**Explicação:** São os primeiros 8 bytes (7 de Preamble + 1 de SFD) transmitidos. Atuam como um alarme que estabiliza o pulso elétrico na placa de rede recetora antes da leitura do MAC de Destino.
+**Resposta Correta:** c) Inicia o campo TTL (ou Hop Limit) em 1 e incrementa-o sequencialmente, forçando os roteadores a responderem com erros "Time Exceeded".
+**Explicação:** O roteador 1 recebe o pacote com TTL=1, descarta e responde. O Traceroute regista. Depois envia com TTL=2, o roteador 2 descarta e responde. O processo repete-se até o destino ser alcançado.
 </details>
 
 <br>
 
-**14. Para que um quadro alcance os 64 bytes exigidos, o campo "Data" deve ter no mínimo 46 bytes. Se o Pacote IP encapsulado tiver apenas 20 bytes, qual ação é executada pela Camada de Enlace (MAC)?**
-a) A Camada de Enlace bloqueia o pacote e pede mais dados à Aplicação.
-b) O quadro é transmitido incompleto e remontado mais tarde.
-c) O switch converte o quadro num "Jumbo Frame".
-d) Injetam-se bits sem significado (Padding) no final do payload até atingir os 46 bytes mínimos de dados.
+**12. Ao analisar um tráfego de "Echo Request" entre duas máquinas IPv4, o analista verifica os tipos de mensagem ICMP no Wireshark. Quais são os valores de "Type" padrão para o Ping no IPv4?**
+a) Type 3 para a solicitação e Type 4 para a resposta.
+b) Type 8 para a solicitação (Request) e Type 0 para a resposta (Reply).
+c) Type 133 para a solicitação e Type 134 para a resposta.
+d) Type 128 para a solicitação e Type 129 para a resposta.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** d) Injetam-se bits sem significado (Padding) no final do payload até atingir os 46 bytes mínimos de dados.
-**Explicação:** O *Padding* é um "enchimento" artificial adicionado aos pacotes pequenos. Sem ele, pacotes muito pequenos não ativariam corretamente a detecção de colisões (CSMA/CD) em redes locais físicas.
+**Resposta Correta:** b) Type 8 para a solicitação (Request) e Type 0 para a resposta (Reply).
+**Explicação:** No protocolo ICMPv4, o Ping inicia a sondagem com o Tipo 8, e a máquina de destino responde com o Tipo 0. (Nota: 128 e 129 são os equivalentes no ICMPv6).
 </details>
 
 <br>
 
-**15. Qual é a responsabilidade do Frame Check Sequence (FCS) presente no final de cada quadro Ethernet (Trailer)?**
-a) Executar criptografia para ocultar os dados em redes Wi-Fi.
-b) Utilizar um cálculo de Redundância Cíclica (CRC) sobre todo o quadro para garantir que os bits transmitidos não foram corrompidos física ou magneticamente no caminho.
-c) Notificar o PC emissor sobre perda de pacotes.
-d) Auditar exclusivamente os cabeçalhos IPv4 e TCP do payload.
+---
+
+### 📑 Domínio 4: Operações Práticas e Dual-Stack
+
+**13. Num contexto de infraestrutura moderna abordada no CBROPS, o que caracteriza uma rede "Dual-Stack" (Pilha Dupla)?**
+a) A utilização de dois firewalls de perímetro em modo Ativo-Passivo.
+b) O encapsulamento de pacotes IPv4 inteiros dentro de túneis IPv6.
+c) A segmentação física entre tráfego de dados e tráfego de telefonia (VLANs).
+d) A presença nativa e simultânea dos protocolos IPv4 e IPv6 ativados nas mesmas interfaces e equipamentos.
 
 <details>
 <summary><b>✅ Ver Resposta e Explicação</b></summary>
 
-**Resposta Correta:** b) Utilizar um cálculo de Redundância Cíclica (CRC) sobre todo o quadro para garantir que os bits transmitidos não foram corrompidos física ou magneticamente no caminho.
-**Explicação:** O FCS garante a integridade nó-a-nó. O emissor faz a conta matemática (CRC) e envia o resultado no FCS. O receptor faz a mesma conta; se não bater, o cabo ou o switch corromperam o dado, e o quadro é descartado.
+**Resposta Correta:** d) A presença nativa e simultânea dos protocolos IPv4 e IPv6 ativados nas mesmas interfaces e equipamentos.
+**Explicação:** No modo Dual-Stack, os equipamentos têm endereços IPv4 e IPv6 atribuídos simultaneamente, processando e roteando o tráfego de ambos os protocolos lado a lado de forma independente.
+</details>
+
+<br>
+
+**14. Um pacote destinado a um IP público chega ao roteador corporativo. O roteador verifica a tabela, não encontra rota explícita e não possui Gateway Padrão. Qual é a reação correta do equipamento?**
+a) Encaminhar o pacote em broadcast por todas as portas.
+b) Reter o pacote na memória RAM aguardando uma rota OSPF.
+c) Destruir o pacote e enviar um erro ICMP "Destination Unreachable" à máquina emissora.
+d) Descartar o pacote silenciosamente sem avisar a origem.
+
+<details>
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) Destruir o pacote e enviar um erro ICMP "Destination Unreachable" à máquina emissora.
+**Explicação:** Sem rota e sem gateway de último recurso, a Camada 3 decreta falha imediata e notifica a origem para que não mantenha a conexão pendente.
+</details>
+
+<br>
+
+**15. Em redes configuradas exclusivamente com SLAAC (sem DHCPv6), o host depende da mensagem Router Advertisement (RA) do roteador para descobrir o seu Gateway Padrão. Geralmente, qual endereço o roteador fornece como Gateway nessa mensagem?**
+a) O seu próprio endereço Link-Local (fe80::).
+b) O seu endereço Global Unicast (IP público).
+c) O endereço de Loopback encapsulado (::1).
+d) O endereço MAC de broadcast.
+
+<details>
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** a) O seu próprio endereço Link-Local (fe80::).
+**Explicação:** Para garantir máxima estabilidade no acesso dentro da rede local, o SLAAC instrui os hosts a utilizarem o endereço não-roteável (Link-Local) do roteador como o seu portal de saída.
 </details>
 
 <br>
