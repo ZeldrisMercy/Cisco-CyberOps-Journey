@@ -4,196 +4,245 @@ Este simulado foca nos mecanismos do ICMP, resolução de vizinhos e ferramentas
 
 ---
 
-**1. Em redes IPv4, o ARP é utilizado para resolver endereços IP em endereços MAC físicos. Como o IPv6 não suporta broadcasts e não utiliza o ARP, qual mensagem do ICMPv6 cumpre exatamente o papel de um "ARP Request"?**
-- [ ] A) Router Solicitation (RS)
-- [ ] B) Neighbor Solicitation (NS)
-- [ ] C) Neighbor Advertisement (NA)
-- [ ] D) Router Advertisement (RA)
+### 🌐 Domínio 1: Protocolo IP e Decisões de Roteamento (L3)
+
+**1. Uma das características operacionais do protocolo IP é ser "Connectionless" (Sem conexão). Qual afirmação descreve corretamente essa característica em relação à transmissão de dados?**
+a) O IP assegura que os pacotes cheguem na mesma ordem em que foram enviados.
+b) O IP exige uma troca inicial de mensagens de controle (Handshake) antes de enviar o payload.
+c) O IP envia pacotes ao destinatário sem notificá-lo previamente, assim como enviar uma carta tradicional pelo correio.
+d) O IP retransmite automaticamente qualquer pacote que não receba um aviso de recebimento.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> A mensagem Neighbor Solicitation (NS) é enviada por um dispositivo que conhece o IPv6 do alvo, mas precisa descobrir o MAC address associado, funcionando da mesma forma que o ARP Request no IPv4.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) O IP envia pacotes ao destinatário sem notificá-lo previamente, assim como enviar uma carta tradicional pelo correio.
+**Explicação:** Ser "Connectionless" significa que não há criação de um canal dedicado de ponta a ponta antes da transmissão. O remetente apenas injeta o pacote na rede. Quem garante ordem e retransmissões (Handshake) é o TCP, não o IP.
 </details>
+
 <br>
 
-**2. Um analista está diagnosticando um servidor recém-conectado a uma rede IPv6 SLAAC. Antes do servidor atribuir a si mesmo um endereço IPv6 Unicast Global, ele executa o mecanismo DAD (Duplicate Address Detection). Como o DAD verifica se o IP já está em uso?**
-- [ ] A) O servidor envia um ping (Echo Request) para o servidor DHCPv6.
-- [ ] B) O servidor envia uma mensagem Neighbor Solicitation (NS) contendo o seu próprio endereço IPv6 pretendido como alvo. Se receber um Neighbor Advertisement (NA), significa que o endereço é duplicado e já está em uso.
-- [ ] C) O servidor consulta a tabela de roteamento interna do Roteador Padrão (Default Gateway).
-- [ ] D) O servidor tenta acessar um DNS reverso; se falhar, o IP é seguro.
+**2. O protocolo IP opera sob o princípio de "Best Effort" (Melhor Esforço). No contexto da Camada de Rede (L3), o que isso significa na prática?**
+a) O protocolo tenta enviar os dados pelo meio mais rápido disponível (fibra óptica em vez de cobre).
+b) O IP não garante que todos os pacotes enviados serão recebidos; ele não possui rastreamento de entrega ou recuperação.
+c) O IP calculará a rota de menor custo matemático em cada roteador antes de encaminhar o tráfego.
+d) O IP ajustará automaticamente o tamanho do cabeçalho para evitar a fragmentação.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> O processo DAD (Duplicate Address Detection) envia uma mensagem NS para o endereço que o host quer utilizar. Se outro equipamento na rede já possuir esse endereço IP, ele responderá imediatamente com um NA, alertando sobre a duplicidade.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) O IP não garante que todos os pacotes enviados serão recebidos; ele não possui rastreamento de entrega ou recuperação.
+**Explicação:** "Best Effort" é sinônimo de "não confiável" no jargão de redes. O IP faz o possível para encaminhar o pacote, mas não fornece aviso de recebimento. Se houver congestionamento, pacotes podem ser descartados sem aviso.
 </details>
+
 <br>
 
-**3. Uma tática comum de Troubleshooting operacional, conforme visto no módulo de conectividade, é realizar um ping no endereço "Loopback". Qual é o endereço IP de loopback padrão para as pilhas IPv4 e IPv6, respectivamente, e o que este teste verifica?**
-- [ ] A) 10.0.0.1 e fe80::1 / Verifica o Gateway Padrão.
-- [ ] B) 127.0.0.1 e ::1 / Verifica se o hardware da placa de rede e a pilha TCP/IP interna estão funcionando corretamente no próprio host.
-- [ ] C) 0.0.0.0 e ::0 / Verifica a rota padrão da rede externa.
-- [ ] D) 255.255.255.255 e FF02::1 / Verifica todos os hosts na rede local.
+**3. A característica do IPv4 e IPv6 de ser "Media Independent" (Independente do Meio) significa que o pacote IP:**
+a) É imune a interferências eletromagnéticas (EMI) geradas pelo cabeamento.
+b) Pode conter qualquer tipo de dados de aplicação, como HTTP, FTP ou SMTP.
+c) Não sofre modificações em sua estrutura lógica interna, quer viaje por um cabo de cobre, fibra óptica ou sinal Wi-Fi.
+d) Ajusta seu tamanho de MTU de forma autônoma para evitar fragmentação no caminho.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> O ping para a interface de loopback (127.0.0.1 em IPv4 e ::1 em IPv6) não sai fisicamente da máquina. Ele apenas sobe e desce a pilha de protocolos TCP/IP do sistema operacional para garantir que os drivers e configurações lógicas vitais não estejam corrompidos.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) Não sofre modificações em sua estrutura lógica interna, quer viaje por um cabo de cobre, fibra óptica ou sinal Wi-Fi.
+**Explicação:** A Camada de Rede (IP) opera em nível lógico e não se "importa" com as leis da física da Camada 1. O pacote IP permanece idêntico durante toda a viagem; apenas o quadro Ethernet (L2) muda de tecnologia a cada salto.
 </details>
+
 <br>
 
-**4. Em um ambiente IPv6, qual dispositivo gera mensagens Router Advertisement (RA) a cada 200 segundos e qual a sua principal função em uma rede SLAAC?**
-- [ ] A) Switches L2; para evitar loops de rede.
-- [ ] B) Servidores DNS; para fornecer resolução de nomes.
-- [ ] C) Roteadores IPv6; para fornecer o prefixo de rede e permitir que os hosts configurem automaticamente os seus endereços IP e gateway.
-- [ ] D) Firewalls; para transmitir a lista de Controle de Acesso (ACL) atualizada.
+**4. Um desenvolvedor utiliza o endereço IP `127.0.0.1` no seu código fonte. Ao gerar pacotes com este endereço de destino, o que acontece ao fluxo de rede do computador?**
+a) O pacote é roteado para a internet, mas bloqueado no ISP do provedor.
+b) O pacote desce a pilha TCP/IP até a placa de rede e volta para o próprio sistema operativo, sem nunca entrar no cabo de rede físico.
+c) O pacote é transmitido via cabo e retorna ao PC pelo switch local.
+d) O pacote dispara um Broadcast de descoberta para todos os hosts da mesma sub-rede.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: C</b><br>
-<i>Explicação:</i> As mensagens RA são fundamentais para o IPv6 SLAAC (Stateless Address Autoconfiguration). Os roteadores enviam RAs periodicamente ou em resposta a um RS, fornecendo aos hosts a estrutura da rede para que eles próprios gerem seus IPs e configurem a saída da rede.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) O pacote desce a pilha TCP/IP até a placa de rede e volta para o próprio sistema operativo, sem nunca entrar no cabo de rede físico.
+**Explicação:** Os endereços do bloco `127.0.0.0/8` (ou `::1` em IPv6) são interfaces de Loopback. Servem para testes internos e garantem que a arquitetura de rede do sistema operativo local está funcional.
 </details>
+
 <br>
 
-**5. Um pacote ICMP atinge um roteador, mas o valor do campo TTL (no IPv4) ou do campo Hop Limit (no IPv6) chega a zero antes de o pacote alcançar seu destino final. O que o roteador fará em seguida?**
-- [ ] A) O roteador repassa o pacote para o próximo salto e alerta o administrador via SNMP.
-- [ ] B) O roteador descarta o pacote e envia uma mensagem ICMP "Time Exceeded" de volta à origem.
-- [ ] C) O roteador encapsula o pacote em um frame Ethernet de Broadcast L2.
-- [ ] D) O roteador recarrega o TTL para 255 e redireciona o tráfego.
+**5. Um Host final executa uma operação matemática de *Logical AND* entre o IP de destino e a sua própria Máscara de Sub-rede antes de enviar o tráfego. Se o resultado revelar que o destino NÃO está na rede local, para onde o Host enviará o quadro (Frame) na Camada 2?**
+a) Para o endereço MAC de Loopback (127.0.0.1).
+b) Para o endereço MAC de Broadcast (`FF:FF:FF:FF:FF:FF`).
+c) Diretamente para o endereço MAC do dispositivo de destino usando ARP.
+d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> O campo TTL/Hop Limit serve especificamente para evitar que pacotes fiquem em loop infinito na internet. Quando atinge 0, o pacote é morto, e a origem é notificada via mensagem ICMP "Time Exceeded" — este é o exato mecanismo que faz o utilitário Traceroute funcionar.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** d) Para o endereço MAC do seu Default Gateway (Roteador Padrão).
+
+**Explicação:** Quando o cálculo AND indica um "Remote Host" (outra rede), o computador confia no seu roteador (Default Gateway) para encontrar o caminho, endereçando o MAC do quadro para a porta local do roteador.
 </details>
+
 <br>
 
-**6. Durante o Lab 7.2.8 (Verify IPv4 and IPv6 Addressing), qual comando é executado no terminal do Windows para traçar a rota (saltos de roteamento) de um pacote IP do host local até o servidor remoto?**
-- [ ] A) `traceroute`
-- [ ] B) `tracert`
-- [ ] C) `ping -t`
-- [ ] D) `ipconfig /trace`
+---
+
+### 📦 Domínio 2: Cabeçalhos IPv4 e Campos de Controle
+
+**6. Durante uma investigação no Wireshark, um analista observa um tráfego de rede e inspeciona o cabeçalho IPv4. O campo "Protocol" possui o valor decimal `6`. Qual protocolo da camada superior está contido no payload deste pacote IP?**
+a) ICMP
+b) UDP
+c) TCP
+d) IPv6
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> Em sistemas operacionais Microsoft Windows (como os PCs do Packet Tracer lab), o utilitário de linha de comando para rastreamento de rota é chamado `tracert`. Em Linux, macOS e dispositivos Cisco, utiliza-se `traceroute`.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) TCP
+**Explicação:** O campo Protocol (8 bits) informa ao roteador e ao receptor quem deve tratar os dados. `6` é TCP, `17` é UDP e `1` é ICMP.
 </details>
+
 <br>
 
-**7. O que caracteriza uma infraestrutura de rede que opera em modo "Dual-Stack" (Pilha Dupla)?**
-- [ ] A) Uma rede que utiliza simultaneamente topologias em estrela e em anel para redundância de cabo físico.
-- [ ] B) Dispositivos e interfaces de rede que executam e suportam os protocolos IPv4 e IPv6 simultaneamente.
-- [ ] C) Uma configuração de Firewall onde as regras de Inbound e Outbound são empilhadas juntas.
-- [ ] D) O uso de TCP e UDP no mesmo número de porta de uma aplicação.
+**7. Qual campo dentro do cabeçalho de um pacote IPv4 sofre decrementação (redução) obrigatória toda vez que o pacote é processado e repassado por um roteador de Camada 3?**
+a) Header Checksum
+b) Differentiated Services (DS)
+c) Fragment Offset
+d) Time to Live (TTL)
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> Dual-Stack é a estratégia de transição primária para a internet moderna. Significa que os roteadores, switches e sistemas operacionais lidam tanto com tráfego IPv4 quanto IPv6 nativamente nas mesmas interfaces físicas, sem precisar de tradutores (como NAT64).
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** d) Time to Live (TTL)
+
+**Explicação:** O TTL é o mecanismo anti-loop da internet. Cada roteador subtrai 1. Se chegar a 0, o pacote é destruído e um erro ICMP "Time Exceeded" é enviado. O *Header Checksum* também é modificado porque precisa de ser recalcular após a alteração do TTL.
 </details>
+
 <br>
 
-**8. Após enviar um ICMPv6 Neighbor Solicitation (NS), um PC aguarda uma mensagem NA (Neighbor Advertisement) de volta. Qual informação crucial a mensagem NA de resposta carregará?**
-- [ ] A) A porta lógica do serviço solicitado.
-- [ ] B) A máscara de sub-rede do servidor DHCP.
-- [ ] C) O endereço MAC Ethernet do dispositivo alvo.
-- [ ] D) A chave pública de encriptação TLS do roteador.
+**8. Qual campo do pacote IPv4 substituiu o antigo *Type of Service (ToS)* e é hoje utilizado ativamente para a priorização de pacotes (Quality of Service - QoS) durante congestionamentos?**
+a) DiffServ (Differentiated Services)
+b) IHL (Internet Header Length)
+c) Header Checksum
+d) ECN (Explicit Congestion Notification)
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: C</b><br>
-<i>Explicação:</i> A mensagem NA (Neighbor Advertisement) tem a função análoga ao "ARP Reply". Ela declara ao dispositivo que solicitou o contato: "Eu sou o dono deste IPv6, e o meu Endereço Físico (MAC) de Camada 2 para envio do frame é este".
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** a) DiffServ (Differentiated Services)
+**Explicação:** O campo DS (8 bits) contém o DSCP para classificar o tráfego (garantindo que pacotes de VoIP não fiquem presos atrás de downloads pesados) e o ECN para notificar sobre congestionamentos iminentes.
 </details>
+
 <br>
 
-**9. Quando um host IPv6 acaba de inicializar e não quer esperar pelo ciclo de 200 segundos do roteador para obter sua configuração de rede, qual mensagem do protocolo Neighbor Discovery ele dispara ativamente?**
-- [ ] A) Neighbor Advertisement (NA)
-- [ ] B) Router Solicitation (RS)
-- [ ] C) Echo Request
-- [ ] D) DHCP Request
+---
+
+### 🔗 Domínio 3: Subcamadas Ethernet e Endereçamento (L2)
+
+**9. A Camada de Enlace de Dados (Layer 2) sob o padrão IEEE 802 é dividida em duas subcamadas distintas. Qual delas atua como a "ponte de software" que comunica diretamente com os protocolos de Camada 3 (IPv4/IPv6)?**
+a) MAC (Media Access Control)
+b) LLC (Logical Link Control)
+c) FCS (Frame Check Sequence)
+d) CSMA/CD
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> O host em boot gera um endereço Link-Local provisório e dispara um ICMPv6 Router Solicitation (RS) para o endereço multicast de roteadores, efetivamente pedindo à rede: "Por favor, algum Roteador ativo envie-me uma mensagem de Router Advertisement (RA) agora".
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) LLC (Logical Link Control)
+**Explicação:** A subcamada LLC (802.2) identifica qual protocolo de rede está a ser usado e faz a ponte lógica com o sistema operativo. A subcamada inferior, MAC (802.3), lida fisicamente com a placa de rede e a formatação do meio físico.
 </details>
+
 <br>
 
-**10. Se você for encarregado de validar a configuração de endereçamento no Prompt de Comando do Windows (Lab 7.2.8), quais os dois comandos corretos para exibir todos os detalhes do adaptador físico, listando o IPv4 e depois listando a configuração do IPv6?**
-- [ ] A) `ifconfig` e `ifconfig -v6`
-- [ ] B) `netstat -nr` e `show ipv6 route`
-- [ ] C) `ipconfig /all` e `ipv6config /all`
-- [ ] D) `ip address` e `ipv6 address`
+**10. O endereço MAC é o identificador físico de um dispositivo. Qual alternativa descreve com precisão a estrutura e o formato padrão de um MAC Address Ethernet?**
+a) Um valor binário de 32 bits, expresso em formato decimal pontuado.
+b) Um valor binário de 64 bits, expresso em oito grupos hexadecimais.
+c) Um valor binário de 48 bits, expresso por 12 dígitos hexadecimais.
+d) Um valor alfanumérico de 128 bits atribuído pelo ISP.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: C</b><br>
-<i>Explicação:</i> Em ambientes Microsoft Windows, `ipconfig /all` é usado para o detalhamento completo do adaptador, incluindo IPv4 e MAC. A variante específica para focar em atribuições IPv6 é `ipv6config /all` no simulador. Em sistemas Linux (incluindo o CyberOps VM), o padrão atual seria `ip address`.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) Um valor binário de 48 bits, expresso por 12 dígitos hexadecimais.
+**Explicação:** Os endereços MAC (ex: `00:1A:2B:3C:4D:5E`) têm 48 bits de comprimento. Para leitura humana, os bits são agrupados e convertidos em 12 caracteres hexadecimais.
 </details>
+
 <br>
 
-**11. Qual é a principal diferença conceitual entre uma mensagem de erro ICMP "Destination Unreachable" e uma mensagem "Time Exceeded"?**
-- [ ] A) "Unreachable" indica que o cabo de rede está fisicamente desconectado, "Time Exceeded" indica erro de DNS.
-- [ ] B) "Unreachable" ocorre quando a rota para a rede alvo não existe na tabela de roteamento (o pacote não pode ser entregue), enquanto "Time Exceeded" ocorre quando o pacote fica preso em um loop e o TTL zera.
-- [ ] C) Ambas são enviadas apenas pelo host de destino para recusar conexões.
-- [ ] D) Nenhuma diferença, são sinônimos e usadas aleatoriamente dependendo do fabricante do roteador.
+**11. No cabeçalho de um quadro Ethernet, o campo `Type / Length` (EtherType) é crucial para o desencapsulamento. Se este campo apresentar o valor hexadecimal `0x86DD`, o que o sistema receptor espera encontrar no payload?**
+a) Um pacote IPv4.
+b) Um pacote IPv6.
+c) Uma solicitação ARP (Address Resolution Protocol).
+d) Uma mensagem de erro ICMP.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> "Destination Unreachable" é uma falha de entrega por falta de conhecimento do caminho (o roteador não sabe para onde mandar) ou por proibição administrativa (Firewall negou). "Time Exceeded" ocorre por expiração do limite de saltos (Hop Limit/TTL) durante o trânsito.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) Um pacote IPv6.
+**Explicação:** O EtherType é como uma etiqueta de correio. `0x0800` sinaliza que dentro do envelope há um pacote IPv4, `0x0806` sinaliza ARP, e `0x86DD` sinaliza IPv6.
 </details>
+
 <br>
 
-**12. Em qual camada do Modelo OSI o ICMP (Internet Control Message Protocol) opera?**
-- [ ] A) Camada 2 - Enlace de Dados
-- [ ] B) Camada 3 - Rede
-- [ ] C) Camada 4 - Transporte
-- [ ] D) Camada 7 - Aplicação
+---
+
+### 🛡️ Domínio 4: O Quadro Ethernet (Frame) e Integridade
+
+**12. Num analisador de rede, um analista depara-se com um quadro Ethernet cujo tamanho total (do MAC de destino até ao FCS) é de apenas 52 bytes. Como o hardware receptor tratará este quadro?**
+a) Solicitará ao switch que adicione 12 bytes de Padding.
+b) Tratá-lo-á como um "Runt Frame" (ou Fragmento de Colisão) e descartá-lo-á automaticamente.
+c) Processá-lo-á normalmente se for um pacote ICMP.
+d) Repassá-lo-á para o Default Gateway para análise.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: B</b><br>
-<i>Explicação:</i> O ICMP é um protocolo da Camada 3 (Rede). Apesar de seu payload muitas vezes testar as camadas inferiores, o cabeçalho ICMP é encapsulado diretamente logo após o cabeçalho IPv4 ou IPv6 (sem usar números de porta L4 de TCP ou UDP).
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) Tratá-lo-á como um "Runt Frame" (ou Fragmento de Colisão) e descartá-lo-á automaticamente.
+
+**Explicação:** O limite mínimo inegociável da Ethernet é 64 bytes. Menos do que isso é fisicamente impossível num frame válido, pelo que as placas de rede descartam silenciosamente como lixo/colisão.
 </details>
+
 <br>
 
-**13. No mecanismo IPv6 SLAAC, como um host normal configura o seu próprio campo "Gateway Padrão" ao receber uma mensagem RA (Router Advertisement)?**
-- [ ] A) Faz uma solicitação extra ao servidor de DNS pela rota padrão.
-- [ ] B) Define a porta lógica do RA como gateway.
-- [ ] C) O host extrai o endereço "Link-Local" (fe80::) do roteador emissor (Endereço IP de Origem do pacote RA) e o atribui como o seu Default Gateway.
-- [ ] D) Utiliza o Broadcast Mac Address FF:FF:FF:FF:FF:FF.
+**13. Qual componente de um quadro Ethernet não contém dados úteis, mas tem a função crítica de sincronizar os relógios físicos dos emissores e recetores avisando que um novo quadro está a chegar?**
+a) FCS (Frame Check Sequence)
+b) Type / Length
+c) Preamble e Start Frame Delimiter (SFD)
+d) Endereço MAC de Broadcast
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: C</b><br>
-<i>Explicação:</i> Diferente do DHCP IPv4 (onde o roteador pode ser um IP distante), o IPv6 usa o próprio endereço de enlace físico do roteador (Link-Local) como portal de saída. O host simplesmente lê quem enviou o RA e confia naquele Link-Local como sendo o gateway correto da LAN.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** c) Preamble e Start Frame Delimiter (SFD)
+**Explicação:** São os primeiros 8 bytes (7 de Preamble + 1 de SFD) transmitidos. Atuam como um alarme que estabiliza o pulso elétrico na placa de rede recetora antes da leitura do MAC de Destino.
 </details>
+
 <br>
 
-**14. Um analista do SOC pede para que você execute um `ping` focado exclusivamente no IP do "Gateway Padrão". Qual é o objetivo técnico deste teste específico na metodologia de troubleshooting?**
-- [ ] A) Testar o DNS global do provedor.
-- [ ] B) Confirmar a disponibilidade dos servidores de aplicação do Datacenter em outra cidade.
-- [ ] C) Isolar a rede. Se o ping no gateway funciona, significa que a Camada 1, Camada 2, a placa de rede e o cabo local estão saudáveis até a fronteira da LAN; o problema provavelmente está na internet (externo).
-- [ ] D) Limpar o cache de ARP da interface.
+**14. Para que um quadro alcance os 64 bytes exigidos, o campo "Data" deve ter no mínimo 46 bytes. Se o Pacote IP encapsulado tiver apenas 20 bytes, qual ação é executada pela Camada de Enlace (MAC)?**
+a) A Camada de Enlace bloqueia o pacote e pede mais dados à Aplicação.
+b) O quadro é transmitido incompleto e remontado mais tarde.
+c) O switch converte o quadro num "Jumbo Frame".
+d) Injetam-se bits sem significado (Padding) no final do payload até atingir os 46 bytes mínimos de dados.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: C</b><br>
-<i>Explicação:</i> Pingar o default gateway é o passo vital após pingar o loopback. Se você atinge o gateway, toda a sua estrutura local de switches e cabos físicos está intacta. Qualquer falha após esse ponto é um problema de roteamento externo ou bloqueio de firewall de borda.
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** d) Injetam-se bits sem significado (Padding) no final do payload até atingir os 46 bytes mínimos de dados.
+**Explicação:** O *Padding* é um "enchimento" artificial adicionado aos pacotes pequenos. Sem ele, pacotes muito pequenos não ativariam corretamente a detecção de colisões (CSMA/CD) em redes locais físicas.
 </details>
+
 <br>
 
-**15. As mensagens do ICMPv6 Neighbor Discovery não dependem de Broadcasts "barulhentos" como o ARP. Para quais alvos lógicos as mensagens RA e RS são tipicamente endereçadas usando Multicast?**
-- [ ] A) RA é enviado para o Multicast "All-IPv6-Devices", e o RS é enviado para o Multicast "All-IPv6-Routers".
-- [ ] B) Ambas são enviadas em Unicast exclusivo.
-- [ ] C) RS é enviado para o servidor DNS, RA é enviado para o Switch Core.
-- [ ] D) RA é enviado apenas para redes de 2.4GHz, RS para 5GHz.
+**15. Qual é a responsabilidade do Frame Check Sequence (FCS) presente no final de cada quadro Ethernet (Trailer)?**
+a) Executar criptografia para ocultar os dados em redes Wi-Fi.
+b) Utilizar um cálculo de Redundância Cíclica (CRC) sobre todo o quadro para garantir que os bits transmitidos não foram corrompidos física ou magneticamente no caminho.
+c) Notificar o PC emissor sobre perda de pacotes.
+d) Auditar exclusivamente os cabeçalhos IPv4 e TCP do payload.
 
 <details>
-<summary><b>✅ Ver Gabarito</b></summary>
-<b>Resposta Correta: A</b><br>
-<i>Explicação:</i> No ICMPv6, as comunicações de descobrimento são precisas. Quando o roteador envia um RA, ele manda para o grupo Multicast "Todos os nós IPv6" (All-nodes). Quando o Host quer descobrir quem é o roteador e envia um RS, ele poupa os outros PCs da rede direcionando a mensagem ao grupo Multicast "Todos os Roteadores IPv6" (All-routers).
+<summary><b>✅ Ver Resposta e Explicação</b></summary>
+
+**Resposta Correta:** b) Utilizar um cálculo de Redundância Cíclica (CRC) sobre todo o quadro para garantir que os bits transmitidos não foram corrompidos física ou magneticamente no caminho.
+**Explicação:** O FCS garante a integridade nó-a-nó. O emissor faz a conta matemática (CRC) e envia o resultado no FCS. O receptor faz a mesma conta; se não bater, o cabo ou o switch corromperam o dado, e o quadro é descartado.
 </details>
+
+<br>
+
