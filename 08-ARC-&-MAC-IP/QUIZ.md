@@ -1,414 +1,238 @@
-# 🧠 Simulado Interativo: Módulo 08 - ARP & Relação MAC/IP
-
-Este simulado foca-se na compreensão do **protocolo ARP**, funcionamento da **comunicação em redes locais**, estrutura de **quadros Ethernet**, e relação entre **endereços MAC e IP**, conforme os objetivos do exame **Cisco CBROPS 200-201**.
-
----
-
-## 📚 Conteúdos Abordados
-
-- Funcionamento do protocolo ARP  
-- Descoberta de MAC a partir de IP  
-- Comunicação dentro e fora da sub-rede  
-- Estrutura de quadros Ethernet  
-- Broadcast e Unicast na rede  
-- Cache ARP e seu funcionamento  
-- Ataques ARP Spoofing  
-- Campos do quadro Ethernet  
-- Análise de pacotes com Wireshark  
+# 🧠 Simulado Definitivo: Module 08 (ARP & MAC/IP)
+Este simulado contém 15 questões de nível de certificação, focadas nos objetivos oficiais do exame **Cisco CBROPS 200-201**. Ele testa a sua capacidade de compreender o funcionamento do protocolo ARP, a relação entre endereços MAC e IP, o comportamento de quadros Ethernet e a análise de tráfego em cenários reais de rede e segurança.
 
 ---
 
-# 🌐 Domínio 1: Comunicação em Redes Locais (ARP)
+### 🌐 Domínio 1: ARP e Descoberta de Endereços
+
+
 
 **1. Quando um dispositivo precisa enviar dados para um destino que está na mesma sub-rede IPv4, como ele descobre o endereço MAC de destino?**
-
-a) Consulta o servidor DNS  
-b) Envia o pacote ao gateway  
-c) Verifica a tabela de roteamento  
-d) Consulta o cache ARP ou envia um ARP Request  
+- [ ] A) Consulta o servidor DNS
+- [ ] B) Envia o pacote ao gateway
+- [ ] C) Verifica a tabela de roteamento
+- [ ] D) Consulta o cache ARP ou envia um ARP Request
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** d) Consulta o cache ARP ou envia um ARP Request
-
-**Explicação:**  
-Para comunicação dentro da mesma rede local, o dispositivo precisa descobrir qual **MAC corresponde ao IP de destino**.
-
-Ele faz isso através do **ARP (Address Resolution Protocol)**:
-
-1. Primeiro verifica se o IP já está no **cache ARP**.  
-2. Caso não esteja, envia um **ARP Request em broadcast** para descobrir o MAC correspondente.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: D</b><br>
+<i>Explicação:</i> Para comunicação local o dispositivo utiliza o protocolo <b>ARP (Address Resolution Protocol)</b> para mapear um endereço IP ao endereço MAC correspondente. Primeiro verifica o cache ARP; se não encontrar, envia um <b>ARP Request em broadcast</b>.
 </details>
-
 <br>
-
----
 
 **2. Qual é o endereço MAC de destino utilizado em um ARP Request?**
-
-a) MAC do servidor DHCP  
-b) FF:FF:FF:FF:FF:FF  
-c) 00:00:00:00:00:00  
-d) MAC do gateway  
+- [ ] A) MAC do servidor DHCP
+- [ ] B) FF:FF:FF:FF:FF:FF
+- [ ] C) 00:00:00:00:00:00
+- [ ] D) MAC do gateway
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) FF:FF:FF:FF:FF:FF
-
-**Explicação:**  
-O ARP Request precisa alcançar **todos os dispositivos da rede local**.
-
-Por isso ele utiliza um endereço **broadcast Ethernet**, representado por:
-
-FF:FF:FF:FF:FF:FF
-
-Todos os hosts recebem a mensagem, mas apenas o que possui o IP solicitado responde.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> ARP Requests são enviados em <b>broadcast na camada 2</b>. O endereço MAC FF:FF:FF:FF:FF:FF indica que todos os dispositivos no segmento de rede local devem receber o quadro.
 </details>
-
 <br>
-
----
 
 **3. Qual protocolo está identificado pelo valor hexadecimal 0x0806 no campo Type do quadro Ethernet?**
-
-a) IPv4  
-b) ARP  
-c) IPv6  
-d) ICMP  
+- [ ] A) IPv4
+- [ ] B) ARP
+- [ ] C) IPv6
+- [ ] D) ICMP
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) ARP
-
-**Explicação:**  
-O campo **EtherType** no quadro Ethernet identifica qual protocolo está encapsulado.
-
-Alguns valores comuns:
-
-- **0x0800 → IPv4**  
-- **0x0806 → ARP**  
-- **0x86DD → IPv6**
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> O campo <b>EtherType</b> do quadro Ethernet identifica qual protocolo está encapsulado. O valor hexadecimal <b>0x0806</b> indica que o quadro transporta uma mensagem ARP.
 </details>
-
 <br>
-
----
 
 **4. Um host precisa enviar dados para o endereço IP 8.8.8.8. Qual será o MAC destino no quadro Ethernet inicial?**
-
-a) MAC do servidor Google  
-b) Broadcast  
-c) MAC do Default Gateway  
-d) MAC do ISP  
+- [ ] A) MAC do servidor Google
+- [ ] B) Broadcast
+- [ ] C) MAC do Default Gateway
+- [ ] D) MAC do ISP
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) MAC do Default Gateway
-
-**Explicação:**  
-Quando o destino está **fora da rede local**, o host não envia diretamente ao destino final.
-
-Em vez disso:
-
-1. O host envia o quadro ao **roteador (gateway)**.
-2. O roteador encaminha o pacote para a rede externa.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> Quando o destino está fora da rede local, o host envia o pacote ao <b>Default Gateway</b>. Assim, o quadro Ethernet utiliza o MAC do roteador local como destino inicial.
 </details>
-
 <br>
 
 ---
 
-# 🧩 Domínio 2: Segurança e Ataques Relacionados ao ARP
+### 🛡️ Domínio 2: Segurança e Manipulação do ARP
+
+
 
 **5. Um atacante envia respostas ARP falsas afirmando que o gateway pertence ao seu MAC. Qual ataque é esse?**
-
-a) MAC Flooding  
-b) ARP Spoofing  
-c) DHCP Starvation  
-d) DNS Poisoning  
+- [ ] A) MAC Flooding
+- [ ] B) ARP Spoofing
+- [ ] C) DHCP Starvation
+- [ ] D) DNS Poisoning
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) ARP Spoofing
-
-**Explicação:**  
-No **ARP Spoofing**, o atacante envia **respostas ARP falsas** para manipular a tabela ARP das vítimas.
-
-Isso permite:
-
-- interceptar tráfego (Man-in-the-Middle)  
-- modificar pacotes  
-- capturar credenciais  
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> O <b>ARP Spoofing</b> ocorre quando um atacante envia respostas ARP falsas para alterar o cache ARP das vítimas. Isso permite ataques como <b>Man-in-the-Middle</b>, interceptação de tráfego e roubo de credenciais.
 </details>
-
 <br>
 
 ---
 
-# 🔍 Domínio 3: Tabelas ARP e Ferramentas
+### 🔍 Domínio 3: Tabelas ARP e Estrutura de Endereços
+
+
 
 **6. Qual comando mostra a tabela ARP de um sistema?**
-
-a) ipconfig  
-b) netstat  
-c) arp -a  
-d) nslookup  
+- [ ] A) ipconfig
+- [ ] B) netstat
+- [ ] C) arp -a
+- [ ] D) nslookup
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) arp -a
-
-**Explicação:**  
-O comando:
-
-arp -a
-
-mostra o **cache ARP**, que contém associações entre:
-
-IP → MAC
-
-Isso ajuda a diagnosticar problemas de rede.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> O comando <b>arp -a</b> mostra o cache ARP armazenado no sistema, exibindo o mapeamento entre endereços IP e endereços MAC conhecidos.
 </details>
-
 <br>
-
----
 
 **7. Qual parte do endereço MAC identifica o fabricante da placa de rede?**
-
-a) Últimos 24 bits  
-b) Campo Type  
-c) Primeiros 24 bits (OUI)  
-d) Preâmbulo  
+- [ ] A) Últimos 24 bits
+- [ ] B) Campo Type
+- [ ] C) Primeiros 24 bits (OUI)
+- [ ] D) Preâmbulo
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) Primeiros 24 bits (OUI)
-
-**Explicação:**  
-O endereço MAC possui 48 bits.
-
-Estrutura:
-
-- **Primeiros 24 bits → OUI (fabricante)**  
-- **Últimos 24 bits → Identificador único do dispositivo**
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> O <b>OUI (Organizationally Unique Identifier)</b> corresponde aos primeiros 24 bits do endereço MAC e identifica o fabricante do hardware de rede.
 </details>
-
 <br>
-
----
 
 **8. Por que entradas ARP possuem tempo de expiração?**
-
-a) Porque IP muda a cada ping  
-b) Para renovar DHCP  
-c) Porque tabelas ocupam muito espaço  
-d) Para manter informações atualizadas  
+- [ ] A) Porque IP muda a cada ping
+- [ ] B) Para renovar DHCP
+- [ ] C) Porque tabelas ocupam muito espaço
+- [ ] D) Para manter informações atualizadas
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** d) Para manter informações atualizadas
-
-**Explicação:**  
-Entradas ARP expiram para evitar inconsistências.
-
-Isso é importante quando:
-
-- dispositivos mudam de IP  
-- interfaces são reiniciadas  
-- MAC address muda
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: D</b><br>
+<i>Explicação:</i> Entradas ARP possuem tempo de expiração para evitar inconsistências caso dispositivos mudem de IP ou MAC, garantindo que a tabela ARP permaneça atualizada.
 </details>
-
 <br>
 
 ---
 
-# 🧱 Domínio 4: Estrutura do Quadro Ethernet
+### 🧱 Domínio 4: Quadros Ethernet e Integridade de Dados
+
+
 
 **9. O que acontece se o FCS de um quadro Ethernet estiver incorreto?**
-
-a) O switch corrige  
-b) A NIC descarta o quadro  
-c) O roteador corrige  
-d) O ARP retransmite  
+- [ ] A) O switch corrige
+- [ ] B) A NIC descarta o quadro
+- [ ] C) O roteador corrige
+- [ ] D) O ARP retransmite
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) A NIC descarta o quadro
-
-**Explicação:**  
-O **FCS (Frame Check Sequence)** detecta erros de transmissão.
-
-Se houver inconsistência, a **placa de rede descarta o quadro automaticamente**.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> O campo <b>Frame Check Sequence (FCS)</b> permite detectar erros de transmissão. Se o valor calculado não corresponder ao recebido, a placa de rede descarta o quadro.
 </details>
-
 <br>
-
----
 
 **10. Qual campo do quadro Ethernet não aparece normalmente no Wireshark?**
-
-a) Source MAC  
-b) Type  
-c) Preamble  
-d) FCS  
+- [ ] A) Source MAC
+- [ ] B) Type
+- [ ] C) Preamble
+- [ ] D) FCS
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) Preamble
-
-**Explicação:**  
-O **preâmbulo** é tratado diretamente pelo hardware da placa de rede.
-
-Por isso ele geralmente **não aparece em capturas de pacotes**.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> O <b>preamble</b> é utilizado para sincronização no nível físico e normalmente é processado pelo hardware da NIC, não aparecendo nas capturas do Wireshark.
 </details>
-
 <br>
 
 ---
 
-# 🌍 Domínio 5: Protocolos Relacionados
+### 🔗 Domínio 5: Protocolos e Comunicação na Rede
+
+
 
 **11. Qual diferença entre ARP e ICMP?**
-
-a) ARP usa UDP  
-b) ICMP é roteável entre redes  
-c) ARP criptografa dados  
-d) São protocolos equivalentes  
+- [ ] A) ARP usa UDP
+- [ ] B) ICMP é roteável entre redes
+- [ ] C) ARP criptografa dados
+- [ ] D) São protocolos equivalentes
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) ICMP é roteável entre redes
-
-**Explicação:**  
-
-ARP:
-- Funciona apenas dentro da **rede local (LAN)**
-
-ICMP:
-- Pode atravessar **roteadores e redes diferentes**
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> O ARP opera apenas dentro da rede local (LAN), enquanto o <b>ICMP</b> pode atravessar roteadores e redes diferentes, sendo usado para diagnósticos como o comando <b>ping</b>.
 </details>
-
 <br>
-
----
 
 **12. Qual comando limpa o cache ARP no Windows?**
-
-a) Reiniciar firewall  
-b) arp -d *  
-c) ping -t  
-d) alterar DNS  
+- [ ] A) Reiniciar firewall
+- [ ] B) arp -d *
+- [ ] C) ping -t
+- [ ] D) alterar DNS
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) arp -d *
-
-**Explicação:**  
-Esse comando remove **todas as entradas do cache ARP**.
-
-Isso força o sistema a reconstruir a tabela ARP.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> O comando <b>arp -d *</b> remove todas as entradas do cache ARP, forçando o sistema a descobrir novamente os endereços MAC necessários.
 </details>
-
 <br>
 
 ---
 
-# 📡 Domínio 6: Tipos de Comunicação
+### 📡 Domínio 6: Tipos de Comunicação em Rede
+
+
 
 **13. Qual tipo de comunicação representa um ARP Reply?**
-
-a) Broadcast  
-b) Multicast  
-c) Unicast  
-d) Anycast  
+- [ ] A) Broadcast
+- [ ] B) Multicast
+- [ ] C) Unicast
+- [ ] D) Anycast
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) Unicast
-
-**Explicação:**  
-Enquanto o **ARP Request é broadcast**, o **ARP Reply é unicast**.
-
-Ou seja, a resposta é enviada **diretamente ao host solicitante**.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> Enquanto o <b>ARP Request</b> é enviado em broadcast, o <b>ARP Reply</b> é enviado diretamente ao host que fez a solicitação, caracterizando comunicação <b>unicast</b>.
 </details>
-
 <br>
-
----
 
 **14. Qual protocolo pode gerar flooding natural em redes grandes?**
-
-a) HTTP  
-b) ARP  
-c) OSPF  
-d) SMTP  
+- [ ] A) HTTP
+- [ ] B) ARP
+- [ ] C) OSPF
+- [ ] D) SMTP
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** b) ARP
-
-**Explicação:**  
-ARP usa **broadcast na rede local**.
-
-Em redes grandes isso pode gerar **muito tráfego de broadcast**, causando flooding.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: B</b><br>
+<i>Explicação:</i> Como o ARP utiliza broadcast para descobrir endereços MAC, redes grandes podem gerar grande volume de tráfego ARP, causando <b>ARP flooding</b>.
 </details>
-
 <br>
 
 ---
 
-# 🔬 Domínio 7: Análise de Pacotes
+### 🦈 Domínio 7: Análise de Tráfego e Wireshark
+
+
 
 **15. O filtro "arp or icmp" no Wireshark mostra o que?**
-
-a) Erros L2 e L3  
-b) Tráfego de roteamento  
-c) Pacotes ARP e ICMP  
-d) Todo tráfego TCP/IP  
+- [ ] A) Erros L2 e L3
+- [ ] B) Tráfego de roteamento
+- [ ] C) Pacotes ARP e ICMP
+- [ ] D) Todo tráfego TCP/IP
 
 <details>
-<summary><b>✅ Ver Resposta e Explicação</b></summary>
-
-**Resposta Correta:** c) Pacotes ARP e ICMP
-
-**Explicação:**  
-O filtro mostra apenas dois tipos de pacotes:
-
-- mensagens **ARP (resolução de endereço)**  
-- mensagens **ICMP (como ping)**
-
-Isso facilita analisar **descoberta de rede e conectividade**.
-
+<summary><b>✅ Ver Gabarito</b></summary>
+<b>Resposta Correta: C</b><br>
+<i>Explicação:</i> O filtro <b>arp or icmp</b> exibe apenas pacotes ARP (descoberta de MAC) e ICMP (mensagens de diagnóstico como ping), facilitando a análise de conectividade e descoberta de rede.
 </details>
-
----
-
