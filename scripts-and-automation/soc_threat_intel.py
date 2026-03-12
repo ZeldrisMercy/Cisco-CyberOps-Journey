@@ -1,16 +1,21 @@
 import requests
 import json
 import time
+import os              # <-- ADICIONE ISSO
+from dotenv import load_dotenv # <-- ADICIONE ISSO
+
+# Carrega as configurações do arquivo .env
+load_dotenv()          # <-- ADICIONE ISSO
 
 # ==========================================
-# CONFIGURAÇÕES DO SOC
+# CONFIGURAÇÕES DO SOC (PUXANDO DO COFRE)
 # ==========================================
-ABUSEIPDB_API_KEY = "10876350a2794321b03ebe9dbf2c109337d387983263c935dc27f481eb79b9a3e3dab04120544e75" 
+ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_KEY")    # <-- AJUSTE ISSO
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")      # <-- AJUSTE ISSO
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")  # <-- AJUSTE ISSO
 JAVA_API_URL = "http://localhost:8080/api/v1/threats"
 
-# --- NOVAS CREDENCIAIS DO TELEGRAM ---
-TELEGRAM_TOKEN = "8652012151:AAE_A5IGAujJazDB8sAIJyf6j-LRq5kDua0"
-TELEGRAM_CHAT_ID = "5633129982"
+# ... o restante do seu código está perfeito ...
 
 ips_suspeitos = ["79.124.40.174", "8.8.8.8", "88.216.214.115", "83.111.76.194"]
 
@@ -66,12 +71,18 @@ def enviar_para_java(ip, score, pais):
             "ferramentaOrigem": "abuseipdb_sensor_v1"
         }
         try:
-            res = requests.post(JAVA_API_URL, json=ataque_detectado)
+            res = requests.post(JAVA_API_URL, json=ataque_detectado, timeout=5) # Adicionado timeout
+            print(f"    [DEBUG] Resposta do Java: {res.status_code}")
+            
             if res.status_code == 200:
                 print("\033[92m    [✓] IP salvo com sucesso no banco corporativo.\033[0m")
-                enviar_alerta_telegram(ip, pais, score) # <--- CHAMA O ALARME AQUI!
+                print("    [*] Tentando disparar alerta para o Telegram...")
+                enviar_alerta_telegram(ip, pais, score)
+            else:
+                print(f"    [X] O Java recebeu, mas deu erro: {res.text}")
+                
         except Exception as e:
-            print(f"    [X] Erro ao contatar a API Java: {e}")
+            print(f"    [X] O Python não conseguiu falar com o Java: {e}")
     else:
         print(f"\033[92m[✓] IP Limpo ou com risco baixo ({score}%). Nenhuma ação necessária.\033[0m\n")
 
