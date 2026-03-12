@@ -1,3 +1,6 @@
+# 🛡️ Anexo Tático: Dissecando Frames L2 e Ameaças ARP
+
+> [!WARNING]
 **Atenção Analista:** Compreender a teoria do ARP é apenas o primeiro passo. No dia a dia de um Centro de Operações de Segurança (SOC), você precisará olhar diretamente para os bits e bytes no Wireshark para distinguir tráfego legítimo de um ataque de *Man-in-the-Middle*.
 
 Esta seção aprofunda a análise de cabeçalhos Ethernet e o comportamento de roteamento L2/L3 com base em capturas reais de laboratório.
