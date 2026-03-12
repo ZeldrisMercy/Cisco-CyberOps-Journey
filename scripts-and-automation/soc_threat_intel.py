@@ -5,7 +5,7 @@ import time
 # ==========================================
 # CONFIGURAÇÕES DO SOC
 # ==========================================
-ABUSEIPDB_API_KEY = "SUA_CHAVE_DO_ABUSEIPDB_AQUI" 
+ABUSEIPDB_API_KEY = "10876350a2794321b03ebe9dbf2c109337d387983263c935dc27f481eb79b9a3e3dab04120544e75" 
 JAVA_API_URL = "http://localhost:8080/api/v1/threats"
 
 # --- NOVAS CREDENCIAIS DO TELEGRAM ---
