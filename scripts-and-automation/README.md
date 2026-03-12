@@ -1,50 +1,122 @@
 # 🐍 Python SOC Automations & Active Response
 
-> **Missão:** Construir o próprio arsenal. Este diretório contém ferramentas desenvolvidas em Python para automatizar tarefas críticas de um Centro de Operações de Segurança (SOC), desde a verificação de integridade de arquivos até a resposta ativa contra intrusões (IPS).
+> **Missão:** Construir o próprio arsenal. Este diretório contém ferramentas desenvolvidas em Python para automatizar tarefas críticas de um Centro de Operações de Segurança (SOC), desde a inteligência de ameaças global até a resposta ativa contra intrusões (IPS).
 
-A abordagem aqui é "Host-Based Analysis", operando diretamente nos logs do sistema e manipulando regras de firewall em tempo real.
+A abordagem aqui une **Host-Based Analysis** (análise interna) com **Threat Intelligence** (análise externa), criando uma camada de defesa proativa.
 
 ---
 
 ## 🛠️ O Arsenal (Ferramentas de Defesa)
 
-### 1. Integrity Scanner Pro (`hash_checker.py`) v3.0
-* **Descrição:** Ferramenta forense para garantir a **Integridade** de evidências e binários. Utiliza leitura de arquivos em blocos de memória (`8192 bytes`), o que a torna extremamente eficiente para escanear arquivos pesados sem sobrecarregar a RAM.
-* **Features Principais:**
-  * Gera simultaneamente hashes MD5, SHA-1 e SHA-256.
-  * **Modo Forense (Lote):** Varredura completa de diretórios iterando sobre todos os arquivos.
-  * **Verificação de Adulteração:** Permite colar um hash oficial para comparação direta e validação de integridade.
-* **Módulos Core:** `hashlib`, `os`.
+### 1. CyberOps Threat Intelligence (`soc_threat_intel.py`) 🚀 **NEW**
 
-### 2. SOC IPS Unit - Advanced (`soc_ips_blocker.py`)
-* **Descrição:** Um sistema de Resposta Ativa (Active Response) com interface tática para terminal. O script disseca logs de autenticação para identificar ataques de Força Bruta e aplica bloqueios de rede.
-* **Features Principais:**
-  * **Regex Engine:** Extrai IPs maliciosos diretamente de strings de erro de senha (`Failed password for...`).
-  * **Cross-Platform:** Executa bloqueios reais no firewall do Linux (`iptables`) ou Windows (`netsh`).
-  * **Forense Automatizada:** No modo real, gera automaticamente um relatório tático em formato `.json` contendo a data, o IP atacante e o número de tentativas, preservando a cadeia de custódia.
-  * **Modo de Simulação:** Permite testar a lógica e o parser sem alterar as regras reais do sistema.
-* **Módulos Core:** `re`, `subprocess`, `json`, `collections.Counter`.
+**Descrição:**  
+O **"olho externo" do SOC**. Este script atua como um conector entre o tráfego de rede e bases globais de reputação de IPs.
 
-### 3. SSH Log Parser & Blocker (`log_parser_ssh.py`)
-* **Descrição:** A versão base e focada em auditoria do bloqueador IPS. Focado na manutenção de logs de segurança e gestão simplificada.
-* **Features Principais:**
-  * **Sistema de Whitelist Interativo:** Permite adicionar IPs confiáveis (como `127.0.0.1`) em tempo de execução para evitar auto-bloqueio.
-  * **Auditoria Contínua:** Utiliza a biblioteca `logging` para gravar silenciosamente todos os bloqueios executados em um arquivo `ips_bloqueados.log`.
-* **Módulos Core:** `logging`, `platform`, `subprocess`.
+**Features Principais:**
 
-### 4. CyberOps DB Quizzer (`cyberops_quizzer.py`)
-* *(Documentação em breve: Simulador de estudos em terminal)*
+- **Integração AbuseIPDB:** Consulta em tempo real o score de risco e país de origem de IPs suspeitos.
+- **Gateway Integration:** Envia automaticamente ameaças confirmadas para o **Java-Sec-API** via requisições REST (JSON).
+- **Notificação em Tempo Real:** Dispara alertas via Telegram quando IPs de alto risco são detectados.
+
+**Módulos Core:**  
+`requests`, `python-dotenv`
+
+---
+
+### 2. Integrity Scanner Pro (`hash_checker.py`) v3.0
+
+**Descrição:**  
+Ferramenta forense para garantir a **Integridade** de evidências e binários.
+
+Utiliza leitura em blocos (`8192 bytes`) para máxima eficiência no processamento de arquivos grandes.
+
+**Features Principais:**
+
+- Geração simultânea de hashes **MD5**
+- Geração de hashes **SHA-1**
+- Geração de hashes **SHA-256**
+- Comparação direta com hashes oficiais para validação de integridade
+
+**Módulos Core:**  
+`hashlib`, `os`
+
+---
+
+### 3. SOC IPS Unit - Advanced (`soc_ips_blocker.py`)
+
+**Descrição:**  
+Sistema de **Resposta Ativa (Active Response)**.
+
+O script analisa logs de autenticação para identificar padrões de **ataques de força bruta** e aplica bloqueios automáticos no firewall do sistema.
+
+Dependendo do sistema operacional, ele utiliza:
+
+- `iptables` (Linux)
+- `netsh` (Windows)
+
+**Módulos Core:**  
+`re`, `subprocess`, `json`, `collections.Counter`
+
+---
+
+### 4. SSH Log Parser & Blocker (`log_parser_ssh.py`)
+
+**Descrição:**  
+Ferramenta focada em **auditoria e análise de logs SSH**.
+
+Inclui um sistema de **Whitelist interativo** que impede o bloqueio acidental de administradores legítimos.
+
+Ideal para ambientes de laboratório ou servidores expostos à internet.
+
+**Módulos Core:**  
+`logging`, `platform`
 
 ---
 
 ## 🚀 Como Executar no Laboratório
 
-**Pré-requisitos:** Python 3.10+ instalado no sistema host.
+### Pré-requisitos
 
-1. Clone o repositório e navegue até a pasta: `cd scripts-and-automation`
-2. **Para verificação de arquivos:** * `python hash_checker.py` (Arraste o arquivo ou diretório para o terminal quando solicitado).
-3. **Para executar o IPS (Requer permissão de Administrador/Sudo no Módulo Real):**
-   * Certifique-se de que o arquivo de log `auth_test.log` existe no diretório (crie um com logs de teste para simulação).
-   * `python soc_ips_blocker.py`
+- **Python 3.10 ou superior**
+- Dependências instaladas via `pip`
 
-> ⚠️ **Aviso de Operação:** A opção "Módulo Real" nos scripts de IPS **fará alterações diretas no Firewall do seu Sistema Operacional**. Utilize com cautela e prefira o Módulo de Simulação durante os testes de desenvolvimento.
+`pip install requests python-dotenv`
+
+---
+
+### 1️⃣ Configuração do Ambiente
+
+Crie um arquivo `.env` na raiz do projeto contendo as seguintes variáveis:
+
+`ABUSEIPDB_API_KEY=your_api_key`  
+`TELEGRAM_TOKEN=your_bot_token`  
+`TELEGRAM_CHAT_ID=your_chat_id`
+
+---
+
+### 2️⃣ Executar o Módulo de Threat Intelligence
+
+`python soc_threat_intel.py`
+
+Este módulo consulta bases externas de reputação e envia alertas em tempo real.
+
+---
+
+### 3️⃣ Executar o IPS (Requer privilégios de Administrador)
+
+`python soc_ips_blocker.py`
+
+O script analisará logs de autenticação e bloqueará automaticamente IPs maliciosos detectados.
+
+---
+
+## ⚠️ Aviso de Operação
+
+A opção **"Módulo Real"** presente nos scripts de IPS altera diretamente as regras do **Firewall do sistema operacional**.
+
+Para testes em laboratório ou desenvolvimento, recomenda-se utilizar o:
+
+**Modo de Simulação**
+
+Esse modo permite validar a lógica de detecção e resposta **sem modificar regras reais do firewall**.
