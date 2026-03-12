@@ -35,10 +35,10 @@ Acredito que a melhor forma de defender um sistema é compreendendo como ele é 
 
 Abaixo estão os módulos do meu laboratório de desenvolvimento voltado para Blue Team:
 
-* **[🐍 01-Python-SOC-Automations](./11-Python-SOC-Automations/):** Scripts táticos para Resposta Ativa (IPS), análise de logs de segurança via Regex, parsing de arquivos PCAP e verificação de integridade de arquivos (Hashing).
-* **[🗄️ 02-SQL-Threat-DB](./12-SQL-Threat-DB/):** Modelagem e scripts relacionais (SQL/PL-SQL) para armazenamento de Inteligência de Ameaças (Threat Intel) e o backend de dados do nosso simulador de testes (CyberOps Quizzer).
-* **[☕ 03-Java-Sec-API](./13-Java-Sec-API/):** Desenvolvimento de uma API RESTful para atuar como *gateway* de segurança, recebendo alertas dos scripts Python, cruzando dados com o banco SQL e aplicando lógicas de bloqueio.
-* **[🌐 04-Web-SOC-Dashboard](./14-Web-SOC-Dashboard/):** Interface web interativa para consumo da API. Um dashboard para visualização de métricas de ataques em tempo real, status dos endpoints e telemetria do laboratório.
+* **[🐍 Scripts & Automação (Python)](./scripts-and-automation/):** O meu arsenal atual. Scripts táticos em Python para Resposta Ativa (IPS), análise de logs de segurança via Regex, simulador de estudos e verificação de integridade de arquivos (Hashing).
+* **[🗄️ SQL-Threat-DB](./11-SQL-Threat-DB/):** *(Em construção)* Modelagem e scripts relacionais (SQL/PL-SQL) para armazenamento de Inteligência de Ameaças (Threat Intel) e o backend de dados do nosso simulador de testes.
+* **[☕ Java-Sec-API](./12-Java-Sec-API/):** *(Em construção)* Desenvolvimento de uma API RESTful para atuar como *gateway* de segurança, recebendo alertas dos scripts Python, cruzando dados com o banco SQL e aplicando lógicas de bloqueio.
+* **[🌐 Web-SOC-Dashboard](./13-Web-SOC-Dashboard/):** *(Em construção)* Interface web interativa para consumo da API. Um dashboard para visualização de métricas de ataques em tempo real, status dos endpoints e telemetria do laboratório.
 
 ---
 *Desenvolvido e mantido por **Ícaro de Souza Mariano** | Conecte-se comigo no [LinkedIn](http://www.linkedin.com/in/icaro-s-m).*
