@@ -12,7 +12,7 @@ JAVA_API_URL = "http://localhost:8080/api/v1/threats"
 TELEGRAM_TOKEN = "8652012151:AAE_A5IGAujJazDB8sAIJyf6j-LRq5kDua0"
 TELEGRAM_CHAT_ID = "5633129982"
 
-ips_suspeitos = ["79.124.40.174", "8.8.8.8"]
+ips_suspeitos = ["79.124.40.174", "8.8.8.8", "88.216.214.115", "83.111.76.194"]
 
 def enviar_alerta_telegram(ip, pais, score):
     """Dispara um alerta em tempo real para o celular do analista."""
