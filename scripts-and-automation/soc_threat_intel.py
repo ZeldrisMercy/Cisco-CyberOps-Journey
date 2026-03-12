@@ -2,16 +2,6 @@ import requests
 import json
 import time
 
-# ==========================================
-# CONFIGURAÇÕES DO SOC
-# ==========================================
-ABUSEIPDB_API_KEY = "10876350a2794321b03ebe9dbf2c109337d387983263c935dc27f481eb79b9a3e3dab04120544e75" 
-JAVA_API_URL = "http://localhost:8080/api/v1/threats"
-
-# --- NOVAS CREDENCIAIS DO TELEGRAM ---
-TELEGRAM_TOKEN = "8652012151:AAE_A5IGAujJazDB8sAIJyf6j-LRq5kDua0"
-TELEGRAM_CHAT_ID = "5633129982"
-
 ips_suspeitos = ["79.124.40.174", "8.8.8.8", "88.216.214.115", "83.111.76.194"]
 
 def enviar_alerta_telegram(ip, pais, score):
