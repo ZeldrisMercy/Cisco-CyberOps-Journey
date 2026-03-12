@@ -1,42 +1,50 @@
-# 🐍 Automação e Threat Intelligence (DevSec)
+# 🐍 Python SOC Automations & Active Response
 
-> **Missão:** Um analista de SOC de elite não se limita a operar *dashboards* construídos por terceiros; ele desenvolve as suas próprias ferramentas para acelerar a Resposta a Incidentes (IR) e proteger contra Riscos Digitais.
+> **Missão:** Construir o próprio arsenal. Este diretório contém ferramentas desenvolvidas em Python para automatizar tarefas críticas de um Centro de Operações de Segurança (SOC), desde a verificação de integridade de arquivos até a resposta ativa contra intrusões (IPS).
 
-Esta secção materializa a união entre a engenharia de software e a cibersegurança. Aqui arquivo os *scripts* desenvolvidos para automatizar tarefas de defesa e testar o meu progresso.
-
----
-
-## 🛠️ O Arsenal (Ferramentas Desenvolvidas)
-
-### 1. CyberOps CLI Quizzer (`cyberops_quizzer.py`) v3.1
-* **Descrição:** Motor de estudo desenvolvido do zero que consome uma base de dados JSON. Possui barra de progresso, sistema de "pular questão", modo de seleção por módulo e tratamento de codificação `utf-8-sig` para maior resiliência.
-* **Competências:** Manipulação de JSON, ANSI Colors, UX em Terminal e Estudo Ativo.
-
-### 2. SOC IPS Unit: Active Response (`soc_ips_blocker.py`)
-* **Descrição:** Ferramenta de **Resposta Ativa**. O script disseca logs de autenticação (SSH), identifica ataques de Força Bruta via Regex e oferece uma interface para bloqueio real no Firewall (Netsh/Iptables) com suporte a *Whitelists*.
-* **Competências:** Regex, Integração com OS (Subprocess), Gestão de Firewall e Lógica de IPS.
-
-### 3. File Integrity & Hash Checker (`hash_checker.py`) v3.0
-* **Descrição:** Utilitário para garantir a **Integridade** (Tríade CIA). Calcula hashes SHA-256 de arquivos em blocos de memória (eficiente para arquivos grandes), permite comparação com hashes oficiais e possui modo de **Escaneamento em Lote** para diretórios inteiros.
-* **Competências:** Criptografia (Hashlib), Manipulação de Arquivos Binários, Forense Digital e Otimização de I/O.
+A abordagem aqui é "Host-Based Analysis", operando diretamente nos logs do sistema e manipulando regras de firewall em tempo real.
 
 ---
 
-## 🚀 Como Executar
+## 🛠️ O Arsenal (Ferramentas de Defesa)
 
-1. Certifique-se de que possui o Python 3.10+ instalado.
-2. Navegue até a pasta: `cd scripts-and-automation`
-3. Para o simulador: `python cyberops_quizzer.py`
-4. Para o bloqueador (Modo Real exige Admin/Sudo): `python soc_ips_blocker.py`
-5. Para o verificador de integridade: `python hash_checker.py`
+### 1. Integrity Scanner Pro (`hash_checker.py`) v3.0
+* **Descrição:** Ferramenta forense para garantir a **Integridade** de evidências e binários. Utiliza leitura de arquivos em blocos de memória (`8192 bytes`), o que a torna extremamente eficiente para escanear arquivos pesados sem sobrecarregar a RAM.
+* **Features Principais:**
+  * Gera simultaneamente hashes MD5, SHA-1 e SHA-256.
+  * **Modo Forense (Lote):** Varredura completa de diretórios iterando sobre todos os arquivos.
+  * **Verificação de Adulteração:** Permite colar um hash oficial para comparação direta e validação de integridade.
+* **Módulos Core:** `hashlib`, `os`.
+
+### 2. SOC IPS Unit - Advanced (`soc_ips_blocker.py`)
+* **Descrição:** Um sistema de Resposta Ativa (Active Response) com interface tática para terminal. O script disseca logs de autenticação para identificar ataques de Força Bruta e aplica bloqueios de rede.
+* **Features Principais:**
+  * **Regex Engine:** Extrai IPs maliciosos diretamente de strings de erro de senha (`Failed password for...`).
+  * **Cross-Platform:** Executa bloqueios reais no firewall do Linux (`iptables`) ou Windows (`netsh`).
+  * **Forense Automatizada:** No modo real, gera automaticamente um relatório tático em formato `.json` contendo a data, o IP atacante e o número de tentativas, preservando a cadeia de custódia.
+  * **Modo de Simulação:** Permite testar a lógica e o parser sem alterar as regras reais do sistema.
+* **Módulos Core:** `re`, `subprocess`, `json`, `collections.Counter`.
+
+### 3. SSH Log Parser & Blocker (`log_parser_ssh.py`)
+* **Descrição:** A versão base e focada em auditoria do bloqueador IPS. Focado na manutenção de logs de segurança e gestão simplificada.
+* **Features Principais:**
+  * **Sistema de Whitelist Interativo:** Permite adicionar IPs confiáveis (como `127.0.0.1`) em tempo de execução para evitar auto-bloqueio.
+  * **Auditoria Contínua:** Utiliza a biblioteca `logging` para gravar silenciosamente todos os bloqueios executados em um arquivo `ips_bloqueados.log`.
+* **Módulos Core:** `logging`, `platform`, `subprocess`.
+
+### 4. CyberOps DB Quizzer (`cyberops_quizzer.py`)
+* *(Documentação em breve: Simulador de estudos em terminal)*
 
 ---
 
-### 🛰️ Transmissão de Entrada: Próximas Missões...
+## 🚀 Como Executar no Laboratório
 
-* [ ] **FIM (File Integrity Monitoring) Watchdog:** Implementação de vigilância em tempo real utilizando eventos do Kernel para detectar e calcular hashes de novos arquivos instantaneamente.
-* [ ] **VT Threat Intel API:** Integração automática com a API do VirusTotal para reputação global de hashes suspeitos e IPs detectados.
-* [ ] **Log Dashboard:** Interface visual para monitoramento gráfico de tentativas de invasão e telemetria de bloqueios ativos.
-* [ ] **PCAP Auto-Analyzer:** Scripts para extração automática de metadados de capturas de rede (.pcap).
+**Pré-requisitos:** Python 3.10+ instalado no sistema host.
 
-**[!] Novas ferramentas e módulos de defesa serão descriptografados em breve...**
+1. Clone o repositório e navegue até a pasta: `cd scripts-and-automation`
+2. **Para verificação de arquivos:** * `python hash_checker.py` (Arraste o arquivo ou diretório para o terminal quando solicitado).
+3. **Para executar o IPS (Requer permissão de Administrador/Sudo no Módulo Real):**
+   * Certifique-se de que o arquivo de log `auth_test.log` existe no diretório (crie um com logs de teste para simulação).
+   * `python soc_ips_blocker.py`
+
+> ⚠️ **Aviso de Operação:** A opção "Módulo Real" nos scripts de IPS **fará alterações diretas no Firewall do seu Sistema Operacional**. Utilize com cautela e prefira o Módulo de Simulação durante os testes de desenvolvimento.
