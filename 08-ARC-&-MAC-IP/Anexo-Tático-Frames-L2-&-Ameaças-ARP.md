@@ -43,5 +43,3 @@ Durante o laboratório de análise de frames ou em uma resposta a incidentes rea
     `arp -n`
 * **Limpar Entradas do Cache ARP:** Força o sistema operacional a enviar um novo "ARP Request" para a rede.
     `arp -d <endereço IP>`
-
----
