@@ -9,7 +9,7 @@ ABUSEIPDB_API_KEY = "10876350a2794321b03ebe9dbf2c109337d387983263c935dc27f481eb7
 JAVA_API_URL = "http://localhost:8080/api/v1/threats"
 
 # Vamos simular que o seu firewall detectou esses 3 IPs tentando acessar sua rede
-ips_suspeitos = ["118.25.6.39", "8.8.8.8", "185.153.199.117"] 
+ips_suspeitos = ["118.25.6.39", "8.8.8.8", "185.153.199.117", "🇧🇬 79.124.40.174"] 
 # Dica: O 8.8.8.8 é o DNS do Google (limpo). Os outros são conhecidos por ataques.
 
 def verificar_reputacao(ip):
