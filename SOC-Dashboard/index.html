@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberOps SOC Dashboard - Ícaro Mariano</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background: #0a0a0a; color: #00ff00; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; border-bottom: 1px solid #00ff00; padding-bottom: 10px; }
+        .header-info { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.9em; }
+        
+        /* Botão de Relatório */
+        .actions { text-align: center; margin-bottom: 30px; }
+        .btn-report { 
+            background: #00ff00; color: #000; border: none; padding: 12px 24px; 
+            font-weight: bold; cursor: pointer; border-radius: 5px; text-transform: uppercase;
+            transition: 0.3s; box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        .btn-report:hover { background: #00cc00; transform: scale(1.05); }
+
+        .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+        .card { background: #161616; border: 1px solid #00ff0033; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 0, 0.1); }
+        
+        h3 { margin-top: 0; font-size: 1.1em; border-left: 4px solid #00ff00; padding-left: 10px; }
+        ul { list-style: none; padding: 0; height: 400px; overflow-y: auto; }
+        li { padding: 12px; border-bottom: 1px solid #333; font-family: 'Courier New', Courier, monospace; font-size: 0.85em; line-height: 1.4; }
+        .status { font-weight: bold; display: block; margin-bottom: 4px; }
+        
+        /* Scrollbar customizada */
+        ul::-webkit-scrollbar { width: 5px; }
+        ul::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🛡️ SOC OPERATIONAL DASHBOARD</h1>
+    <div class="header-info">Monitoramento de Ameaças em Tempo Real | Analista: Ícaro Mariano</div>
+
+    <div class="actions">
+        <button class="btn-report" onclick="gerarRelatorio()">
+            📥 Gerar Relatório de Incidentes (.txt)
+        </button>
+    </div>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>📈 Nível de Risco (Score AbuseIPDB)</h3>
+            <canvas id="graficoAtaques"></canvas>
+        </div>
+        
+        <div class="card">
+            <h3>🚨 Logs de Eventos em Tempo Real</h3>
+            <ul id="listaLogs">
+                <li>Sincronizando com Gateway Java...</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    let meuGrafico = null;
+
+    // --- FUNÇÃO 1: BUSCAR DADOS E ATUALIZAR TELA ---
+    async function atualizarDashboard() {
+        try {
+            const res = await fetch('http://localhost:8080/api/v1/threats');
+            if (!res.ok) throw new Error();
+            const dados = await res.json();
+            
+            // Atualizar Logs
+            const lista = document.getElementById('listaLogs');
+            lista.innerHTML = ""; 
+            dados.slice(-15).reverse().forEach(log => {
+                const corStatus = log.statusResolucao.includes('BLOQUEADO') ? '#ff4444' : '#ffff00';
+                lista.innerHTML += `
+                    <li>
+                        <span class="status" style="color:${corStatus}">[${log.statusResolucao}]</span> 
+                        <strong>IP:</strong> ${log.ipOrigem} <br>
+                        <strong>Score:</strong> ${log.tentativasFalhas}% | <strong>Origem:</strong> ${log.ferramentaOrigem || 'Sensor Local'}
+                    </li>`;
+            });
+
+            // Atualizar Gráfico
+            const ctx = document.getElementById('graficoAtaques').getContext('2d');
+            if (meuGrafico) { meuGrafico.destroy(); }
+
+            meuGrafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dados.slice(-10).map(d => d.ipOrigem),
+                    datasets: [{
+                        label: 'Nível de Confiança de Abuso (%)',
+                        data: dados.slice(-10).map(d => d.tentativasFalhas),
+                        backgroundColor: 'rgba(0, 255, 0, 0.4)',
+                        borderColor: '#00ff00',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: { duration: 400 },
+                    scales: { 
+                        y: { beginAtZero: true, max: 100, grid: { color: '#222' }, ticks: { color: '#00ff00' } },
+                        x: { grid: { display: false }, ticks: { color: '#888' } }
+                    },
+                    plugins: { legend: { labels: { color: '#00ff00' } } }
+                }
+            });
+        } catch (err) {
+            document.getElementById('listaLogs').innerHTML = "<li style='color:red'>[ERRO] Gateway Java Offline.</li>";
+        }
+    }
+
+    // --- FUNÇÃO 2: GERAR RELATÓRIO TXT ---
+    function gerarRelatorio() {
+        fetch('http://localhost:8080/api/v1/threats')
+            .then(res => res.json())
+            .then(dados => {
+                let conteudo = "=== RELATÓRIO DE INCIDENTES SOC - ÍCARO MARIANO ===\n";
+                conteudo += `Data da Extração: ${new Date().toLocaleString()}\n`;
+                conteudo += "Status do Sistema: OPERACIONAL\n";
+                conteudo += "--------------------------------------------------\n\n";
+                
+                dados.forEach((log, index) => {
+                    conteudo += `Ocorrência #${index + 1}\n`;
+                    conteudo += `IP: ${log.ipOrigem}\n`;
+                    conteudo += `Risco: ${log.tentativasFalhas}%\n`;
+                    conteudo += `Ação: ${log.statusResolucao}\n`;
+                    conteudo += `Fonte: ${log.ferramentaOrigem}\n`;
+                    conteudo += "--------------------------------------------------\n";
+                });
+
+                const blob = new Blob([conteudo], { type: 'text/plain' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `soc_report_${new Date().getTime()}.txt`;
+                a.click();
+            });
+    }
+
+    // Inicialização
+    atualizarDashboard();
+    setInterval(atualizarDashboard, 5000); // Atualiza a cada 5 segundos
+</script>
+
+</body>
+</html>
