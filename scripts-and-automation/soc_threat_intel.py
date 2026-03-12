@@ -5,24 +5,45 @@ import time
 # ==========================================
 # CONFIGURAÇÕES DO SOC
 # ==========================================
-ABUSEIPDB_API_KEY = "10876350a2794321b03ebe9dbf2c109337d387983263c935dc27f481eb79b9a3e3dab04120544e75" 
+ABUSEIPDB_API_KEY = "SUA_CHAVE_DO_ABUSEIPDB_AQUI" 
 JAVA_API_URL = "http://localhost:8080/api/v1/threats"
 
-# Vamos simular que o seu firewall detectou esses 3 IPs tentando acessar sua rede
-ips_suspeitos = ["118.25.6.39", "8.8.8.8", "185.153.199.117", "79.124.40.174"] 
-# Dica: O 8.8.8.8 é o DNS do Google (limpo). Os outros são conhecidos por ataques.
+# --- NOVAS CREDENCIAIS DO TELEGRAM ---
+TELEGRAM_TOKEN = "8652012151:AAE_A5IGAujJazDB8sAIJyf6j-LRq5kDua0"
+TELEGRAM_CHAT_ID = "5633129982"
+
+ips_suspeitos = ["79.124.40.174", "8.8.8.8"]
+
+def enviar_alerta_telegram(ip, pais, score):
+    """Dispara um alerta em tempo real para o celular do analista."""
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    
+    # Formatando a mensagem com estilo (Negrito e Monospace)
+    mensagem = (
+        f"🚨 *ALERTA CRÍTICO SOC* 🚨\n\n"
+        f"🛡️ *Ameaça:* Tentativa de Invasão\n"
+        f"🌐 *Origem:* `{ip}`\n"
+        f"📍 *País:* {pais}\n"
+        f"🔥 *Risco:* {score}%\n\n"
+        f"✅ _Ação: IP bloqueado e registrado no Gateway Java._"
+    )
+    
+    payload = {
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": mensagem,
+        "parse_mode": "Markdown" # Permite usar formatação bonita
+    }
+    
+    try:
+        requests.post(url, json=payload)
+        print("    📱 [!] Alerta disparado para o celular do analista.")
+    except Exception as e:
+        print(f"    📱 [X] Falha ao enviar Telegram: {e}")
 
 def verificar_reputacao(ip):
-    """Consulta o IP no AbuseIPDB para saber se é um atacante conhecido."""
     url = "https://api.abuseipdb.com/api/v2/check"
-    querystring = {
-        'ipAddress': ip,
-        'maxAgeInDays': '90'
-    }
-    headers = {
-        'Accept': 'application/json',
-        'Key': ABUSEIPDB_API_KEY
-    }
+    querystring = {'ipAddress': ip, 'maxAgeInDays': '90'}
+    headers = {'Accept': 'application/json', 'Key': ABUSEIPDB_API_KEY}
     
     print(f"[*] Analisando IP: {ip} no AbuseIPDB...")
     resposta = requests.get(url, headers=headers, params=querystring)
@@ -32,30 +53,25 @@ def verificar_reputacao(ip):
         score = dados['abuseConfidenceScore']
         pais = dados['countryCode']
         print(f"    -> Score de Risco: {score}% | País: {pais}")
-        return score
-    else:
-        print(f"    [!] Erro ao consultar a API do AbuseIPDB. Status: {resposta.status_code}")
-        return 0
+        return score, pais # Agora retornamos o país também
+    return 0, "Unknown"
 
-def enviar_para_java(ip, score):
-    """Envia o IP malicioso para o nosso Gateway em Java salvar no banco."""
-    # Só vamos bloquear se a chance de ser hacker for maior que 50%
+def enviar_para_java(ip, score, pais):
     if score > 50:
         print(f"\033[91m[!] AMEAÇA CONFIRMADA! Risco de {score}%. Enviando para o Gateway Java...\033[0m")
-        
         ataque_detectado = {
             "ipOrigem": ip,
-            "tentativasFalhas": score, # Usando o score como base de tentativas para o teste
+            "tentativasFalhas": score,
             "statusResolucao": "BLOQUEADO_VIA_INTEL",
             "ferramentaOrigem": "abuseipdb_sensor_v1"
         }
-        
         try:
             res = requests.post(JAVA_API_URL, json=ataque_detectado)
             if res.status_code == 200:
-                print("\033[92m    [✓] IP salvo com sucesso no banco de dados corporativo.\033[0m\n")
+                print("\033[92m    [✓] IP salvo com sucesso no banco corporativo.\033[0m")
+                enviar_alerta_telegram(ip, pais, score) # <--- CHAMA O ALARME AQUI!
         except Exception as e:
-            print(f"    [X] Erro ao contatar a API Java: {e}\n")
+            print(f"    [X] Erro ao contatar a API Java: {e}")
     else:
         print(f"\033[92m[✓] IP Limpo ou com risco baixo ({score}%). Nenhuma ação necessária.\033[0m\n")
 
@@ -64,6 +80,6 @@ def enviar_para_java(ip, score):
 # ==========================================
 print("=== INICIANDO MOTOR DE THREAT INTELLIGENCE ===\n")
 for ip in ips_suspeitos:
-    score_risco = verificar_reputacao(ip)
-    enviar_para_java(ip, score_risco)
-    time.sleep(1) # Pausa dramática para não sobrecarregar a rede
+    score_risco, pais_origem = verificar_reputacao(ip)
+    enviar_para_java(ip, score_risco, pais_origem)
+    time.sleep(1)
