@@ -38,7 +38,7 @@ Abaixo estão os módulos do meu laboratório de desenvolvimento voltado para Bl
 ### 📂 Estrutura do Laboratório (Módulos Ativos)
 
 * 🗄️ **[SQL-Threat-DB](./SQL-Threat-DB):** Modelagem e scripts relacionais (SQL/PL-SQL) para armazenamento de Inteligência de Ameaças (Threat Intel) e o backend de dados do nosso simulador de testes.
-* ☕ **[Java-Sec-API](./java-sec-api):** Desenvolvimento de uma API RESTful para atuar como *gateway* de segurança, recebendo alertas dos scripts Python, cruzando dados com o banco SQL e aplicando lógicas de bloqueio.
+* ☕ **[Java-Sec-API](./Java-Sec-API):** Desenvolvimento de uma API RESTful para atuar como *gateway* de segurança, recebendo alertas dos scripts Python, cruzando dados com o banco SQL e aplicando lógicas de bloqueio.
 * 🌐 **[Web-SOC-Dashboard](./SOC-Dashboard):** Interface web interativa para consumo da API. Um dashboard para visualização de métricas de ataques em tempo real, status dos endpoints e telemetria do laboratório.
 * ⚙️ **[Scripts & Automation](./scripts-and-automation):** Scripts de automação para testes de segurança e integrações com o ecossistema do SOC.
 
